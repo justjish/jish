@@ -1,0 +1,19 @@
+node_modules
+.DS_Store
+*.local
+.private
+# Compiled JavaScript files
+
+# Except the ESLint config file
+!.eslintrc.js
+
+# TypeScript v1 declaration files
+typings/
+
+# Node.js dependency directory
+node_modules/
+
+.private/**/*.*
+.firebase/**/*.*
+
+*.log

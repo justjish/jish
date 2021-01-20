@@ -1,0 +1,12 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+  background: radial-gradient(ellipse at top, #007fff, transparent),
+    radial-gradient(ellipse at bottom, #00ff7f, transparent);
+  z-index: -100;
+}

@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+
+    /* noEmit - Snowpack builds (emits) files, not tsc. */
+    "noEmit": true,
+    /* Additional Options */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "error",
+
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "esModuleInterop": false,
+
+    "isolatedModules": true,
+
+    // Custom
+    "baseUrl": "src",
+    "outDir": "dist",
+    "sourceMap": true, // Output source maps for debugging
+    "types": ["vite/client"], //Modified
+    "composite": false,
+    "paths": {
+      "*": ["*"]
+    },
+    "experimentalDecorators": true
+  },
+  "include": ["src", "app"],
+  "exclude": ["node_modules", "api", "functions"]
+}

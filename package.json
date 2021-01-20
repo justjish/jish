@@ -1,0 +1,58 @@
+{
+  "name": "jish-dev",
+  "version": "0.0.1",
+  "main": "src/@server/main.js",
+  "engines": {
+    "node": "15"
+  },
+  "scripts": {
+    "dev": "run-p dev:**",
+    "dev:app": "snowpack dev"
+  },
+  "dependencies": {
+    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-react-refresh": "^2.4.0",
+    "@snowpack/plugin-typescript": "^1.2.0",
+    "cors": "^2.8.5",
+    "firebase": "^8.2.2",
+    "firebase-functions": "^3.11.0",
+    "fluture": "^13.0.1",
+    "fs": "^0.0.1-security",
+    "graph": "file:.private/package/",
+    "immer": "^8.0.0",
+    "module-alias": "^2.2.2",
+    "ramda": "^0.27.1",
+    "react": "16",
+    "react-dom": "16",
+    "react-loading": "^2.0.3",
+    "react-nil": "^0.0.3",
+    "react-spinners": "^0.10.4",
+    "react-spring": "^8.0.27",
+    "robot3": "^0.2.18",
+    "stream-json": "^1.7.1",
+    "typescript-object-validator": "^1.1.1",
+    "vite-tsconfig-paths": "^2.0.0-alpha.4",
+    "zustand": "^3.3.1"
+  },
+  "devDependencies": {
+    "@firebase/app-types": "^0.6.1",
+    "@lukecsamuel/ts-module-alias": "^1.0.1",
+    "@tsconfig/node14": "^1.0.0",
+    "@types/cors": "^2.8.9",
+    "@types/firebase": "^3.2.1",
+    "@types/lodash": "^4.14.167",
+    "@types/ramda": "^0.27.34",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "@vitejs/plugin-react-refresh": "^1.1.0",
+    "firebase-admin": "^9.2.0",
+    "firebase-functions-test": "^0.2.0",
+    "npm-run-all": "^4.1.5",
+    "snowpack": "^3.0.3",
+    "typescript": "^4.2.0-beta",
+    "vite": "^2.0.0-beta.29",
+    "watch": "^1.0.2"
+  }
+}
