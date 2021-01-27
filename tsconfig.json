@@ -4,9 +4,9 @@
     "target": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",
-
     /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,
+    "isolatedModules": true,
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
@@ -14,13 +14,9 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "importsNotUsedAsValues": "error",
-
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
+    "allowJs": true,
     "esModuleInterop": false,
-
-    "isolatedModules": true,
-
     // Custom
     "baseUrl": "src",
     "outDir": "dist",
@@ -32,6 +28,6 @@
     },
     "experimentalDecorators": true
   },
-  "include": ["src", "app"],
+  "include": ["src", "app", "public/worker.ts"],
   "exclude": ["node_modules", "api", "functions"]
 }

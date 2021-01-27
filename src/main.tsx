@@ -1,10 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './components/App'
-import useDatasets from './hooks/useDatasets';
+import App from './components/App';
 import { useAuth } from './hooks/useFirebase';
+import useStore from './hooks/useStore';
+import { Provider } from 'jotai';
+import { ToastProvider } from 'react-toast-notifications';
 
-const login = async () => await useAuth.signInAnonymously().catch(res => console.log(res));
-login();
-ReactDOM.render(<App />, document.getElementById('root'));
+useAuth.signInAnonymously().then((creds) => useStore.getState().set((state) => void (state.store.creds = creds)));
 
+ReactDOM.render(
+  <Provider>
+    <ToastProvider>
+      <App />
+    </ToastProvider>
+  </Provider>,
+  document.getElementById('root'),
+);

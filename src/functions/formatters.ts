@@ -41,6 +41,5 @@ export const formatNode = (o: any) => ({
 });
 
 export const removeFields = (o: any) => R.omit(['size', 'x', 'y'])(o);
-
 export const formatNodes = (nodes: any) => R.pipe(R.map(formatNode), R.map(removeFields))(nodes);
 export const formatEdges = (edges: any) => R.pipe(R.map(formatEdge))(edges);

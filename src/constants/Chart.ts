@@ -22,7 +22,7 @@ export const ITEMS: Items = {
 };
 export const ANIMATION: Chart.AnimationOptions = {
   animate: true,
-  time: 1250,
+  time: 500,
 };
 export const LAYOUT: Chart.LayoutOptions = {
   consistent: true,
@@ -33,9 +33,9 @@ export const LAYOUT: Chart.LayoutOptions = {
   stretch: 1,
   tightness: 5,
 };
+
 export const COMBINE: Chart.CombineOptions = {
   properties: [],
-  level: 0,
 };
 export const OPTIONS: Chart.Options = {
   backgroundColor: 'rgba(0, 0, 0, 0)',

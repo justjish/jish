@@ -1,5 +1,4 @@
-import { Node as BlankNode, Link as BlankLink } from 'graph';
-import type { Dictionary } from 'lodash';
+import type { Index, Node as BlankNode, Link as BlankLink } from 'graph';
 // These values should just be marked as required... to ensure API data is accurate...
 export declare type NodeData = {
   id: string;
@@ -23,7 +22,7 @@ export declare type EdgeData = {
 };
 export declare type Node = BlankNode<NodeData>;
 export declare type Edge = BlankLink<EdgeData>;
-export declare type Nodes = Dictionary<Node>;
-export declare type Edges = Dictionary<Edge>;
+export declare type Nodes = Index<Node>;
+export declare type Edges = Index<Edge>;
 export declare type Item = Node | Edge;
-export declare type Items = Dictionary<Item>;
+export declare type Items = Nodes | Edges;

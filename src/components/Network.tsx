@@ -1,41 +1,36 @@
-import React, {  useEffect , useCallback} from 'react';
-import { useTransition, animated as a } from 'react-spring';
+import React, { useState } from 'react';
 import Graph from 'graph';
-import { distances } from 'graph/analysis';
-import { useStorage } from '../hooks/useFirebase';
-import useDatasets from '../hooks/useDatasets';
-import { formatNode, formatEdge } from '../functions/formatters';
-import { convertNodeDataToNode, convertEdgeDataToEdge } from '../functions/transformers';
-import type { Edge, Edges, Node, Nodes, Item, EdgeData, NodeData } from '../app';
-import fp from 'lodash/fp';
-import shallow from 'zustand/shallow'
-import type { StateSliceListener, Subscribe, UseStore } from 'zustand';
-import BoxLoading from 'react-loading';
+import useStore from '../hooks/useStore';
+import * as R from 'ramda';
+import type { WritableDraft } from 'immer/dist/internal';
+const loading = () => (change: Graph.Chart.ChangeEvent) =>
+  useStore.getState().set((state) => void state.store.chart.change.push(change));
 
+const Chart = (props: { id: string; reference: React.MutableRefObject<Graph.Chart> }): JSX.Element => {
+  const state = useStore((state) => state.store.chart.props);
+  return (
+    <Graph.Chart
+      items={state.items}
+      options={state.options}
+      animation={state.animation}
+      layout={state.layout}
+      combine={state.combine}
+      ref={props.reference}
+      onCombineNodes={R.always(undefined)}
+      onCombineLinks={R.always(undefined)}
+      onChartChange={loading}
+    />
+  );
+};
 
-
-const getSourceNodes = fp.filter((v:Node) => v.data.is_source);
-
-type Listener = {
-  selected: string,
-  isReady: boolean
-}
-
-// const AnimateLoad = ({Component}) => {
-//   const [show, set] = useState(false);
-//   const transitions = useTransition(show, null, {
-//     from: { position: 'absolute', opacity: 0, height: 0, width: "0%" },
-//     enter: { opacity: 1, height:600, width: "100%" },
-//     leave: { opacity: 0, height: 100, width: 100 },
-//   });
-//   return <>{transitions.map(({ item, key, props }) => <a.div key={key} style={props}><Component/></a.div>)}</>
-// }
-
-const Network = ({ }) => {
-  const style = { opacity: 1, height: 600, width: "100%" };
-  const ready = useDatasets(state=>state.store.chart.ready);
-  const chart = useDatasets(state => state.store.chart.props);
-  return <a.div id={'id'} style={style} ><Graph.Chart {...chart} /></a.div >;
-}
+const Network = ({}) => {
+  const chartRef = React.useRef({} as Graph.Chart);
+  const selected = useStore((state) => state.store.selected);
+  return (
+    <div id={'id'} style={{ opacity: 1, height: 600, width: '50%' }}>
+      {typeof selected == 'string' ? <Chart id={selected} reference={chartRef} /> : <div></div>}
+    </div>
+  );
+};
 
 export default Network;
