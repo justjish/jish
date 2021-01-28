@@ -6,11 +6,8 @@ import type { Node, Edge, Edges, Nodes } from '../@types/app';
 import type { Chart } from 'graph';
 import type firebase from 'firebase';
 import { ANIMATION, COMBINE, ITEMS, LAYOUT, OPTIONS } from '../constants/Chart';
-import { useDatabase, useStorage } from './useFirebase';
-import type Graph from 'graphology-types';
+import { useDatabase, useStorage, useAuth } from './useFirebase';
 import * as R from 'ramda';
-
-export const query = async () => (await useDatabase.collection('/datasets').orderBy('idx').get()).docs;
 
 export type Creds = firebase.auth.UserCredential;
 export type Store = {
@@ -34,7 +31,6 @@ export type Actions = {
 };
 export type Workers = {
   transformer: Worker;
-  layoutEngine: Worker;
 };
 
 export type State = {
@@ -54,7 +50,6 @@ export type Dataset = {
     order: Array<string>;
     degreesLookup: Index<string[]>;
   };
-  graph: Graph;
 };
 type Meta = firebase.firestore.DocumentData & {
   title: string;
@@ -72,8 +67,9 @@ const defaultData = () => ({
     order: {} as Array<string>,
     degreesLookup: {} as Index<string[]>,
   },
-  graph: {} as Graph,
 });
+
+const query = async () => (await useDatabase.collection('/datasets').orderBy('idx').get()).docs;
 
 const useStore = create<State>(
   devtools(
@@ -82,10 +78,6 @@ const useStore = create<State>(
         // Instantiate Worker
         const transformer = new Worker(new URL('../workers/transformer.js', import.meta.url), {
           name: 'processor',
-          type: 'module',
-        });
-        const layoutEngine = new Worker(new URL('../workers/layoutEngine.js', import.meta.url), {
-          name: 'layoutEngine',
           type: 'module',
         });
         // Attach
@@ -101,13 +93,6 @@ const useStore = create<State>(
           }),
         );
 
-        layoutEngine.addEventListener('message', (ev) =>
-          api.getState().set((state) => {
-            const [id, graph, positions] = ev.data;
-            state.store.datasets[id].graph = graph;
-            state.store.datasets[id].data.coord = positions;
-          }),
-        );
         return {
           store: {
             debug: Object,
@@ -133,14 +118,9 @@ const useStore = create<State>(
           actions: {
             loadData: async (id: string): Promise<void> => {
               set((state) => void (state.store.selected = id));
-              const [val, transformer, layoutEngine] = [
-                get().store.datasets[id].meta.path as string,
-                get().workers.transformer,
-                get().workers.layoutEngine,
-              ];
+              const [val, transformer] = [get().store.datasets[id].meta.path as string, get().workers.transformer];
               const url = (await useStorage.refFromURL(val).getDownloadURL()) as string;
               transformer.postMessage([id, url]);
-              layoutEngine.postMessage([id, url]);
             },
             loadMeta: async () => {
               R.map(
@@ -153,12 +133,17 @@ const useStore = create<State>(
               );
             },
           },
-          workers: { transformer, layoutEngine },
+          workers: { transformer },
           set,
         };
       },
     ),
   ),
 );
+
+useAuth.signInAnonymously().then((userCred) => {
+  console.log(userCred);
+  useStore.getState().set((state) => void (state.store.creds = userCred));
+});
 
 export default useStore;

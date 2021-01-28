@@ -6,7 +6,10 @@ body {
   width: 100%;
   position: absolute;
   overflow: auto;
-  background: radial-gradient(ellipse at top, #007fff, transparent),
-    radial-gradient(ellipse at bottom, #00ff7f, transparent);
-  z-index: -100;
+  background: url(./assets/background.webp);
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,12 +1,14 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import useStore from '../hooks/useStore';
 import type { Dataset } from '../hooks/useStore';
+
 const Button = ({ dsId, item, action }: { dsId: string; item: Dataset; action: () => Promise<void> }) => {
-  const [active, setActive] = React.useState(true);
+  const [active, setActive] = useState(true);
   React.useEffect(
     () =>
       useStore.subscribe(
-        (sel: string | null) => (typeof sel == null ? setActive(true) : sel === dsId ? setActive(false) : setActive(true)),
+        (sel: string | null) =>
+          typeof sel == null ? setActive(true) : sel === dsId ? setActive(false) : setActive(true),
         (state) => state.store.selected,
       ),
     [],
@@ -20,6 +22,8 @@ const Button = ({ dsId, item, action }: { dsId: string; item: Dataset; action: (
 
 const Datasets = ({}): JSX.Element => {
   const datasets = useStore((state) => state.store.datasets);
+  const loadMeta = useStore(React.useCallback((state) => state.actions.loadMeta, []));
+  React.useEffect(() => void loadMeta(), []);
   return (
     <div>
       {Object.entries(datasets).map(

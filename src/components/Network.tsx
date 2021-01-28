@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Graph from 'graph';
 import useStore from '../hooks/useStore';
 import * as R from 'ramda';
+import Datasets from './Datasets';
 const loading = () => (change: Graph.Chart.ChangeEvent) =>
   useStore.getState().set((state) => void state.store.chart.event.changes.push(change));
 
@@ -25,11 +26,7 @@ const Chart = (props: { id: string; reference: React.MutableRefObject<Graph.Char
 const Network = ({}) => {
   const chartRef = React.useRef({} as Graph.Chart);
   const selected = useStore((state) => state.store.selected);
-  return (
-    <div id={'id'} style={{ opacity: 1, height: 600, width: '50%' }}>
-      {typeof selected == 'string' ? <Chart id={selected} reference={chartRef} /> : <div></div>}
-    </div>
-  );
+  return typeof selected == 'string' ? <Chart id={selected} reference={chartRef} /> : <Datasets />;
 };
 
 export default Network;

@@ -27,7 +27,7 @@ onmessage = async (e) => {
     });
     const degreesLookup = _.invertBy(_.identity, distanceLookup);
     const order = Object.values(degreesLookup).flat();
-    postMessage([id, nodes, edges, order, degreesLookup]);
+    postMessage([id, nodes, edges, order, degreesLookup], 'WindowProxy');
   });
 };
 

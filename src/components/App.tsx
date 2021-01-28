@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import useStore, { Creds } from '../hooks/useStore';
-import { useSpring, animated as a } from 'react-spring';
-import Header from './Header';
-import Datasets from './Datasets';
+import React, { useState, useEffect } from 'react';
+import useStore from '../hooks/useStore';
 import Network from './Network';
-import Workers from './Workers';
-import Toaster from './Toaster';
-import Loading from './Graphics';
+import Profile from './Profile';
 
 const App = () => {
-  const [start, set] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(
     () =>
       useStore.subscribe(
-        () => set(true),
+        () => setLoading(false),
         (state) => state.store.creds,
       ),
     [],
   );
-  return <Loading />;
+  return loading ? (
+    <div>Loading</div>
+  ) : (
+    <div>
+      <Profile />
+      <Network />
+    </div>
+  );
 };
 
 export default App;
