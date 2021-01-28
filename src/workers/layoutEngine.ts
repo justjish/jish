@@ -1,4 +1,4 @@
-import type { NodeData, EdgeData } from '../app';
+import type { NodeData, EdgeData } from '../@types/app';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
 import * as R from 'ramda';
 import Graph from 'graphology';

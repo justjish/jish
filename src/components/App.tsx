@@ -1,14 +1,16 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import useStore, { Creds } from '../hooks/useStore';
+import { useSpring, animated as a } from 'react-spring';
 import Header from './Header';
 import Datasets from './Datasets';
 import Network from './Network';
 import Workers from './Workers';
 import Toaster from './Toaster';
+import Loading from './Graphics';
 
 const App = () => {
-  const [start, set] = React.useState(false);
-  React.useEffect(
+  const [start, set] = useState(false);
+  useEffect(
     () =>
       useStore.subscribe(
         () => set(true),
@@ -16,23 +18,7 @@ const App = () => {
       ),
     [],
   );
-  return (
-    <div>
-      {start ? (
-        <>
-          <Header />
-          <>
-            <Toaster />
-            <Workers />
-            <Datasets />
-            <Network />
-          </>
-        </>
-      ) : (
-        <>Loading</>
-      )}
-    </div>
-  );
+  return <Loading />;
 };
 
 export default App;

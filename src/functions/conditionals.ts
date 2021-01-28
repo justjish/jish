@@ -1,2 +1,2 @@
-import type { Node } from '../app';
+import type { Node } from '../@types/app';
 export const isSource = (n: Node) => n.data.is_source == true;

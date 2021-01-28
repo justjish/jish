@@ -2,16 +2,16 @@ import type { WritableDraft } from 'immer/dist/types/types-external';
 import type { Index } from 'graph';
 import create from 'zustand';
 import { immer, devtools } from '../functions/middlewares';
-import type { Node, Edge, Edges, Nodes } from '../app';
+import type { Node, Edge, Edges, Nodes } from '../@types/app';
 import type { Chart } from 'graph';
 import type firebase from 'firebase';
 import { ANIMATION, COMBINE, ITEMS, LAYOUT, OPTIONS } from '../constants/Chart';
 import { useDatabase, useStorage } from './useFirebase';
 import type Graph from 'graphology-types';
-
 import * as R from 'ramda';
 
 export const query = async () => (await useDatabase.collection('/datasets').orderBy('idx').get()).docs;
+
 export type Creds = firebase.auth.UserCredential;
 export type Store = {
   debug: Object;
@@ -88,7 +88,7 @@ const useStore = create<State>(
           name: 'layoutEngine',
           type: 'module',
         });
-        // Attach callbacks to workers
+        // Attach
         transformer.addEventListener('message', (ev) =>
           api.getState().set((state) => {
             const [id, nodes, edges, order, degreesLookup] = ev.data;
@@ -108,7 +108,6 @@ const useStore = create<State>(
             state.store.datasets[id].data.coord = positions;
           }),
         );
-
         return {
           store: {
             debug: Object,

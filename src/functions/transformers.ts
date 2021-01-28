@@ -1,4 +1,4 @@
-import type { Edge, EdgeData, Node, NodeData } from '../app';
+import type { Edge, EdgeData, Node, NodeData } from '../@types/app';
 export const convertEdgeDataToEdge = (e: EdgeData): Edge => ({
   id1: e.source,
   id2: e.target,

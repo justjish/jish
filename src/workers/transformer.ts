@@ -1,8 +1,13 @@
-import type { NodeData, EdgeData } from '../app';
+import type { NodeData, EdgeData } from '../@types/app';
 import * as R from 'ramda';
 import _ from 'lodash/fp.js';
 import { distances } from 'graph/analysis.js';
-import { convertNodeToIndex, convertEdgeToIndex, convertEdgeDataToEdge, convertNodeDataToNode } from '../functions/transformers.js';
+import {
+  convertNodeToIndex,
+  convertEdgeToIndex,
+  convertEdgeDataToEdge,
+  convertNodeDataToNode,
+} from '../functions/transformers.js';
 import { formatEdge, formatNode } from '../functions/formatters.js';
 import { isSource } from '../functions/conditionals.js';
 

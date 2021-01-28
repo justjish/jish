@@ -6,7 +6,9 @@ import useStore from './hooks/useStore';
 import { Provider } from 'jotai';
 import { ToastProvider } from 'react-toast-notifications';
 
-useAuth.signInAnonymously().then((creds) => useStore.getState().set((state) => void (state.store.creds = creds)));
+useAuth
+  .signInAnonymously()
+  .then((creds) => Promise.resolve(useStore.getState().set((state) => void (state.store.creds = creds))));
 
 ReactDOM.render(
   <Provider>

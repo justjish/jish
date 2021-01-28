@@ -28,6 +28,6 @@
     },
     "experimentalDecorators": true
   },
-  "include": ["src", "app", "public/worker.ts"],
-  "exclude": ["node_modules", "api", "functions"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

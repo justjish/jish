@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Graph from 'graph';
 import useStore from '../hooks/useStore';
 import * as R from 'ramda';
-import type { WritableDraft } from 'immer/dist/internal';
 const loading = () => (change: Graph.Chart.ChangeEvent) =>
-  useStore.getState().set((state) => void state.store.chart.change.push(change));
+  useStore.getState().set((state) => void state.store.chart.event.changes.push(change));
 
 const Chart = (props: { id: string; reference: React.MutableRefObject<Graph.Chart> }): JSX.Element => {
   const state = useStore((state) => state.store.chart.props);

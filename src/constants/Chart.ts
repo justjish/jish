@@ -1,5 +1,5 @@
 'use strict';
-import type { Items } from '../app';
+import type { Items } from '../@types/app';
 import type { Chart } from 'graph/index';
 export const ITEMS: Items = {
   node1: {
