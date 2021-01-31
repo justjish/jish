@@ -1,7 +1,5 @@
 {
   "name": "jish-dev",
-  "version": "0.0.1",
-  "main": "src/@server/main.js",
   "engines": {
     "node": "15"
   },
