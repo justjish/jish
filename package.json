@@ -7,8 +7,7 @@
   },
   "scripts": {
     "dev": "run-p dev:app:vite**",
-    "dev:app:vite": "vite",
-    "dev:app:snow": "snowpack dev --polyfill-node"
+    "dev:app:vite": "vite"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
@@ -34,12 +33,6 @@
     "zustand": "^3.3.1"
   },
   "devDependencies": {
-    "@firebase/app-types": "^0.6.1",
-    "@lukecsamuel/ts-module-alias": "^1.0.1",
-    "@snowpack/plugin-dotenv": "^2.0.5",
-    "@snowpack/plugin-react-refresh": "^2.4.0",
-    "@snowpack/plugin-typescript": "^1.2.0",
-    "@tsconfig/node14": "^1.0.0",
     "@types/cors": "^2.8.9",
     "@types/firebase": "^3.2.1",
     "@types/lodash": "^4.14.167",
