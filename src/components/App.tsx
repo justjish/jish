@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import useStore from '../hooks/useStore';
-import Network from './Network';
-import Profile from './Profile';
+import * as React from 'react';
+import useStore from 'hooks/useStore';
+import Network from 'components/Network';
+import Profile from 'components/Profile';
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(
+  const [loading, setLoading] = React.useState(false);
+  React.useEffect(
     () =>
       useStore.subscribe(
         () => setLoading(false),

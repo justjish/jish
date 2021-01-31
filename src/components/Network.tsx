@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Graph from 'graph';
-import useStore from '../hooks/useStore';
+import * as React from 'react';
 import * as R from 'ramda';
-import Datasets from './Datasets';
+import Graph from 'graph';
+import useStore from 'hooks/useStore';
+import Datasets from 'components/Datasets';
 const loading = () => (change: Graph.Chart.ChangeEvent) =>
-  useStore.getState().set((state) => void state.store.chart.event.changes.push(change));
+  useStore.getState().set((state: { store: { chart: { event: { changes: Graph.Chart.ChangeEvent[]; }; }; }; }) => void state.store.chart.event.changes.push(change));
 
 const Chart = (props: { id: string; reference: React.MutableRefObject<Graph.Chart> }): JSX.Element => {
   const state = useStore((state) => state.store.chart.props);

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import useStore from '../hooks/useStore';
-import type { Dataset } from '../hooks/useStore';
+import * as React from 'react';
+import useStore from 'hooks/useStore';
+import type { Dataset } from 'hooks/useStore';
 
 const Button = ({ dsId, item, action }: { dsId: string; item: Dataset; action: () => Promise<void> }) => {
-  const [active, setActive] = useState(true);
+  const [active, setActive] = React.useState(true);
   React.useEffect(
     () =>
       useStore.subscribe(

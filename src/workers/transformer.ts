@@ -1,15 +1,15 @@
 import type { NodeData, EdgeData } from '../@types/app';
 import * as R from 'ramda';
-import _ from 'lodash/fp.js';
-import { distances } from 'graph/analysis.js';
+import _ from 'lodash/fp';
+import { distances } from 'graph/analysis';
 import {
   convertNodeToIndex,
   convertEdgeToIndex,
   convertEdgeDataToEdge,
   convertNodeDataToNode,
 } from '../functions/transformers.js';
-import { formatEdge, formatNode } from '../functions/formatters.js';
-import { isSource } from '../functions/conditionals.js';
+import { formatEdge, formatNode } from '../functions/formatters';
+import { isSource } from '../functions/conditionals';
 
 onmessage = async (e) => {
   const [id, url] = e.data;
@@ -27,7 +27,7 @@ onmessage = async (e) => {
     });
     const degreesLookup = _.invertBy(_.identity, distanceLookup);
     const order = Object.values(degreesLookup).flat();
-    postMessage([id, nodes, edges, order, degreesLookup], 'WindowProxy');
+    postMessage([id, nodes, edges, order, degreesLookup]);
   });
 };
 
