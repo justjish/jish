@@ -1,7 +1,8 @@
 import * as React from 'react';
 import useStore from 'hooks/useStore';
 import Network from 'components/Network';
-import Profile from 'components/Profile';
+import Loading from 'components/Loading';
+import Header from 'components/Header';
 
 const App = () => {
   const [loading, setLoading] = React.useState(false);
@@ -13,14 +14,11 @@ const App = () => {
       ),
     [],
   );
-  return loading ? (
-    <div>Loading</div>
-  ) : (
+  return loading ? <Loading /> :
     <div>
-      <Profile />
+      <Header />
       <Network />
-    </div>
-  );
+    </div>;
 };
 
 export default App;
