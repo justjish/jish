@@ -1,7 +1,7 @@
-import React from 'react';
-import * as R from 'ramda';
+import * as React from 'react';
+import {always} from 'ramda';
 import Graph from 'graph';
-import useStore from 'hooks/useStore';
+import useStore from 'hooks/useGraph';
 import Datasets from 'components/Datasets';
 const loading = () => (change: Graph.Chart.ChangeEvent) =>
   useStore.getState().set((state: { store: { chart: { event: { changes: Graph.Chart.ChangeEvent[]; }; }; }; }) => void state.store.chart.event.changes.push(change));
@@ -16,8 +16,8 @@ const Chart = (props: { id: string; reference: React.MutableRefObject<Graph.Char
       layout={state.layout}
       combine={state.combine}
       ref={props.reference}
-      onCombineNodes={R.always(undefined)}
-      onCombineLinks={R.always(undefined)}
+      onCombineNodes={always(undefined)}
+      onCombineLinks={always(undefined)}
       onChartChange={loading}
     />
   );

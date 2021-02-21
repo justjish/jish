@@ -1,25 +1,33 @@
 {
   "database": {
-    "rules": ".firebase/database.rules.json"
+    "rules": "./firebase/realtime.rules"
   },
   "firestore": {
-    "rules": ".firebase/firestore.rules",
-    "indexes": ".firebase/firestore.indexes.json"
+    "rules": "./firebase/firestore.rules",
+    "indexes": "./firebase/firestore.indexes.json"
   },
   "functions": {
-    "source": "server",
-    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
   },
   "hosting": {
-    "public": "dist/app",
+    "public": "./dist",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   },
   "storage": {
-    "rules": ".firebase/storage.rules"
+    "rules": "./firebase/storage.rules"
   },
   "emulators": {
     "auth": {
@@ -29,7 +37,7 @@
       "port": 5001
     },
     "firestore": {
-      "port": 8081
+      "port": 8080
     },
     "database": {
       "port": 9000
@@ -41,11 +49,10 @@
       "port": 8085
     },
     "ui": {
-      "enabled": true,
-      "port": 11337
+      "enabled": true
     }
   },
   "remoteconfig": {
-    "template": ".firebase/remoteconfig.template.json"
+    "template": "./firebase/remoteconfig.json"
   }
 }

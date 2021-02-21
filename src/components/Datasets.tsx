@@ -1,6 +1,6 @@
 import * as React from 'react';
-import useStore from 'hooks/useStore';
-import type { Dataset } from 'hooks/useStore';
+import useStore from 'hooks/useGraph';
+import type { Dataset } from 'hooks/useGraph';
 
 const Button = ({ dsId, item, action }: { dsId: string; item: Dataset; action: () => Promise<void> }) => {
   const [active, setActive] = React.useState(true);

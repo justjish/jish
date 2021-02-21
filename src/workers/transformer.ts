@@ -1,5 +1,5 @@
 import type { NodeData, EdgeData } from '../@types/app';
-import * as R from 'ramda';
+import {fromPairs, map, pipe, pickBy,merge, keys} from 'ramda';
 import _ from 'lodash/fp';
 import { distances } from 'graph/analysis';
 import {
@@ -11,15 +11,14 @@ import {
 import { formatEdge, formatNode } from '../functions/formatters';
 import { isSource } from '../functions/conditionals';
 
-onmessage = async (e) => {
+onmessage = async (e: { data: [any, any]; }) => {
   const [id, url] = e.data;
   const res = await fetch(url);
   const data: { nodes: Array<NodeData>; edges: Array<EdgeData> } = await res.json();
-  const nodes = R.fromPairs(R.map(R.pipe(formatNode, convertNodeDataToNode, convertNodeToIndex))(data.nodes));
-  const edges = R.fromPairs(R.map(R.pipe(formatEdge, convertEdgeDataToEdge, convertEdgeToIndex))(data.edges));
-  const centralNodes = R.keys(R.pickBy(isSource, nodes));
-  const items = R.merge(nodes, edges);
-
+  const nodes = fromPairs(map(pipe(formatNode, convertNodeDataToNode, convertNodeToIndex))(data.nodes));
+  const edges = fromPairs(map(pipe(formatEdge, convertEdgeDataToEdge, convertEdgeToIndex))(data.edges));
+  const centralNodes = keys(pickBy(isSource, nodes));
+  const items = merge(nodes, edges);
   void Promise.all(centralNodes.map((id) => distances(items, id as string, { direction: 'from' }))).then((values) => {
     const distanceLookup = values.reduce((acc, item) => {
       void Object.entries(item).forEach(([k, v]) => (acc[k] = acc[k] ? (acc[k] < v ? v : acc[k]) : v));
@@ -30,5 +29,4 @@ onmessage = async (e) => {
     postMessage([id, nodes, edges, order, degreesLookup]);
   });
 };
-
-export default {};
+export default self

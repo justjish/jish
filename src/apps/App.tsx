@@ -1,68 +1,29 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { animated, useSpring } from 'react-spring';
-import ReactDOM from 'react-dom';
-import Navbar from 'components/Navbar';
-import Section from 'components/Section';
-import { Titles } from 'components/Titles';
-import { useWheel } from 'react-use-gesture';
+import React, { useState } from 'react';
+import Navbar from 'containers/Navbar';
+import { animated as a } from 'react-spring';
+import styled from 'styled-components';
+import Intro from 'containers/Intro';
+import { useWindowPosition } from 'hooks/useWindowPosition';
+const FrameStyle = styled(a.div)`
+  position: absolute;
+  height: 200vh;
+  width: 100%;
+  background: rgba(38, 40, 110, 0.247);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+`;
 
-const App: React.FC = () => {
-  const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const [position, set] = useSpring(() => ({ translateY: 0, rotate: 0 }));
-  const [wheel, setWheel] = useSpring(() => ({
-    color: '#123456',
-    fontSize: '4vw',
-    x: 0,
-    y: 0,
-  }));
-  const handleScroll = useCallback(() => {
-    const posY = ref.current.getBoundingClientRect().top;
-    const offset = window.pageYOffset - posY;
-    set({ translateY: offset / 2 });
-  }, []);
-  const bind = useWheel(wheelEvent => {
-    console.log(ref.current.getBoundingClientRect().top);
-    setWheel({y:wheelEvent.offset[1]});
-  });
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+const Page: React.FC = () => {
+  return <FrameStyle/>
+};
+export const App: React.FC = () => {
 
   return (
-    <div ref={ref} {...bind()} >
-        <div
-          style={{
-            background: '#03cccc',
-            position: 'relative',
-            width: '100%',
-            height: '400px',
-          }}
-        >
-          <Navbar {...position} />
-          <Titles/>
-        </div>
-        <div
-          style={{
-            background: '#123456',
-            position: 'relative',
-            width: '100%',
-            height: '400px',
-          }}
-        >
-          <div
-            style={{
-              background: '#eee',
-              position: 'relative',
-              width: '100%',
-              height: '400px',
-            }}
-          ></div>
-        </div>
-      </div>
-  );
+    <>
+      <Page/>
+      <Intro />
+    </>)
 };
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+export default App;
