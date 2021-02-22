@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useGrow } from 'hooks/useGrow';
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring, useTransition, config } from 'react-spring';
 import styled from 'styled-components';
 const Box = styled(animated.div)`
   font-family: acier-bat-gris, sans-serif;
@@ -21,16 +21,14 @@ const Box = styled(animated.div)`
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 `;
 export const Navbar: React.FC = () => {
-  const [grow] = useGrow(20);
-  const [style, set] = useSpring({ scale: 1 }, []);
+  const transition = useTransition(null, {
+    from: { fontSize: "0vw"},
+    enter: { fontSize: "1vw", },
+    leave: { fontSize: "0vw" },
+    config: config.slow,
+  });
   return (
-    <Box
-      style={{ position: 'fixed', zIndex: 2, ...grow, ...style} as any}
-      onMouseEnter={() => set({ scale: 1.1 })}
-      onMouseLeave={() => set({ scale: 1 })}
-    >
-      Sujish Patel
-    </Box>
+    <>{transition((style, item) =><Box style={{ position: 'fixed', zIndex: 2, ...style } as any}>Sujish Patel</Box>)}</>
   );
 };
 export default Navbar;

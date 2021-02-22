@@ -1,6 +1,6 @@
-import { useLayoutEffect, useState } from 'react';
+import {useLayoutEffect, useState} from 'react';
 
-export const useWindowPosition = () =>  {
+export const useScrollPosition = () =>  {
   const [scrollPosition, setPosition] = useState(0);
   useLayoutEffect(() => {
     const updatePosition = () => setPosition(window.pageYOffset);
@@ -9,4 +9,5 @@ export const useWindowPosition = () =>  {
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
   return scrollPosition;
-}
+} 
+export default useScrollPosition;

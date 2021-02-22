@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState, Suspense } from 'react';
 import { Titles } from 'components/Titles';
 import { FiChevronsDown } from 'react-icons/fi';
-import { animated, useSpring, config } from 'react-spring';
+import { animated, useTransition, config, useSpring } from 'react-spring';
 import { useHover, useWheel } from 'react-use-gesture';
 import styled from 'styled-components';
-import { useWindowPosition } from 'hooks/useWindowPosition';
+import { useScrollPosition } from 'hooks/useScrollPosition';
 import useWindowSize from 'hooks/useWindowSize';
+
 const ScrollDown: React.FC = () => {
-  const style = useSpring({
+  const [style, set] = useSpring({
     from: {
       color: '#ff4677',
       position: 'absolute',
@@ -21,32 +22,33 @@ const ScrollDown: React.FC = () => {
     },
     to: { translateY: '5px', color: 'rgba(253, 223, 70, 1.00)' },
     loop: { reverse: true },
-  });
+  }, []);
+  
   return (
-    <animated.div style={style as any}>
-      <div>Scroll</div>
-      <FiChevronsDown />
-    </animated.div>
+    <>
+      <animated.div style={style as any}>
+        <div>Scroll</div>
+        <FiChevronsDown />
+      </animated.div>
+    </>
   );
 };
 const Box = styled(animated.div)`
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
+  position: fixed;
   display: flex;
   justify-content: center;
 `;
-const minMax = (x: number) => (x > 100 ? 100 : x < 10 ? 10 : x);
-export const Intro: React.FC = () => {
-  const { height, width } = useWindowSize();
-  const pos = useWindowPosition();
+
+export const Intro: React.FC<{ top: SpringValue<number>;}> = ({top}) => {
+  const pos = useScrollPosition();
   const [props, set] = useSpring({
-    height: `${pos > 1 ? 10 : 80}vh`,
-    width: `${pos > 1 ? 80 : 100}%`,
-    borderRadius: `${pos > 1 ? 20 : 0}px`,
-    position: `${pos > 1 ? 'fixed' : 'absolute'}`,
+    height: `${pos > 10 ? 10 : 50}vh`,
+    borderRadius: `${pos > 2 ? 20 : 0}px`,
     config: config.stiff
   }, [pos]);
   return (
@@ -57,11 +59,12 @@ export const Intro: React.FC = () => {
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
         ...props,
-      }}
+      } as any}
     >
       <Titles />
-      <ScrollDown />
+      {pos < 1 && <ScrollDown />}
     </Box>
   );
 };

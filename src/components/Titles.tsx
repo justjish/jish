@@ -17,17 +17,30 @@ const StyledTitles = styled.div`
   display: flex;
   overflow: hidden;
   align-items: center;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+`;
+
+const StyledTitle = styled(animated.div)`
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
 `;
 
 const Title: React.FC<{ title: string; color: string; onClick?: () => void}> = ({ title, color , onClick}) => {
   const transition = useTransition(title, {
     from: { fontSize: "0vw", color: color },
-    enter: { fontSize: "8vw", },
+    enter: { fontSize: "6vw", },
     leave: { fontSize: "0vw" },
-    config: config.default,
+    config: config.stiff,
   });
   return (
-    <>{transition((style, item) => <animated.div onClick={onClick} style={{ ...style as any}}>{item} </animated.div>)}</>
+    <>{transition((style, item) => <StyledTitle onClick={onClick} style={{ cursor: 'pointer',...style as any}}>{item} </StyledTitle>)}</>
   );
 };
 

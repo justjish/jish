@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { animated, useSpring, useSprings } from 'react-spring';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
 import {
@@ -160,6 +160,59 @@ const DATA = [
 //     </animated.div>
 //   );
 // };
+
+const createStaticStars = () => {
+  const stars = new Set<[x: number, y: number]>();
+  const starRng = _.range(300);
+  void starRng.map(() => stars.add([Math.floor(Math.random() * 1200), Math.floor(Math.random() * 900)]));
+  return stars;
+}
+
+
+const Stars: React.FC = () => {
+  const [stars, set] = useState(createStaticStars());
+  return (
+    <>
+      {[...stars.keys()].map((v, i) => <Star key={i} initX={v[0]} initY={v[1]} fixed={(i % 2 === 0)}/>)}
+      <Star initX={300} initY={250} fixed ></Star>
+      <Star initX={500} initY={250} fixed ></Star>
+      <Star initX={800} initY={250} fixed ></Star>
+      <Star initX={400} initY={550} fixed ></Star>
+      <Star initX={800} initY={700} fixed ></Star>
+      <Star initX={500} initY={700} fixed ></Star>
+      <Star initX={100} initY={700} fixed ></Star>
+      <Star initX={300} initY={900} fixed ></Star>
+      <Star initX={200} initY={425} fixed ></Star>
+      <Star initX={925} initY={440} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+      <Star initX={900} initY={900} fixed ></Star>
+    </>
+  );
+};
+
+const Star: React.FC<{ initX: number; initY: number, fixed?:boolean}> = ({ initX, initY, fixed=false }) => {
+  const [props, set] = useSpring(
+    {
+      from: {
+        background: 'rgba(226, 230, 15, 0.945)',
+        borderRadius: '50%',
+        position: fixed? 'fixed' : 'absolute',
+        x: initX,
+        y: initY,
+        zIndex: '-5',
+        width: '10px',
+        height: '10px',
+      },
+    },
+    [],
+  );
+  return <animated.div style={props as any} />;
+};
+
 
 const Skill: React.FC<{ icon: JSX.Element; text: string; type: string }> = ({ icon, text, type }) => {
   const [{ opacity }, set] = useSpring({ opacity: 0 }, []);
