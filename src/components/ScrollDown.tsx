@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { animated as a, useSpring } from 'react-spring';
 import styled from 'styled-components';
 import { FiChevronsDown } from 'react-icons/fi';
@@ -17,20 +17,17 @@ const Down = styled(a.div)`
   user-select: none;
 `;
 const Text = styled.div`
-font-family: tomarik-display-line, sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-family: tomarik-display-line, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 `;
 
-const Scroll: React.FC = () => {
-  const [style, set] = useSpring(
-    {
-      from: { translateY: 0, color: '#a00abe' },
-      to: { translateY: 5, color: 'rgba(253, 223, 70, 1.00)' },
-      loop: { reverse: true },
-    },
-    [],
-  );
+const ScrollDown: React.FC = () => {
+  const style = useSpring({
+    from: { translateY: 0, color: '#a00abe' },
+    to: { translateY: 5, color: 'rgba(253, 223, 70, 1.00)' },
+    loop: { reverse: true },
+  });
 
   return (
     <Down style={style as any}>
@@ -39,4 +36,4 @@ const Scroll: React.FC = () => {
     </Down>
   );
 };
-export default Scroll;
+export default ScrollDown;

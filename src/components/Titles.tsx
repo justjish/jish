@@ -1,7 +1,6 @@
 import { useAnimatedHover } from "hooks/useScaledHover";
-import * as React from "react";
-import { animated, config, Spring, useSpring, useTransition } from "react-spring";
-import { useHover } from "react-use-gesture";
+import React from "react";
+import { animated, config, useTransition } from "react-spring";
 import styled from "styled-components";
 
 const DATA = [
