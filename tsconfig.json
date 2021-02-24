@@ -2,7 +2,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "target": "ESNext",
-    "lib": ["WebWorker","DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["WebWorker","DOM","ESNext"],
     "types": ["vite/client"],
     "allowJs": false,
     "skipLibCheck": false,
