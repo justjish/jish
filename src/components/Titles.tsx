@@ -1,6 +1,6 @@
-import { useAnimatedHover } from "hooks/useScaledHover";
 import React from "react";
-import { animated, config, useTransition } from "react-spring";
+import { useAnimatedHover } from "hooks/useAnimatedHover";
+import { animated as a, config, useTransition } from "react-spring";
 import styled from "styled-components";
 
 const DATA = [
@@ -10,43 +10,31 @@ const DATA = [
   { title: "An Animal Lover", color: "#b1c409", next: 0, prev: 2 },
 ];
 
-const StyledTitles = styled(animated.div)`
+const StyledTitles = styled(a.div)`
   font-family: acier-bat-gris, sans-serif;
   font-weight: 800;
   font-style: normal;
-  display: flex;
+  font-size: 4em;
+  display: inline;
   overflow: hidden;
   align-items: center;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: -moz-none;
-  -o-user-select: none;
-  user-select: none;
 `;
-
-const StyledTitle = styled(animated.div)`
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: -moz-none;
-  -o-user-select: none;
-  user-select: none;
-`;
-
 const Title: React.FC<{ title: string; color: string; onClick?: () => void}> = ({ title, color , onClick}) => {
   const transition = useTransition(title, {
-    from: { fontSize: "0vw", color: color },
-    enter: { fontSize: "6vw", },
-    leave: { fontSize: "0vw" },
-    config: config.slow,
+    from: { translateY: 1000, color: color },
+    enter: { translateY: 0},
+    leave: { translateY: -1000 },
+    config: config.gentle,
   });
   return (
-    <>{transition((style, item) => <StyledTitle onClick={onClick} style={{ cursor: 'pointer',...style as any}}>{item} </StyledTitle>)}</>
+    <>{transition((style, item) => <a.div onClick={onClick} style={{ cursor: 'pointer',...style as any}}>{item} </a.div>)}</>
   );
 };
 
+
 export const Titles: React.FC<{titles?: typeof DATA;}> = ({ titles = DATA}) => {
   const [item, setItem] = React.useState(titles[0]);
-  const { bind, scale } = useAnimatedHover({to:1.02});
+  const { bind, scale } = useAnimatedHover({onClick:()=>void console.log('Header Clicked')});
   return (
     <StyledTitles style={{ scale }} {...bind()}>
       <Title title={item.title} color={item.color} onClick={() => setItem(titles[item.next])}/>
