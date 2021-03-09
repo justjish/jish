@@ -1,18 +1,22 @@
-import React from 'react';
-import Scroll from 'containers/Scroll';
-import Header from 'containers/Header';
-import Skills from 'containers/Skills';
-import _ from 'lodash';
-
-
+import React from "react";
+import Scroll from "containers/Scroll";
+import Strips from "containers/Strips";
+import Menu from "containers/Menu";
+import Meet from 'containers/Meet';
+import Work from 'containers/Work';
+import Labs from "containers/Labs";
+import Chat from "containers/Chat";
 
 export const App: React.FC = () => {
-  const clientH = document.documentElement.clientHeight;
   return (
     <>
-      <Scroll clientH={clientH} />
-      <Header />
-      <Skills />
+      <Scroll />
+      <Strips />
+      <Meet />
+      <Work />
+      <Labs />
+      <Chat/>
+      <Menu />
     </>
   );
 };

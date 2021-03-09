@@ -21,126 +21,170 @@ import { AiOutlineFunction } from 'react-icons/ai';
 import { MdHttp } from 'react-icons/md';
 import { GrNodes } from 'react-icons/gr';
 import { uid } from 'uid';
-export const DATA = [
+import { IconType } from 'react-icons';
+
+export enum Types {
+  library = "library",
+  runtime = "runtime",
+  language = "language",
+  paradigm = "paradigms",
+  frontend = "frontend",
+  cloud = "cloud",
+  framework = "framework",
+  protocol = "protocol",
+  database = "database",
+  IaC = "IaC",
+  concept = "concept",
+  development = "development",
+  resume = "Resume"
+}
+export enum Sizes {
+  sm = 25,
+  md = 50,
+  lg = 75,
+}
+
+type SkillItem = {
+  key: string;
+  text: string;
+  Icon: IconType;
+  type: Types;
+  size: Sizes;
+}
+export const SkillList : Array<SkillItem> = [
   {
     key: uid(),
     text: 'React',
     Icon: FaReact,
-    type: 'library',
+    type: Types.library,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Node',
     Icon: FaNodeJs,
-    type: 'runtime',
+    type: Types.runtime,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Javascript',
     Icon: SiJavascript,
-    type: 'language',
+    type: Types.language,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Typescript',
     Icon: SiTypescript,
-    type: 'language',
+    type: Types.language,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Functional',
     Icon: AiOutlineFunction,
-    type: 'paradigm',
+    type: Types.paradigm,
+    size: Sizes.md
   },
   {
     key: uid(),
     text: 'Redux',
     Icon: SiRedux,
-    type: 'frontend',
+    type: Types.frontend,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Java',
     Icon: SiJava,
-    type: 'language',
+    type: Types.language,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Python',
     Icon: SiPython,
-    type: 'language',
+    type: Types.language,
+    size: Sizes.md
   },
   {
     key: uid(),
     text: 'AWS',
     Icon: SiAmazon,
-    type: 'cloud',
+    type: Types.cloud,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'GCP',
     Icon: SiGooglecloud,
-    type: 'cloud',
+    type: Types.cloud,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Deno',
     Icon: SiDeno,
-    type: 'runtime',
+    type: Types.runtime,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Flutter',
     Icon: SiFlutter,
-    type: 'framework',
+    type: Types.framework,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Github',
     Icon: SiGithub,
-    type: 'development',
+    type: Types.development,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Terraform',
     Icon: SiTerraform,
-    type: 'IaC',
+    type: Types.IaC,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'HTTP',
     Icon: MdHttp,
-    type: 'protocal',
+    type: Types.protocol,
+    size: Sizes.sm
   },
   {
     key: uid(),
     text: 'Firebase',
     Icon: SiFirebase,
-    type: 'database',
+    type: Types.database,
+    size: Sizes.md
   },
   {
     key: uid(),
     text: 'MongoDB',
     Icon: SiMongodb,
-    type: 'database',
+    type: Types.database,
+    size: Sizes.md
   },
   {
     key: uid(),
     text: 'Docker',
     Icon: SiDocker,
-    type: 'IaC',
+    type: Types.IaC,
+    size: Sizes.lg
   },
   {
     key: uid(),
     text: 'Graph Theory',
     Icon: GrNodes,
-    type: 'concepts',
+    type: Types.concept,
+    size: Sizes.md
   },
-  {
-    key: uid(),
-    text: 'and more',
-    Icon: RiMoreLine,
-    type: 'Resume'
-  }
 ];
-export default DATA;
+
+export default SkillList;

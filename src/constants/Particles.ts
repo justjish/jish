@@ -1,10 +1,10 @@
 export const PARTICLE_OPTIONS = {
   background: {
     color: {
-      value: "#0d47a1",
+      value: "rgba(21, 16, 25, 1.00)",
     },
   },
-  fpsLimit: 60,
+  fpsLimit: 120,
   interactivity: {
     detectsOn: "canvas",
     events: {

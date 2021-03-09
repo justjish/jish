@@ -1,12 +1,13 @@
+import React from 'react';
+import { animated as a, useSpring } from 'react-spring';
 import styled from 'styled-components';
-export const Scroll = styled.div<{ clientH: number }>`
+const ScrollContainer = styled(a.div)`
   position: absolute;
-  height: ${(props) => `${props.clientH * 4}px`};
+  height: 320vh;
   width: 100%;
-  background: rgba(1, 3, 49, 0.945);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(21, 16, 25, 1.00);
   z-index: -10;
 `;
+
+const Scroll: React.FC = () => <ScrollContainer/>;
 export default Scroll;
