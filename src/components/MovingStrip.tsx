@@ -26,7 +26,7 @@ export const MovingStrip: React.FC = () => {
   console.log(Math.min(height * 0.3));
   useScroll(
     ({ xy: [, y] }) => {
-      y >= useLocations.getState().work ?
+      y >= useLocations.getState().xp ?
         (set({ background: workColor})) :
         (set({ background: initialColor }));
     },

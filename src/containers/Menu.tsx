@@ -1,11 +1,10 @@
 import React from 'react';
 import { animated as a, config, useSpring, to } from 'react-spring';
 import styled from 'styled-components';
-import { useGesture } from 'react-use-gesture';
 import profile from 'assets/Profile@0.5x.webp';
 import useLocations from 'hooks/useLocations';
 import { Avatar } from 'components/Avatar';
-import { useInteract } from 'hooks/useMenu';
+import { useHover } from 'hooks/useHover';
 
 
 
@@ -45,14 +44,7 @@ const ItemContainer = styled(a.div)`
   max-width: 12%; /* Make it fit window if under 500px */
   margin: auto;
   height: 48px;
-  width: 128px;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  width: 48px;
 `;
 const H2 = styled(a.div)`
   font-family: junegull, sans-serif;
@@ -63,23 +55,22 @@ const H2 = styled(a.div)`
 
 const Item: React.FC<{ text: string; to: number }> = ({ text = '', to = 0 }) => {
   const handleClick = React.useCallback(() => window.scrollTo({ top: to, left: 0, behavior: 'smooth' }), [to])
-  const { bind, scale } = useInteract({ onClick:handleClick });
+  const { bind, scale } = useHover({ onClick:handleClick });
   return (
     <ItemContainer {...bind()} style={{ scale }}>
-      <H2>{text}</H2>
     </ItemContainer>
   );
 };
 
 const Menu: React.FC = () => {
   const meet = useLocations(React.useCallback((state) => state.meet, []));
-  const work = useLocations(React.useCallback((state) => state.work, []));
+  const xp = useLocations(React.useCallback((state) => state.xp, []));
   const idea = useLocations(React.useCallback((state) => state.labs, []));
   const chat = useLocations(React.useCallback((state) => state.chat, []));
   return (
     <MenuContainer>
       <Item text={'HI'} to={meet} />
-      <Item text={'XP'} to={work} />
+      <Item text={'XP'} to={xp} />
       <Avatar profile={profile}/>
       <Item text={'EX'} to={idea} />
       <Item text={'DM'} to={chat} />
