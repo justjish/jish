@@ -1,12 +1,12 @@
 import React from 'react';
 import { animated as a, config, useSpring, to } from 'react-spring';
 import styled from 'styled-components';
-import profile from 'assets/Profile@0.5x.webp';
 import useLocations from 'hooks/useLocations';
-import { Avatar } from 'components/Avatar';
 import { useHover } from 'hooks/useHover';
-
-
+import brain from 'assets/menu-icons/brain.svg';
+import hello from 'assets/menu-icons/hello.svg';
+import chatbox from 'assets/menu-icons/chat.svg';
+import bag from 'assets/menu-icons/bag.svg';
 
 const MenuContainer = styled.div`
   background: rgba(255, 255, 255, 0.25);
@@ -17,15 +17,18 @@ const MenuContainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed; /* Take it out of the flow of the document */
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  left: 0; /* Left edge at left for now */
-  right: 0; /* Right edge at right for now, so full width */
-  top: 48px; /* Move it down from top of window */
-  width: 1200px; /* Give it the desired width */
+
+  // left ... leave it out for positioning
+  right:20px;
+  top: 0px;
+  bottom: 0px;
+  
   margin: auto; /* Center it */
   max-width: 90%; /* Make it fit window if under 500px */
-  height: 64px;
-  text-align: center;
+  height: 500px;
+  width: 64px;
 `;
 
 const ItemContainer = styled(a.div)`
@@ -41,7 +44,6 @@ const ItemContainer = styled(a.div)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 12%; /* Make it fit window if under 500px */
   margin: auto;
   height: 48px;
   width: 48px;
@@ -53,27 +55,27 @@ const H2 = styled(a.div)`
   font-size: 1em;
 `;
 
-const Item: React.FC<{ text: string; to: number }> = ({ text = '', to = 0 }) => {
+const Item: React.FC<{ icon: string; to: number }> = ({ icon = '', to = 0 }) => {
   const handleClick = React.useCallback(() => window.scrollTo({ top: to, left: 0, behavior: 'smooth' }), [to])
   const { bind, scale } = useHover({ onClick:handleClick });
   return (
     <ItemContainer {...bind()} style={{ scale }}>
+      <a.img height={"30px"} width={"30px"} src={icon}></a.img>
     </ItemContainer>
   );
 };
 
 const Menu: React.FC = () => {
-  const meet = useLocations(React.useCallback((state) => state.meet, []));
-  const xp = useLocations(React.useCallback((state) => state.xp, []));
-  const idea = useLocations(React.useCallback((state) => state.labs, []));
+  const meet = useLocations(React.useCallback((state) => state.hello, []));
+  const xp = useLocations(React.useCallback((state) => state.story, []));
+  const idea = useLocations(React.useCallback((state) => state.skills, []));
   const chat = useLocations(React.useCallback((state) => state.chat, []));
   return (
     <MenuContainer>
-      <Item text={'HI'} to={meet} />
-      <Item text={'XP'} to={xp} />
-      <Avatar profile={profile}/>
-      <Item text={'EX'} to={idea} />
-      <Item text={'DM'} to={chat} />
+      <Item icon={hello} to={meet} />
+      <Item icon={bag} to={xp} />
+      <Item icon={brain} to={idea} />
+      <Item icon={chatbox} to={chat} />
     </MenuContainer>
   );
 };

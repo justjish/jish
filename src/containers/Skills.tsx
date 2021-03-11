@@ -23,8 +23,8 @@ const Skill: React.FC<{ Icon: IconType; idx: number; size: number; type: string 
   const yOffset = offset(idx);
   const xOffset = 0; //clamp(0,window.innerWidth,offset(idx)); -> Use for truly random pos within bounds.
 
-  const [props, set] = useSpring({ x: xOffset, y: 500 + yOffset, config: { mass: size / 15, tension: 50, friction: 26 } }, []);
-  useScroll(({ xy: [x, y] }) => set({ y: clamp(-window.innerHeight, window.innerHeight, useLocations.getState().labs + 130 - y + yOffset) }), {
+  const [props, set] = useSpring({ x: xOffset, y: yOffset, config: { mass: size / 15, tension: 50, friction: 26 } }, []);
+  useScroll(({ xy: [x, y] }) => set({ y: clamp(-window.innerHeight, window.innerHeight, useLocations.getState().skills - y + yOffset) }), {
     domTarget: window,
   });
   const { bind, scale } = useHover({ onClick: noop })
@@ -36,12 +36,12 @@ const Skill: React.FC<{ Icon: IconType; idx: number; size: number; type: string 
   );
 };
 
-const Labs:React.FC = () => {
-  // Boilerplate used to get the components position on mount.
-  const registerPosition = useLocations(React.useCallback((state) => state.setLabs, []));
+const Skills: React.FC = () => {
+  
+  const registerPosition = useLocations(React.useCallback((state) => state.setSkills, []));
   const ref = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => registerPosition(ref.current?.offsetTop ?? 0), []);
-  const props = useSpring({ skewY: true ? -10: 0, opacity: true? 1: 0 });
+
   return (
     <Section ref={ref}>
       <Row>
@@ -56,4 +56,4 @@ const Labs:React.FC = () => {
   );
 };
 
-export default React.memo(Labs);
+export default React.memo(Skills);

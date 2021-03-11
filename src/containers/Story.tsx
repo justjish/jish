@@ -15,15 +15,28 @@ import { Logo } from 'common/Logo';
 import { noop, clamp} from 'lodash/fp';
 import { useHover } from 'hooks/useHover';
 
+const calc = (y: number) => clamp(-window.innerHeight, window.innerHeight, useLocations.getState().story - y);
+
 const Years: React.FC = () => {
+  const [props, set] = useSpring({ x: 0, y: 0, config: { mass: 50 / 15, tension: 50, friction: 26 } }, []);
+  useScroll(({ xy: [x, y] }) => set({ x: calc(y) }), {
+    domTarget: window,
+  });
+
   const { bind, scale } = useHover({ onClick: noop });
-  return <Item {...bind()}style={{ width: "350px", scale}}><H2>Years Coding</H2><H1>10+</H1></Item>
+  return <Item {...bind()}style={{ width: "350px", scale, ...props}}><H2>Years Coding</H2><H1>10+</H1></Item>
 }
 
-const Place: React.FC<{ logo: string; focus: string; time: string }> = ({ logo, focus, time}) => {
-  const { bind, scale } = useHover({ onClick: noop })
+const Place: React.FC<{ logo: string; focus: string; time: string }> = ({ logo, focus, time }) => {
+
+  const [props, set] = useSpring({ x: 0, y: 0, config: { mass: 50 / 15, tension: 50, friction: 26 } }, []);
+  useScroll(({ xy: [x, y] }) => set({ x: calc(y) }), {
+    domTarget: window,
+  });
+
+  const { bind, scale } = useHover({ onClick: noop });
   return (
-    <Item {...bind()} style={{scale: scale}}>
+    <Item {...bind()} style={{scale: scale, ...props}}>
       <Logo src={logo} alt={'company'} />
       <H2>{focus}</H2>
       <H2>{time}</H2>
@@ -31,21 +44,15 @@ const Place: React.FC<{ logo: string; focus: string; time: string }> = ({ logo, 
   );
 };
 
-const XP: React.FC = () => {
-  const registerPosition = useLocations(React.useCallback(state => state.setXP,[]));
+const Story: React.FC = () => {
+  const registerPosition = useLocations(React.useCallback(state => state.setStory,[]));
   const ref = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => registerPosition(ref.current?.offsetTop ?? 0), []);
-
-  const [props, set] = useSpring({ x: 0, y: 500, config: { mass: 50 / 15, tension: 50, friction: 26 } }, []);
-  useScroll(({ xy: [x, y] }) => set({ y: clamp(-window.innerHeight, window.innerHeight, useLocations.getState().xp + 130 - y) }), {
-    domTarget: window,
-  });
-  const { bind, scale } = useHover({ onClick: noop })
 
   return (
     <Section ref={ref}>
       <Row><H3>Experienced</H3></Row>
-      <Row {...bind()} style={{...props}}>
+      <Row>
         <Place logo={elementus} focus={'Full Stack Developer'} time={'2020'} />
         <H1 style={{ color: 'rgba(121, 61, 251, 1.00)'} as any}>+</H1>
         <Place logo={netsmart} focus={'Software Engineer'} time={'2016-2018'} />
@@ -59,4 +66,4 @@ const XP: React.FC = () => {
     </Section>
   )
 };
-export default XP;
+export default Story;

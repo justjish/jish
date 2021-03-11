@@ -7,10 +7,9 @@ import { Section } from 'common/Section';
 
 const Center = styled(a.div)`
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   position: relative;
-  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -39,10 +38,10 @@ const DATA = [
   { title: "An Animal Lover", color: "#b1c409", next: 0, prev: 2 },
 ];
 
-export const Meet: React.FC<{ data?: typeof DATA }> = ({ data = DATA }) => {
-  const registerPosition = useLocations(React.useCallback(state => state.setHola, []));
+export const Hello: React.FC<{ data?: typeof DATA }> = ({ data = DATA }) => {
+  const registerPosition = useLocations(React.useCallback(state => state.setHello, []));
   const ref = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => void registerPosition(ref.current?.scrollTop ?? 0), [ref.current]);
   return <Center ref={ref}><H3>Meet</H3><H1>Sujish Patel</H1> <H3> A Full Stack Developer</H3></Center>;
 };
-export default Meet;
+export default Hello;

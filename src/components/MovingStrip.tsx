@@ -12,7 +12,7 @@ export const MovingStrip: React.FC = () => {
   const [props, set] = useSpring(
     {
       from: { skewY: 0, y: 0, width: '0%', height: '80vh', background: initialColor, zIndex: -1 },
-      to: [{ skewY: 15, y: 0, width: '100%' }],
+      to: [{ skewY: 15, y: 150, width: '100%' }],
       config: config.slow,
     },
     [],
@@ -20,13 +20,11 @@ export const MovingStrip: React.FC = () => {
   const height = document.documentElement.scrollHeight * 4;
   const width = document.documentElement.scrollWidth;
   // Scroll listener for movement
-  useScroll(({ xy: [x, y] }) => set({ y: fp.clamp(0, useLocations.getState().labs, y * 1.2) }), { domTarget: window });
+  useScroll(({ xy: [x, y] }) => set({ y: fp.clamp(150, useLocations.getState().skills, y * 1.2 ) }), { domTarget: window });
   // Scroll listener for changing color.
-  console.log(height);
-  console.log(Math.min(height * 0.3));
   useScroll(
     ({ xy: [, y] }) => {
-      y >= useLocations.getState().xp ?
+      y >= useLocations.getState().story ?
         (set({ background: workColor})) :
         (set({ background: initialColor }));
     },
