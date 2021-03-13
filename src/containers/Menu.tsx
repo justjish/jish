@@ -3,10 +3,10 @@ import { animated as a, config, useSpring, to } from 'react-spring';
 import styled from 'styled-components';
 import useLocations from 'hooks/useLocations';
 import { useHover } from 'hooks/useHover';
-import brain from 'assets/menu-icons/brain.svg';
-import hello from 'assets/menu-icons/hello.svg';
-import chatbox from 'assets/menu-icons/chat.svg';
-import bag from 'assets/menu-icons/bag.svg';
+import brainIcon from 'assets/menu-icons/brain.svg';
+import helloIcon from 'assets/menu-icons/hello.svg';
+import chatIcon from 'assets/menu-icons/chat.svg';
+import bagIcon from 'assets/menu-icons/bag.svg';
 
 const MenuContainer = styled.div`
   background: rgba(255, 255, 255, 0.25);
@@ -66,16 +66,16 @@ const Item: React.FC<{ icon: string; to: number }> = ({ icon = '', to = 0 }) => 
 };
 
 const Menu: React.FC = () => {
-  const meet = useLocations(React.useCallback((state) => state.hello, []));
-  const xp = useLocations(React.useCallback((state) => state.story, []));
-  const idea = useLocations(React.useCallback((state) => state.skills, []));
-  const chat = useLocations(React.useCallback((state) => state.chat, []));
+  const helloLoc = useLocations(React.useCallback((state) => state.hello, []));
+  const storyLoc = useLocations(React.useCallback((state) => state.story, []));
+  const skillLoc = useLocations(React.useCallback((state) => state.skills, []));
+  const chatLoc = useLocations(React.useCallback((state) => state.chat, []));
   return (
     <MenuContainer>
-      <Item icon={hello} to={meet} />
-      <Item icon={bag} to={xp} />
-      <Item icon={brain} to={idea} />
-      <Item icon={chatbox} to={chat} />
+      <Item icon={helloIcon} to={helloLoc} />
+      <Item icon={bagIcon} to={storyLoc} />
+      <Item icon={brainIcon} to={skillLoc} />
+      <Item icon={chatIcon} to={chatLoc} />
     </MenuContainer>
   );
 };
