@@ -14,8 +14,8 @@ const AvatarContainer = styled(a.img)`
   -ms-user-select: none;
   user-select: none;
 `;
-export const Avatar: React.FC<{ profile: string }> = ({ profile }) => {
+export const Avatar: React.FC<{ profile: string, style: any }> = ({ profile, style}) => {
   const { bind, scale } = useHover({ onClick: () => { } })
   const { y } = useSpring({ y: -32 });
-  return <AvatarContainer {...bind()} style={{ width: 128, height: 128, y, scale}} src={profile} alt={'image'} />;
+  return <AvatarContainer {...bind()} style={{ width: 128, height: 128, y, scale, ...style}} src={profile} alt={'image'} />;
 };
