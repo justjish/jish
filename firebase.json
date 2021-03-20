@@ -1,10 +1,10 @@
 {
   "database": {
-    "rules": "./firebase/realtime.rules"
+    "rules": ".firebase/realtime.rules.json"
   },
   "firestore": {
-    "rules": "./firebase/firestore.rules",
-    "indexes": "./firebase/firestore.indexes.json"
+    "rules": ".firebase/firestore.rules",
+    "indexes": ".firebase/firestore.indexes.json"
   },
   "functions": {
     "predeploy": [
@@ -13,7 +13,7 @@
     ]
   },
   "hosting": {
-    "public": "./dist",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -27,7 +27,7 @@
     ]
   },
   "storage": {
-    "rules": "./firebase/storage.rules"
+    "rules": ".firebase/storage.rules"
   },
   "emulators": {
     "auth": {
@@ -53,6 +53,6 @@
     }
   },
   "remoteconfig": {
-    "template": "./firebase/remoteconfig.json"
+    "template": " "
   }
 }

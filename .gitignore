@@ -16,5 +16,7 @@ node_modules/
 .private/**/*.*
 .firebase/**/*.*
 
+dist/**/*.*
+
 *.log
 yarn.lock

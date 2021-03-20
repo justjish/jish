@@ -1,3 +1,3 @@
 import React from 'react';
-import { Section } from 'common/Section';
-export const Space:React.FC<{vh:number}> = ({vh=10}) => <Section style={{height: `${vh}vh`} as any}/>;
+import { section } from 'styles/section.style';
+export const Space:React.FC<{vh:number}> = ({vh=10}) => <div css={section} style={{height: `${vh}vh`} as any}/>;
