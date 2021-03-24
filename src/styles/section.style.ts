@@ -5,10 +5,10 @@ export const section = css`
   padding: 20px;
   height: 100vh;
   display: flex;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  justify-content: center;
+  overflow: hidden;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  scroll-snap-align: start;
 `;
 

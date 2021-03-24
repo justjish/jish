@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
 import {
   SiAmazon,
@@ -19,7 +18,6 @@ import {
 import { AiOutlineFunction } from 'react-icons/ai';
 import { MdHttp } from 'react-icons/md';
 import { GrNodes } from 'react-icons/gr';
-import { uid } from 'uid';
 import { IconType } from 'react-icons';
 
 /**

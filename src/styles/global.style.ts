@@ -19,8 +19,9 @@ export const globalStyles = css`
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: 'rgba(21, 16, 25, 1.00)';
+    overflow-x:hidden;
+    background-color: rgba(21, 16, 25, 1.00);
+    scroll-snap-type: y proximity;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
@@ -33,9 +34,10 @@ export const globalStyles = css`
     -ms-user-select: none;
     user-select: none;
     cursor: default;
+    scroll-snap-type: y proximity;
   }
   #root {
-    overflow: hidden;
     background-color: rgba(21, 16, 25, 1);
+    overflow: hidden;
   }
 `;

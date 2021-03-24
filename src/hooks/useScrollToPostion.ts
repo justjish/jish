@@ -4,7 +4,7 @@ import { config, useSpring } from 'react-spring';
  * @returns {scrollToTarget}
  */
 export const useScrollToPosition = () => {
-  const [, setY] = useSpring(() => ({ y: 0 }));
+  const [{y}, yRef] = useSpring(({ y: 0 }),[]);
 
   let isStopped = false;
   const onWheel = () => {
@@ -15,7 +15,7 @@ export const useScrollToPosition = () => {
   const scrollToTarget = (to: number) => {
     const value = to;
     window.addEventListener('wheel', onWheel);
-    setY({
+    yRef.update({
       y: value,
       reset: true,
       from: { y: 0 },

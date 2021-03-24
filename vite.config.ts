@@ -59,6 +59,6 @@ export default defineConfig({
   server: { force: true },
   esbuild: {
     jsxFactory: "jsx",
-    jsxInject: `import {jsx} from "@emotion/react"`
+    jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`
   }
 });

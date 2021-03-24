@@ -1,15 +1,24 @@
-import React from "react";
-import { animated as a, config, SpringValue, useSpring } from "react-spring";
-import { section } from "styles/section.style";
-import fullbodyWebP from "assets/pictures/fullbody@0.5x.webp";
-import { css } from "@emotion/react";
-import { box } from "styles/box.style";
-import { h1, h3 } from "styles/typography.style";
+import { FC, useEffect, Dispatch, SetStateAction, useRef, useCallback, useMemo, useState } from 'react';
+import { a, config, SpringValue, useSpring } from 'react-spring';
+import { section } from 'styles/section.style';
+
+import { box } from 'styles/box.style';
+import { useAuth } from 'hooks/useFirebase';
+import useMeasure from 'react-use-measure';
+import mergeRefs from 'react-merge-refs';
+import useBounds from 'hooks/useBounds';
+import { HelloHeading } from 'components/HelloHeading';
+import { HelloProfile } from 'components/HelloProfile';
 
 /**
  * Hello
  *
- * The introductory component. Just pass it the offset so that it knows when to move.
+ * The introductory component.
+ * It also is the loading indicator for 'signInAnonymously'.
+ *
+ * Since this site is static, and the use of firebase is mainly for future goals
+ * I won't be wrapping the subsequent components inside anything to prevent the
+ * race condition I have created.
  *
  * Notes:
  * The ios problem with intro image:
@@ -17,111 +26,51 @@ import { h1, h3 } from "styles/typography.style";
  *
  */
 
-export const Hello: React.FC<{ offset: SpringValue<number> }> = (
-  { offset },
-) => {
-  /** 
-   * The animation set is sloppy...
-   * Should really create seperate springs for each one
-   **/
-  const [
-    {
-      x,
-      y,
-      scale,
-      opacity,
-      height,
-      width,
-      presents,
-      color,
-      move,
-      background,
-      image,
-    },
-  ] = useSpring(
+export const Hello: FC<{ offset: SpringValue<number>; setShow: Dispatch<SetStateAction<boolean>> }> = ({
+  offset,
+  setShow,
+}) => {
+  const [ref, bounds] = useMeasure();
+  const localRef = useRef<HTMLDivElement>(null);
+  const updateBounds = useCallback(
+    useBounds((state) => state.setLearn),
+    [],
+  );
+
+  useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
+
+  const [{ scale, opacity }, springRef] = useSpring(
     {
       to: [
         { scale: 1 },
-        {
-          y: 200,
-          x: 0,
-          height: window.innerHeight * 0.4,
-          width: "80vw",
-          presents: "3vw",
-          color: "rgba(214, 242, 255, 1.00)",
-        },
-        {
-          opacity: offset.to({
-            range: [0, 1],
-            output: [1, 0],
-            extrapolate: "clamp",
-          }),
-          x: offset.to({ range: [0, 1], output: [0, -400] }),
-          move: 0,
-          image: 1,
-          y: offset.to({
-            range: [0, 1],
-            output: [200, -200],
-            extrapolate: "clamp",
-          }),
-          background: "rgba(39, 39, 39, 0.25)",
-        },
+        { background: 'rgba(255, 255, 255, 0.25)' },
+        { opacity: 1},
       ],
       from: {
-        x: 0,
-        y: -200,
-        scale: 0,
+        scale: 1.5,
         opacity: 0,
-        height: "1vh",
-        width: "80vw",
-        color: "rgba(255, 70, 118, 1.00)",
-        presents: "8vw",
-        move: 200,
-        background: "rgba(255, 70, 118, 1.00)",
-        image: 1,
+        height: '50vh',
+        width: '90vw',
+        background: '#4659ff',
+        x:0,
       },
-      config: config.slow,
+      delay: 50,
+      config: config.default,
     },
     [],
-    );
-  
-  const { rotateX } = useSpring({
-    rotateX: y.to([0, 50], [0, 180]),
-    config: config.molasses,
-    immediate: true,
-  });
+  );
 
+  useEffect(() => {
+    useAuth.signInAnonymously().finally(async () => setShow(true));
+  }, []);
+
+  const [{ keepBound }] = useSpring({ keepBound: bounds.height - 200, config: config.wobbly }, [bounds.height]);
   return (
-    <div css={section} style={{ overflow: "hidden" }}>
-      <a.img
-        src={fullbodyWebP}
-        alt="a photo of sujish patel"
-        css={css`
-            position: absolute;
-            object-fit: scale-down;
-            max-height: 100vh;
-            max-width: 100vw;
-            bottom: 0;
-        `}
-        style={{
-          opacity,
-          y: move,
-          scale: image,
-          x,
-        } as any}
-      />
-      <a.div
-        css={box}
-        style={{ rotateX, y, x, scale, height, width, background } as any}
-      >
-        <a.div css={h3} style={{ color, fontSize: presents } as any}>Jish.Dev Presents</a.div>
-        <a.div css={css` ${h1}; font-size:8vw;`} style={{ opacity, y: move } as any}>
-          Sujish Patel
-        </a.div>
-        <a.div css={css`${h3}; font-size:4vw;`} style={{ opacity, y: move } as any}>
-          A Full Stack Developer
-        </a.div>
+    <div css={section} ref={mergeRefs([ref, localRef])}>
+      <a.div css={box} style={{ scale, y: keepBound, background: 'rgba(39, 39, 39, 0.75)', zIndex: 1}}>
+        <HelloHeading opacity={opacity}  />
       </a.div>
+      <HelloProfile opacity={opacity} />
     </div>
   );
 };

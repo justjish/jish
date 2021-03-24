@@ -1,8 +1,9 @@
 import useBounds from 'hooks/useBounds';
-import brainIcon from 'assets/icons/brain.svg';
 import helloIcon from 'assets/icons/hello.svg';
-import extraIcon from 'assets/icons/chat.svg';
 import storyIcon from 'assets/icons/bag.svg';
+import brainIcon from 'assets/icons/brain.svg';
+import livesIcon from 'assets/icons/lives.svg';
+import learnIcon from 'assets/icons/dots.svg';
 
 /**
  * 
@@ -14,5 +15,6 @@ export const MenuData = [
   { to: () => useBounds.getState().hello.absoluteTop, icon: helloIcon },
   { to: () => useBounds.getState().story.absoluteTop, icon: storyIcon },
   { to: () => useBounds.getState().brain.absoluteTop, icon: brainIcon },
-  { to: () => useBounds.getState().about.absoluteTop, icon: extraIcon },
+  { to: () => useBounds.getState().lives.absoluteTop, icon: livesIcon },
+  { to: () => useBounds.getState().learn.absoluteTop, icon: learnIcon },
 ];

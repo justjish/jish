@@ -21,8 +21,8 @@ yarn dev
 ```
 
 ## Tech Choices
-* facebook/react: component library.
-  I just love their functional components + hooks implementation. Primarily chosen over vite/svelte because I wanted to explore web based animations with react-spring and design through motion. 
+* facebook/react@17: component library.
+  I just love their functional components + hooks implementation. Primarily chosen over vite/svelte because I wanted to explore web based animations with react-spring and design through motion. Also react@17 was chosen over react@16 because there are so many tiny performance considerations on re-renders that I do not have to worry about. 
 
 * yarn: package manager.
   Chosen over npm because I just prefer it. However skypack+snowpack combination is something I am looking forward to see evovling.

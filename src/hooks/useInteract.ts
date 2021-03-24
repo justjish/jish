@@ -10,16 +10,16 @@ import { useGesture } from 'react-use-gesture';
  * onBeforeClick: An 
  */ 
 export const useInteract = ({onClick=() => {}}) => {
-  const [{ scale }, set] = useSpring({ from: {scale: 1 }, config: config.wobbly}, []);
+  const [{ scale }, scaleRef] = useSpring(() => ({ from: { scale: 1 }, config: config.wobbly }));
   const bind = useGesture({
-    onTouchStart: ({}) => set({ scale: 0.5}),
-    onTouchEnd: ({ }) => set({ scale: 1 }),
-    onMouseDown: ({}) => set({ scale: 0.9 }),
+    onTouchStart: ({ }) => scale.start(0.5),
+    onTouchEnd: ({ }) => scale.start(1),
+    onMouseDown: ({ }) => scale.start(0.9),
     onMouseUp: ({ hovering }) => {
-      if (hovering) set({ scale: 1.2 });
+      if (hovering) scale.start(1.2);
       onClick();
     },
-    onHover: ({ hovering }) => (hovering ? set([{ scale: 1.2}]) : set([{ scale: 1}])),
+    onHover: ({ hovering }) => (hovering ? scale.start(1.2 ) : scale.start(1))
   });
   return { bind, scale};
 }

@@ -12,7 +12,7 @@ export const h1 = css`
   font-family: acier-bat-gris, sans-serif;
   font-weight: 800;
   font-style: normal;
-  font-size: 5vw;
+  font-size: 4rem;
   line-height: 0.7;
   color: rgba(253, 223, 70, 1);
 `;
@@ -23,7 +23,7 @@ export const h2 = css`
   font-style: normal;
   font-size: 1rem;
   white-space: nowrap;
-  color: rgba(8, 9, 69, 1.00);
+  color: rgba(8, 9, 69, 1);
 `;
 
 export const h3 = css`
@@ -31,13 +31,28 @@ export const h3 = css`
   font-weight: 800;
   font-style: normal;
   text-transform: uppercase;
-  font-size: 3rem; 
-  color: rgba(136, 200, 255, 1.00);
-  white-space:nowrap;
+  font-size: 1.35rem;
+  color: rgba(136, 200, 255, 1);
+`;
+export const h3Inline = css`
+  font-family: omnium, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: yellow;
+  display: inline;
 `;
 
 export const h4 = css`
   font-family: sauna-new, sans-serif;
   font-weight: 700;
   font-style: normal;
+`;
+
+export const brother = css`
+  font-family: bernhard-gothic-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
 `;

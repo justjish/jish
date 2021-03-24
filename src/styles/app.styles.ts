@@ -1,11 +1,9 @@
 import { css } from '@emotion/react'
-
 export const view = css`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 500vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 `;

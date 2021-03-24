@@ -28,4 +28,5 @@ export const useStorage = useFirebase.storage();
 export const useDatabase = useFirebase.firestore();
 export const useRealtime = useFirebase.database();
 export const useAnalytics = useFirebase.analytics();
+export const usePerformance = useFirebase.performance();
 export default useFirebase;

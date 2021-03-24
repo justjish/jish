@@ -8,15 +8,15 @@ export const menuBox = css`
   align-items: flex-start;
   justify-content: space-between;
 
-  // left ... leave it out for positioning
   right: 0px;
   left: 0px;
   top: 20px;
 
   margin: auto; /* Center it */
-  max-width: 90%; /* Make it fit window if under 500px */
+  max-width: 90%;
   height: 64px;
   width: 500px;
+
 `;
 
 export const menuItem = css`
