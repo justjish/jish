@@ -5,7 +5,7 @@ import { box } from 'styles/box.style';
 import useMeasure from 'react-use-measure';
 import mergeRefs from 'react-merge-refs';
 import useBounds from 'hooks/useBounds';
-import useAuth from 'hooks/useFirebase';
+// import useAuth from 'hooks/useFirebase';
 import { HelloHeading } from 'components/HelloHeading';
 import { HelloProfile } from 'components/HelloProfile';
 
@@ -54,7 +54,7 @@ export const Hello: FC<{ offset: SpringValue<number>; setShow: Dispatch<SetState
 
   useEffect(() => {
     setShow(true);
-    useAuth.signInAnonymously().finally(async () => setShow(true));
+    // useAuth.auth().signInAnonymously().then().catch().finally(async () => setShow(true));
   }, []);
 
   const [{ keepBound }] = useSpring({ keepBound: bounds.top+100, config: config.wobbly }, [bounds.height]);

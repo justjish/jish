@@ -11,7 +11,7 @@ const Item: React.FC<{ icon: string; to: () => number, alt: string}> = ({ icon =
   const { bind, scale } = useInteract({ onClick: handleClick });
   return (
     <a.div css={menuItem} {...bind()} style={{ scale }}>
-      <a.img height={height} width={ width} src={icon}></a.img>
+      <a.img height={height} width={ width} src={icon} alt={alt}></a.img>
     </a.div>
   );
 };
