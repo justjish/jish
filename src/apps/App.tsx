@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef, UIEvent, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { Global } from '@emotion/react';
 import { Menu } from 'components/Menu';
 import Hello from 'components/Hello';
@@ -9,27 +9,25 @@ import Learn from 'components/Learn';
 import { useSpring } from 'react-spring';
 import { view } from '../styles/app.styles';
 import { globalStyles } from 'styles/global.style';
-import { useGesture, useScroll } from 'react-use-gesture';
+import { useScroll } from 'react-use-gesture';
 /**
  *
  * Entry point into the React part of the app.
- * Currently thats the only piece I have coded up, but want to get Flutter, Vue,
- * and pure HTML in here... this is a web test bench after all.
+ * (Currently the React part is the only piece coded up)
  *
- * Funny enough, I am not a big fan of using Routers inside React.
- * It would be preferrable to do those types of interacts in pure
- * HTML5 or server side functions.
- *
- * In this particular case, I'm just going to have the Firebase hosting
- * take care of routing configurations. Since their JS webpackage is
- * extremely functional.
+ * I'm personally not a big fan of React based routing, so in this
+ * particular repo, I'm just going to have the Firebase hosting
+ * take care of routing configurations. Since their JS api package is
+ * extremely functional. 
+ * (Unfornately the bundle for their authentication is huge)
  *
  * @returns App Component
  */
 export const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   // Using 1 scroll listener across entire component tree
-  // It's a little bit of prop passing, but was the quickly solution for render jank
+  // It's a little bit of prop passing, but was the quickest solution for render jank
+  // *Update* react-spring's officially 9.0 release is a lot more performant than their 9.0.rc3
   const [{ scroll }] = useSpring({ scroll: window.scrollY }, []);
   useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { domTarget: window })
   const [show, setShow] = useState(false);

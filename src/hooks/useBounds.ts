@@ -19,7 +19,10 @@ type State = {
   setLives: (bounds: Details) => void;
   setLearn: (bounds: Details) => void;
 };
-/** A globally accessible store to that holds important sizing information per component */
+/** 
+ * A globally accessible store to that holds important sizing information per component 
+ * Also used by the Nav Menu to determine where to go.
+*/
 const useBounds = create<State>(
   devtools(
     immer((set) => ({

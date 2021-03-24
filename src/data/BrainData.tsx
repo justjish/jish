@@ -52,6 +52,8 @@ export type SkillItem = {
   type: Types;
   size: Sizes;
 };
+/**TODO: Get Icons for Everything... */
+/** Maybe create a masonry grid?  */
 export const BrainData: Array<SkillItem> = [
   {idx:1 ,desc: 'React', Icon: FaReact, type: Types.library,size: Sizes.lg},
   {idx:2 ,desc: 'Node',Icon: FaNodeJs,type: Types.runtime,size: Sizes.lg,},

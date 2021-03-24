@@ -1,5 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes, useEffect,useState } from 'react';
+import { useEffect,useState } from 'react';
 
+/** Interact with the IntersectionObeserver API */
 export const useOnScreen = (options = {} as IntersectionObserverInit) => {
   const [ref, setRef] = useState<HTMLDivElement>();
   const [view, set] = useState(false);

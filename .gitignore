@@ -17,6 +17,7 @@ node_modules/
 .firebase/**/*.*
 
 dist/**/*.*
+dist/
 
 *.log
 yarn.lock

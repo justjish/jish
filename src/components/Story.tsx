@@ -7,7 +7,7 @@ import StoryData from 'data/StoryData';
 import { section } from 'styles/section.style';
 import { row } from 'styles/row.style';
 import { StoryPlace } from 'components/StoryPlace';
-import { Years } from 'components/Years';
+import { StoryYears } from 'components/StoryYears';
 import { StoryHeading } from 'components/StoryHeading';
 import { StoryBackground } from 'components/StoryBackground';
 
@@ -25,7 +25,7 @@ const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ d
         {data.map((props, i) => (
           <StoryPlace key={i} offset={offset} {...props} />
         ))}
-        <Years offset={offset} />
+        <StoryYears offset={offset} />
       </div>
       <StoryHeading offset={offset} />
     </div>

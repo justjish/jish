@@ -1,7 +1,8 @@
-import reactRefresh from '@vitejs/plugin-react-refresh'; // Conflicts with react-spring
+import reactRefresh from '@vitejs/plugin-react-refresh'; 
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
+import viteImagemin from 'vite-plugin-imagemin';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 import ViteFonts from 'vite-plugin-fonts';
@@ -10,23 +11,57 @@ export default defineConfig({
     tsconfigPaths(),
     svgr(),
     imagetools(),
+    reactRefresh(),
+    viteImagemin({
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false,
+      },
+      optipng: {
+        optimizationLevel: 7,
+      },
+      webp: {
+        quality: 75,
+      },
+      mozjpeg: {
+        quality: 65,
+      },
+      pngquant: {
+        quality: [0.65, 0.9],
+        speed: 4,
+      },
+      svgo: {
+        plugins: [
+          {
+            removeViewBox: false,
+          },
+          {
+            removeEmptyAttrs: false,
+          },
+        ],
+      },
+    }),
     VitePWA({
       manifest: {
         name: "Jish.Dev",
         short_name: "Jish",
         start_url: ".",
         display: "standalone",
-        background_color: "#fff",
-        description: "A readable Hacker News app.",
+        background_color: "rgba(21, 16, 25, 1.00)",
+        theme_color: "rgba(12, 48, 149, 1.00)",
+        description: "Experiments with the web in 2021.",
         icons: [
           {
-            src: "assets/pwa/icon-512.png",
-            sizes: "512x512",
-            type: "image/png"
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
           },
           {
-            src: "assets/pwa/icon.svg",
-            type: "image/svg"
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
           }
         ],
       }
@@ -52,7 +87,6 @@ export default defineConfig({
       'firebase/firebase-storage',
       'firebase/firebase-performance',
       'lodash/fp',
-      'graph/analysis',
       'zustand/middleware',
     ],
   },
@@ -60,5 +94,5 @@ export default defineConfig({
   esbuild: {
     jsxFactory: "jsx",
     jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`
-  }
+  },
 });

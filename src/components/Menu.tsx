@@ -5,7 +5,7 @@ import { menuBox, menuItem } from 'styles/menu.style';
 import useBounds from 'hooks/useBounds';
 import { MenuData } from 'data/MenuData';
 
-const Item: React.FC<{ icon: string; to: () => number }> = ({ icon = '', to }) => {
+const Item: React.FC<{ icon: string; to: () => number, alt: string}> = ({ icon = '', alt, to }) => {
   const handleClick = useCallback(() => window.scrollTo({ top: to(), left: 0, behavior:'smooth'}), []);
   const { height, width } = useSpring({ height: '30px', width: '30px' });
   const { bind, scale } = useInteract({ onClick: handleClick });

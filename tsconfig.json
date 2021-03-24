@@ -18,7 +18,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "outDir": "dist",
-    "sourceMap": true, // Output source maps for debugging
+    "sourceMap": false,
     "composite": false,
     "paths": {},
   },

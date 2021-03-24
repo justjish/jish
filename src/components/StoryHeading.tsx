@@ -6,10 +6,10 @@ import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';
 
 export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
-  const { scale } = useSpring({ scale: offset.to([0, 1], [2, 1]), from: { scale: 10 } });
+  const { scale, y } = useSpring({ scale: offset.to([0, 1], [2, 1]), y: offset.to([0,1],[0,200]) , from: { scale: 10, y:0 } });
   // I could just base the size of the useBounds store, but media queries are just quicker.
   const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '2rem');
-  const [{ fontSize, y }] = useSpring({ fontSize: mqFont, y: -10, config: config.wobbly },[mqFont]);
+  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly },[mqFont]);
   return (
     <a.div
       css={css`

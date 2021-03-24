@@ -12,9 +12,9 @@ import learnIcon from 'assets/icons/dots.svg';
  * 
  * */
 export const MenuData = [
-  { to: () => useBounds.getState().hello.absoluteTop, icon: helloIcon },
-  { to: () => useBounds.getState().story.absoluteTop, icon: storyIcon },
-  { to: () => useBounds.getState().brain.absoluteTop, icon: brainIcon },
-  { to: () => useBounds.getState().lives.absoluteTop, icon: livesIcon },
-  { to: () => useBounds.getState().learn.absoluteTop, icon: learnIcon },
+  { to: () => useBounds.getState().hello.absoluteTop, icon: helloIcon, alt: 'Hello' },
+  { to: () => useBounds.getState().story.absoluteTop, icon: storyIcon, alt: 'History' },
+  { to: () => useBounds.getState().brain.absoluteTop, icon: brainIcon, alt: 'Skills' },
+  { to: () => useBounds.getState().lives.absoluteTop, icon: livesIcon, alt: "Location" },
+  { to: () => useBounds.getState().learn.absoluteTop, icon: learnIcon, alt: "Learn More" },
 ];

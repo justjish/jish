@@ -4,7 +4,6 @@ import { css } from '@emotion/react';
 import { section } from 'styles/section.style';
 import { h3 } from 'styles/typography.style';
 import svgFrame from 'assets/graphics/cityFrameCircle.svg';
-import { box } from 'styles/box.style';
 import { row } from 'styles/row.style';
 import useMeasure from 'react-use-measure';
 import useBounds from 'hooks/useBounds';

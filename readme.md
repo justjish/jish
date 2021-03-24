@@ -11,8 +11,6 @@ I use this repo primarily to:
 
 To see free to check out [Jish.Dev](https://www.jish.dev) to see the currently released app.
 
-It's designed as a monorepo because I just prefer those over having to mess around with vscode workspace and I can share code between the serverless functions and the frontend. 
-
 ## Run Locally
 ```
 git clone ...
@@ -28,7 +26,7 @@ yarn dev
   Chosen over npm because I just prefer it. However skypack+snowpack combination is something I am looking forward to see evovling.
 
 * vitejs/vite: the code bundler.
-  After testing both Snowpack and ViteJS, extensively I ended up choosing Vite since it bundles up the code. I like keeping a snowpack config around however, because ESM modules are great, and the prospect of moving away from a package manager seems exciting. Webpack and Parcel are great tools as well, but wanted to try the newer communities.
+  After testing both Snowpack and ViteJS, extensively I ended up choosing Vite since it bundles up the code. I like keeping a snowpack config around however, because ESM modules are great, and the prospect of moving away from a package manager seems exciting. Webpack and Parcel are great tools as well, but wanted to try the newer communities. I also noticed that my computer fans don't ramp up as much when using snowpack. 
 
 * @emotion/react: componenet styling library. 
   This evolved from styled-components -> @emotion/styled -> @emotion/react because the css prop helped to keep inline style adjustments seperated from react-spring which I use for animations.
@@ -45,4 +43,4 @@ yarn dev
 * Typescript: the primary language
   Because a fully typed web app is provides a great developer expierence. 
 
-* Cloud Build: build and deploy
+* Cloud Build: builds and deploy - TODO

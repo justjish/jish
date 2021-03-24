@@ -1,12 +1,11 @@
-import { FC, useEffect, Dispatch, SetStateAction, useRef, useCallback, useMemo, useState } from 'react';
+import { FC, useEffect, Dispatch, SetStateAction, useRef, useCallback} from 'react';
 import { a, config, SpringValue, useSpring } from 'react-spring';
 import { section } from 'styles/section.style';
-
 import { box } from 'styles/box.style';
-import { useAuth } from 'hooks/useFirebase';
 import useMeasure from 'react-use-measure';
 import mergeRefs from 'react-merge-refs';
 import useBounds from 'hooks/useBounds';
+import useAuth from 'hooks/useFirebase';
 import { HelloHeading } from 'components/HelloHeading';
 import { HelloProfile } from 'components/HelloProfile';
 
@@ -39,38 +38,34 @@ export const Hello: FC<{ offset: SpringValue<number>; setShow: Dispatch<SetState
 
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
 
-  const [{ scale, opacity }, springRef] = useSpring(
+  const [{ x, scale, opacity, background }] = useSpring(
     {
-      to: [
-        { scale: 1 },
-        { background: 'rgba(255, 255, 255, 0.25)' },
-        { opacity: 1},
-      ],
+      to: [{ scale: 1 }, { background: 'rgba(73, 82, 109, .75)' } ,{ opacity: 1, x:0 }],
       from: {
         scale: 1.5,
         opacity: 0,
-        height: '50vh',
-        width: '90vw',
-        background: '#4659ff',
-        x:0,
+        background: 'rgba(255, 70, 118, 1.00)',
+        x: -500,
       },
-      delay: 50,
-      config: config.default,
+      config: config.wobbly,
     },
     [],
   );
 
   useEffect(() => {
+    setShow(true);
     useAuth.signInAnonymously().finally(async () => setShow(true));
   }, []);
 
-  const [{ keepBound }] = useSpring({ keepBound: bounds.height - 200, config: config.wobbly }, [bounds.height]);
+  const [{ keepBound }] = useSpring({ keepBound: bounds.top+100, config: config.wobbly }, [bounds.height]);
   return (
     <div css={section} ref={mergeRefs([ref, localRef])}>
-      <a.div css={box} style={{ scale, y: keepBound, background: 'rgba(39, 39, 39, 0.75)', zIndex: 1}}>
-        <HelloHeading opacity={opacity}  />
-      </a.div>
-      <HelloProfile opacity={opacity} />
+
+        <a.div css={box} style={{ scale, y: keepBound, background, zIndex: 2, position:'absolute' }}>
+          <HelloHeading opacity={opacity} />
+        </a.div>
+        <HelloProfile opacity={opacity} x={x} />
+
     </div>
   );
 };
