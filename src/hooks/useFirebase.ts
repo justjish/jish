@@ -25,7 +25,14 @@ const options = Object.freeze({
 });
 
 const useFirebase = firebase.initializeApp({ ...options });
-
+// Use emulators if running locally
+if (import.meta.env.DEV) {
+  firebase.auth().useEmulator("http://localhost:9099");
+  firebase.functions().useEmulator("localhost", 5001);
+  firebase.firestore().useEmulator('localhost', 8080);
+  firebase.database().useEmulator('localhost', 9000);
+  
+}
 export const useAuth = useFirebase.auth();
 export const useStorage = useFirebase.storage();
 export const useDatabase = useFirebase.firestore();

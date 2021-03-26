@@ -4,7 +4,8 @@
     "node": "15"
   },
   "scripts": {
-    "dev": "run-p dev:app:vite**",
+    "dev": "run-p dev:app:**",
+    "dev:app:firebase":"firebase emulators:start",
     "dev:app:vite": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview"
