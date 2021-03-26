@@ -29,7 +29,7 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
       opacity: offset.to([1.5, 4], [0, 1]),
       scale: offset.to([2.5, 4], [0.5, 1]),
       y: offset.to([3, 4], [-600, 0]),
-      config: {tension: 120, friction: 20},
+      config: config.default,
     },
     [],
   );
