@@ -31,6 +31,8 @@ export const LearnExternal: FC<{
       style={{ ...interactStyles }}
       download={download}
       target="_blank"
+      rel="noopener"
+      
     >
       <a.div
         css={css`
