@@ -28,7 +28,7 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
     {
       opacity: offset.to([1.5, 4], [0, 1]),
       scale: offset.to([2.5, 4], [0.5, 1]),
-      y: offset.to([3, 4], [-200, 0]),
+      y: offset.to([3, 4], [-600, 0]),
       config: config.wobbly,
     },
     [],
@@ -41,7 +41,7 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
       <a.div
         css={css`
           ${box};
-          z-index: 2;
+          overflow: hidden;
         `}
         style={{ opacity, scale, y }}
       >
