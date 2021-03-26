@@ -11,8 +11,7 @@ const style = css`
   object-fit: scale-down;
 `;
 
-
-export const HelloProfile: FC<{ opacity: SpringValue<number>, x: SpringValue<number>}> = ({ opacity, x }) => {
+export const HelloProfile: FC<{ opacity: SpringValue<number>, x: SpringValue<number>}> = ({ opacity, x}) => {
   const size = useMedia(screenSizes, ['40vw', '50vw', '90vw'], '120vw');
   const [{ width }] = useSpring({ width: size }, [size]);
   return <a.img css={style} srcSet={`${fbSDWebp} .5x, ${fbHQPng} 1.5x, ${fbSDPng} .5x`} src={fbSDWebp} alt="sujish patel" style={{ opacity, width , x}}></a.img>

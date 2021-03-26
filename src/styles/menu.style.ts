@@ -29,4 +29,8 @@ export const menuItem = css`
   margin: auto;
   height: 48px;
   width: 48px;
+  touch-action: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  user-select: none;
 `;

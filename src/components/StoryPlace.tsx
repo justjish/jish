@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { animated as a, config, SpringValue, useSpring } from 'react-spring';
+import { a, config, SpringValue, useSpring } from 'react-spring';
 import { noop } from 'lodash/fp';
 import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
@@ -24,10 +24,10 @@ export const StoryPlace: FC<{
     config: config.molasses,
     immediate: true,
   });
-  const { bind, scale } = useInteract({ onClick: noop });
+  const { bind, interactStyles } = useInteract({ onClick: noop });
   return (
     
-      <a.div css={box} {...bind()} style={{ scale, skewX, x, }}>
+      <a.div css={box} {...bind()} style={{ ...interactStyles,skewX, x, }}>
         <img
           css={css`
             object-fit: contain;

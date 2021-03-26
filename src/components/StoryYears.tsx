@@ -12,7 +12,7 @@ export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
     x: offset.to([1, 0], [0, 1000]),
     config: { mass: 50 / 15, tension: 100 - 15 * 5, friction: 26 },
   },[]);
-  const { bind, scale } = useInteract({ onClick: noop });
+  const { bind, interactStyles } = useInteract({ onClick: noop });
   return (
     <a.div
       css={css`
@@ -20,7 +20,7 @@ export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
         width: 350px;
       `}
       {...bind()}
-      style={{ scale, x }}
+      style={{ ...interactStyles,x }}
     >
       <div css={h2}>Years Coding</div>
       <div

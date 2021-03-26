@@ -11,7 +11,7 @@ export default defineConfig({
     tsconfigPaths(),
     svgr(),
     imagetools(),
-    reactRefresh(),
+    // reactRefresh(),
     viteImagemin({
       gifsicle: {
         optimizationLevel: 7,

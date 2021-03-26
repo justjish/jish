@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useRef} from 'react';
 import { Global } from '@emotion/react';
 import { Menu } from 'components/Menu';
 import Hello from 'components/Hello';
@@ -10,6 +10,8 @@ import { useSpring } from 'react-spring';
 import { view } from '../styles/app.styles';
 import { globalStyles } from 'styles/global.style';
 import { useScroll } from 'react-use-gesture';
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 /**
  *
  * Entry point into the React part of the app.
@@ -19,28 +21,29 @@ import { useScroll } from 'react-use-gesture';
  * particular repo, I'm just going to have the Firebase hosting
  * take care of routing configurations. Since their JS api package is
  * extremely functional. 
- * (Unfornately the bundle for their authentication is huge)
+ * (Unfornately the bundle size for their JS package is huge, need to defer their loading)
  *
  * @returns App Component
  */
 export const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  // Using 1 scroll listener across entire component tree
-  // It's a little bit of prop passing, but was the quickest solution for render jank
-  // *Update* react-spring's officially 9.0 release is a lot more performant than their 9.0.rc3
+  /**
+   * Using 1 scroll listener across entire component tree
+   * It doesn't rerender after every 'set'.
+   * It's a little bit of prop passing, but was the quickest solution for render jank
+   **/
   const [{ scroll }] = useSpring({ scroll: window.scrollY }, []);
   useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { domTarget: window })
-  const [show, setShow] = useState(false);
   return (
     <>
       <Global styles={globalStyles} /> {/** Injects the initial style globally */}
       <div ref={ref} css={view}>
-        <Hello offset={scroll} setShow={setShow}/>
-        {show && <Story offset={scroll} />}
-        {show && <Brain offset={scroll} />}
-        {show && <Lives offset={scroll} />}
-        {show && <Learn offset={scroll} />}
-        {show && <Menu />}
+        <Hello offset={scroll} />
+        <Story offset={scroll} />
+        <Brain offset={scroll} />
+        <Lives offset={scroll} />
+        <Learn offset={scroll} />
+        <Menu />
       </div>
      
     </>

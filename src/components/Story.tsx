@@ -1,5 +1,5 @@
-import { FC, useRef, useEffect, useCallback } from 'react';
-import { animated as a, SpringValue, useSpring } from 'react-spring';
+import { FC, useRef, useEffect, useCallback, useMemo } from 'react';
+import { SpringValue } from 'react-spring';
 import useBounds from 'hooks/useBounds';
 import useMeasure from 'react-use-measure';
 import mergeRefs from 'react-merge-refs';
@@ -16,15 +16,12 @@ const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ d
   const localRef = useRef<HTMLDivElement>(null);
   const updateBounds = useBounds(useCallback((state) => state.setStory, []));
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds]);
-
+  const Places = useMemo(() => data.map((props, i) => <StoryPlace key={i} offset={offset} {...props} />), [offset]);
   return (
     <div css={section} ref={mergeRefs([ref, localRef])}>
       <div css={row}>
         <StoryBackground offset={offset} />
-        
-        {data.map((props, i) => (
-          <StoryPlace key={i} offset={offset} {...props} />
-        ))}
+        {Places}
         <StoryYears offset={offset} />
       </div>
       <StoryHeading offset={offset} />

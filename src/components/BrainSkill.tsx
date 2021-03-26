@@ -1,22 +1,11 @@
 import React from 'react';
-import { animated as a, SpringValue, useSpring } from 'react-spring';
+import { a, SpringValue, useSpring } from 'react-spring';
 import { SkillItem } from 'data/BrainData';
 import randomColor from 'randomcolor';
 import { css } from '@emotion/react';
 import { box } from 'styles/box.style';
 import { isEven, shifty } from 'functions/utils';
 
-const style = css`
-  border-radius: 16px;
-  flex-direction: row;
-  background-color: rgba(39, 39, 39, 0.75);
-  gap: 0.5em;
-`;
-
-const grid = css`
-  display: grid;
-  
-`;
 export const BrainSkill: React.FC<SkillItem & { offset: SpringValue<number> }> = ({
   Icon = null,
   idx,
@@ -25,10 +14,9 @@ export const BrainSkill: React.FC<SkillItem & { offset: SpringValue<number> }> =
   desc,
   offset,
 }) => {
-  // const initial = offset(idx);
   const [{ y, color }] = useSpring(
     {
-      y: offset.to([0, 2], [5000, 0]).to((v) => v + shifty(idx)),
+      y: offset.to([0, 2],[5000, 0]).to((v) => v + shifty(idx)),
       color: randomColor({ seed: type, luminosity: 'bright', alpha: 0.5 }),
       config: {
         mass: (100 - size + (isEven(idx) ? -idx : idx)) / 25,

@@ -5,7 +5,7 @@ export const StoryBackground:FC<{offset: SpringValue<number>}> = ({ offset }) =>
 
   const [{ r }] = useSpring(
     {
-      r: offset.to([0, 1], [0, 100]),
+      r: offset.to({ range:[0, 1], output:[0, 100] }),
       from: { r: 0 },
       config: { mass: 50 / 15, tension: 50, friction: 26 },
     },

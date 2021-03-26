@@ -5,5 +5,5 @@ export const view = css`
   height: 500vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 `;
