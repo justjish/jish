@@ -6,13 +6,16 @@ import mergeRefs from 'react-merge-refs';
 import { css } from '@emotion/react';
 import { box } from 'styles/box.style';
 import useBounds from 'hooks/useBounds';
-
 import { LearnHeading } from 'components/LearnHeading';
 import { LearnMessage } from 'components/LearnMessage';
-import { LearnExternal } from 'components/LearnExternal';
 import { LearnClosing } from 'components/LearnClosing';
+import { LearnExternal } from 'components/LearnExternal';
 import { externalData } from 'data/LearnData';
-
+// Gotta love how easy these are.
+const grid = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
 
 const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();
@@ -30,6 +33,7 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
     },
     [],
   );
+
   const ExternalLinks = useMemo(() => externalData.map((props, i) => <LearnExternal {...props} key={i} />), []);
 
   return (
@@ -43,15 +47,7 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
       >
         <LearnHeading />
         <LearnMessage />
-        <div
-          css={css`
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-          `}
-        >
-          {...ExternalLinks}
-        </div>
-        <LearnClosing />
+        <div css={grid}> {...ExternalLinks} </div>
       </a.div>
     </div>
   );

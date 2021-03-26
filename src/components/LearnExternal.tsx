@@ -1,21 +1,37 @@
 import screenSizes from 'data/screenSizes';
 import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { IconType } from 'react-icons';
 import { useSpring, config, a } from 'react-spring';
 import { box } from 'styles/box.style';
 import { h4 } from 'styles/typography.style';
 import { css } from '@emotion/react';
+import { noop } from 'lodash-es';
 
-export const LearnExternal: FC<{ Icon: IconType; message: string; link: string }> = ({ Icon, message, link }) => {
+export const LearnExternal: FC<{
+  Icon: IconType;
+  message: string;
+  link: string;
+  download?: boolean;
+}> = ({ Icon, message, link, download=false}) => {
   const mqFont = useMedia(screenSizes, ['3rem', '2.5rem', '2rem'], '1.5rem');
   const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
-  const onClick = useCallback(async () => window.open(link, "_blank"), []);
-  const { bind, interactStyles } = useInteract({ onClick: onClick });
+  const { bind, interactStyles } = useInteract({ onClick: noop });
+
   return (
-    <a.div {...bind()} css={box} style={{ ...interactStyles }}>
-      
+    <a.a
+      {...bind()}
+      href={link}
+      css={css`
+        ${box};
+        text-decoration: none;
+        color: white;
+      `}
+      style={{ ...interactStyles }}
+      download={download}
+      target="_blank"
+    >
       <a.div
         css={css`
           ${h4};
@@ -23,21 +39,21 @@ export const LearnExternal: FC<{ Icon: IconType; message: string; link: string }
         `}
         style={{ fontSize }}
       >
-          <Icon
-            css={css`
-              vertical-align: middle;
-            `}
-          />{' '}
+        <Icon
+          css={css`
+            vertical-align: middle;
+          `}
+        />{' '}
         <div
           css={css`
             ${h4};
-            font-size: .5em;
+            font-size: 0.5em;
           `}
         >
           {' '}
           {message}
         </div>{' '}
       </a.div>
-    </a.div>
+    </a.a>
   );
 };

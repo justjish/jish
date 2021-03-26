@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client", "@emotion/react/types/css-prop", ""],
+    "types": ["vite/client", "@emotion/react/types/css-prop"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": true,
