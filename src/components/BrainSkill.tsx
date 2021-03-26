@@ -28,12 +28,7 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   );
 
   return (
-    <a.div
-      css={css`
-        ${box};
-      `}
-      style={{ y, color}}
-    >
+    <a.div css={box} style={{ y, color}}>
       {Icon && (
         <Icon
           title={desc}
@@ -45,7 +40,7 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
         />
       )}
 
-      <a.div
+      <div
         css={css`
           font-size: ${(50 * size) / 100}px;
           font-family: futura-pt, sans-serif;
@@ -55,7 +50,7 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
         `}
       >
         {desc}
-      </a.div>
+      </div>
     </a.div>
   );
 };
