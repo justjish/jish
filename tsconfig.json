@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "target": "ESNext",
     "lib": ["DOM.Iterable","ESNext"],
-    "types": ["vite/client","@emotion/react/types/css-prop"],
+    "types": ["vite/client","@emotion/react/types/css-prop", ""],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": false,
