@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { a, SpringValue, useSpring } from 'react-spring';
 import { SkillItem } from 'data/BrainData';
 import randomColor from 'randomcolor';
@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 import { box } from 'styles/box.style';
 import { isEven, shifty } from 'functions/utils';
 
-export const BrainSkill: React.FC<SkillItem & { offset: SpringValue<number> }> = ({
+export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   Icon = null,
   idx,
   size,
