@@ -21,7 +21,7 @@ const Brain: FC<{ data?: typeof BrainData; offset: SpringValue<number> }> = ({ d
   const updateBounds = useBounds(useCallback((state) => state.setBrain, []));
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds]);
 
-  const Skills = useMemo(() => data.map((o, index) => <BrainSkill key={index} offset={offset} {...o} />), [offset]);
+  const Skills = useMemo(() => data.map((o, index) => <BrainSkill key={index} offset={offset} {...o} />), []);
   return (
     <div css={section} ref={mergeRefs([localRef, ref])}>
       <div
