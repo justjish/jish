@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "target": "ESNext",
-    "lib": ["DOM.Iterable","ESNext"],
-    "types": ["vite/client","@emotion/react/types/css-prop", ""],
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vite/client", "@emotion/react/types/css-prop", ""],
     "allowJs": false,
     "skipLibCheck": false,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -20,7 +20,7 @@
     "outDir": "dist",
     "sourceMap": false,
     "composite": false,
-    "paths": {},
+    "paths": {}
   },
   "include": ["src"]
 }
