@@ -16,7 +16,7 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
 }) => {
   const [{ y, color }] = useSpring(
     {
-      y: offset.to([0, 2, 2.75], [5000, 0, -1000]).to((v) => v + shifty(idx)),
+      y: offset.to([0, 2, 2.75], [5000, 0, -1000]),
       from: {y: 5000, color:randomColor({ seed: type, luminosity: 'bright', alpha: 0.5 })},
       config: {
         mass: (100 - size + (isEven(idx) ? -idx : idx)) / 25,
@@ -32,7 +32,6 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
       {Icon && (
         <Icon
           title={desc}
-          
           css={css`
             height: ${size}px;
             width: ${size}px;
