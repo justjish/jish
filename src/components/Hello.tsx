@@ -13,23 +13,21 @@ import { HelloScrollDown } from './HelloScrollDown';
  * Hello
  *
  * The introductory component.
- * It also is the loading indicator for 'signInAnonymously'.
- *
- * Since this site is static, and the use of firebase is mainly for future goals
- * I won't be wrapping the subsequent components inside anything to prevent the
- * race condition I have created.
  *
  * Notes:
- * Interesting little ios problem I have had to deal with until now.
+ * Interesting little ios problem
  * https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d
  *
  */
 
-export const Hello: FC<{ offset: SpringValue<number>;}> = ({offset}) => {
+export const Hello: FC<{ offset: SpringValue<number>; }> = ({ offset }) => {
+  
+  // Some boilerplate to register the size and position of the component into the 
+  // useBounds store. This way Navigation menu knows where to 'scrollTo' based on 
+  // the actual position position of the component post render. 
   const [ref, bounds] = useMeasure();
   const localRef = useRef<HTMLDivElement>(null);
-  const updateBounds = useCallback(useBounds((state) => state.setHello),[]);
-
+  const updateBounds = useCallback(useBounds((state) => state.setHello), []);
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
 
   const [{ x, scale, opacity, background }] = useSpring(
