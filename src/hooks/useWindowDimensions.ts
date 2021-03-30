@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+// Gets the window dimensions.
+// Should be React Native ready, though that claim is untested.
 export default function useWindowDimensions() {
   const hasWindow = typeof window !== 'undefined';
   function getWindowDimensions() {
