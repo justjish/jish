@@ -9,7 +9,7 @@ I use this repo primarily to:
  * Try out various 2021 *web* technologies 
  * Showcase and expierment with coding styles
 
-To see free to check out [Jish.Dev](https://www.jish.dev) to see the currently released app.
+To see free to check out [Jish.Dev](https:/jish.dev) to see the currently released app.
 
 ## Run Locally
 ```
