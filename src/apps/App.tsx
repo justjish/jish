@@ -7,7 +7,7 @@ import Brain from 'components/Brain';
 import Lives from 'components/Lives';
 import Learn from 'components/Learn';
 import { useSpring } from 'react-spring';
-import { view } from '../styles/app.styles';
+import { view } from 'styles/app.styles';
 import { globalStyles } from 'styles/global.style';
 import { useScroll } from 'react-use-gesture';
 import smoothscroll from 'smoothscroll-polyfill';
@@ -23,6 +23,10 @@ smoothscroll.polyfill();
  * extremely functional. 
  * (Unfornately the bundle size for their JS package is huge, need to defer their loading)
  *
+ * A few things will you not see because of code styling choices
+ * 1. Components wrapped in Contexts... Since context changes cause rerenders down the chain
+ *    (Plus they are ugly lol. )
+ * 
  * @returns App Component
  */
 export const App: FC = () => {
