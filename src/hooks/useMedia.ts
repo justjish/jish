@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+
+// A hook to allow media query use in react.
 export const useMedia = <T>(queries: string[], values: T[], defaultValue: T) => {
   // Array containing a media query list for each query
   const mediaQueryLists = queries.map(q => window.matchMedia(q));

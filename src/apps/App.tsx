@@ -30,7 +30,7 @@ smoothscroll.polyfill();
  *    tree path, that then require wrapping up components in React.memo()... It just gets messy quickly.
  * 2. A component library like bootstrap/materialui. I am not opposed to them, I just wanted 
  *    to create a custom look without having to reverse engineer pre-existing styles.  
- * 3. 
+ * 3. A scroll listener that is not debounced, to ensure fluid motion during scrolling.
  * 
  * @returns App Component
  */

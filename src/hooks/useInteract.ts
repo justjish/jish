@@ -3,11 +3,10 @@ import { useSpring, config } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 
 /**
- * A unified hook to standardize interaction animations for animated components. 
+ * A unified hook to standardize interaction animations for interactable components. 
  * TODO: Expand settings
  * 
  * onClick: Synchronously do what you want. 
- * onBeforeClick: An 
  */ 
 export const useInteract = ({onClick=() => {}}) => {
   const [interactStyles] = useSpring({ scale: 1, config: config.wobbly },[]);

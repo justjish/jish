@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useSpring } from 'react-spring';
 /**
  * Hook that will grow font to a final size on mount.
