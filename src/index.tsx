@@ -4,6 +4,9 @@ import { render } from 'react-dom';
 import App from 'apps/App';
 import reportWebVitals from 'functions/reportWebVitals';
 
+// TODO: Initial Configurations
+
+
 // Loads up the React App
 const root = document.getElementById("root");
 render(<StrictMode><App /></StrictMode>, root);
