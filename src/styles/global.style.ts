@@ -34,7 +34,6 @@ export const globalStyles = css`
     -ms-user-select: none;
     user-select: none;
     cursor: default;
-    scroll-snap-type: y proximity;
   }
   #root {
     background-color: rgba(21, 16, 25, 1);
