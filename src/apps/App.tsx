@@ -10,10 +10,6 @@ import { useSpring } from 'react-spring';
 import { view } from 'styles/app.styles';
 import { globalStyles } from 'styles/global.style';
 import { useScroll } from 'react-use-gesture';
-import smoothscroll from 'smoothscroll-polyfill';
-// Safari Mobile Scroll To Pollyfill.
-// TODO: Move into a 'configuration settings' file.
-smoothscroll.polyfill();
 /**
  *
  * Entry point into the React part of the app.
@@ -21,9 +17,7 @@ smoothscroll.polyfill();
  *
  * I'm personally not a big fan of React based routing, so in this
  * particular repo, I'm just going to have the Firebase hosting
- * take care of routing configurations. Since their JS api package is
- * extremely functional. 
- * (Unfornately the bundle size for their JS package is huge, need to defer their loading)
+ * take care of routing configurations.
  *
  * A few things will you not see because of code styling choices
  * 1. Components wrapped in Contexts... Since context changes cause rerenders down their individual
@@ -38,8 +32,13 @@ export const App: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   /**
    * Using 1 scroll listener across entire component tree
-   * Note* The React Component tree doesn't rerender after every 'set'.
-   * It's a little bit of prop passing, but was the quickest solution for render jank
+   * 
+   * **The React Component tree doesn't rerender after every 'set' because
+   * stateful values gotten from react-spring live outside of react's state management** 
+   * 
+   * It's a little bit of prop passing, but was the quickest solution for render jank,
+   * the alternative would be to use zustand (a state management library) and it's 
+   * transient update feature.
    * 
    * Also I purposfully didn't introduce debouncing to the scroll listener. Since I wanted
    * the animations to be as fluid as possible.

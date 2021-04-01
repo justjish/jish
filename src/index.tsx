@@ -1,15 +1,9 @@
-//import {} from "react-dom/experimental"; // used to ensure experimental types are being referrenced.
+//import {} from "react-dom/experimental"; // used to ensure experimental types are being referrenced when testing concurrent mode.
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
+import { preRender, postRender } from 'config/startup';
 import App from 'apps/App';
-import reportWebVitals from 'functions/reportWebVitals';
 
-// TODO: Initial Configurations
-
-
-// Loads up the React App
-const root = document.getElementById("root");
-render(<StrictMode><App /></StrictMode>, root);
-
-// Dev Functions
-(import.meta.env.DEV && reportWebVitals(console.log))
+preRender();
+render(<StrictMode><App /></StrictMode>, document.getElementById("root"));
+postRender();
