@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 
+//TODO: Refactor h0, h1, ... to the actual font name. These were styled-components previously, but now they are simply serialized css values.
+
 export const h0 = css`
   font-family: oskar-inline, sans-serif;
   font-weight: 500;
