@@ -13,8 +13,8 @@ export const useInteract = ({onClick=() => {}}) => {
   const bind = useGesture({
     onClick: onClick,
     onMouseDown: ({}) => interactStyles.scale.start(.9),
-    onMouseUp: ({hovering}) => hovering ? interactStyles.scale.start(1.2): interactStyles.scale.start(1),
-    onHover: ({hovering}) => hovering ? interactStyles.scale.start(1.2) : interactStyles.scale.start(1)
+    onMouseUp: ({hovering}) => hovering ? interactStyles.scale.start(1.1): interactStyles.scale.start(1),
+    onHover: ({hovering}) => hovering ? interactStyles.scale.start(1.1) : interactStyles.scale.start(1)
   });
   return { bind, interactStyles};
 }
