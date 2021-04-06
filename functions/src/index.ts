@@ -1,8 +1,9 @@
+
 import { https, logger as log } from "firebase-functions";
+
 import express from 'express';
 import { ApolloServer, gql } from 'apollo-server-express';
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
+
 
 const typeDefs = gql`
   type Skill {
