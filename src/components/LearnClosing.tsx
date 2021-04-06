@@ -1,5 +1,4 @@
 import { h4} from 'styles/typography.style';
-
 import viteSvg from 'assets/logos/vite.svg';
 import reactSvg from 'assets/logos/react.svg';
 import heartSvg from 'assets/icons/love.svg';
@@ -19,6 +18,7 @@ const HeartIcon = () => (
     width="32px"
   />
 );
+/** Not in Use */
 export const LearnClosing = () => (
   <div
     css={css`
