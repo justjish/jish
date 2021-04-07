@@ -6,4 +6,4 @@ export const blur = css`
   -webkit-backdrop-filter: blur(5px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
-`
+`;

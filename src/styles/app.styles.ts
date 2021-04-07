@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 export const view = css`
   position: absolute;
   width: 100vw;

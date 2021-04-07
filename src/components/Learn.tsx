@@ -14,13 +14,16 @@ import { externalData } from 'data/LearnData';
 // Gotta love how easy these are.
 const grid = css`
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
 `;
 
 const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();
   const localRef = useRef<HTMLDivElement>(null);
-  const updateBounds = useCallback(useBounds((state) => state.setLearn),[]);
+  const updateBounds = useCallback(
+    useBounds((state) => state.setLearn),
+    [],
+  );
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
 
   /** Animations on the box **/

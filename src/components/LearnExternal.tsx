@@ -14,7 +14,7 @@ export const LearnExternal: FC<{
   message: string;
   link: string;
   download?: boolean;
-}> = ({ Icon, message, link, download=false}) => {
+}> = ({ Icon, message, link, download = false }) => {
   const mqFont = useMedia(screenSizes, ['3rem', '2.5rem', '2rem'], '1.5rem');
   const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   const { bind, interactStyles } = useInteract({ onClick: noop });
@@ -32,7 +32,6 @@ export const LearnExternal: FC<{
       download={download}
       target="_blank"
       rel="noopener"
-      
     >
       <a.div
         css={css`

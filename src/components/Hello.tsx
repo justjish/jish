@@ -20,19 +20,21 @@ import { HelloScrollDown } from './HelloScrollDown';
  *
  */
 
-export const Hello: FC<{ offset: SpringValue<number>; }> = ({ offset }) => {
-  
-  // Some boilerplate to register the size and position of the component into the 
-  // useBounds store. This way Navigation menu knows where to 'scrollTo' based on 
-  // the actual position position of the component post render. 
+export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
+  // Some boilerplate to register the size and position of the component into the
+  // useBounds store. This way Navigation menu knows where to 'scrollTo' based on
+  // the actual position position of the component post render.
   const [ref, bounds] = useMeasure();
   const localRef = useRef<HTMLDivElement>(null);
-  const updateBounds = useCallback(useBounds((state) => state.setHello), []);
+  const updateBounds = useCallback(
+    useBounds((state) => state.setHello),
+    [],
+  );
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
 
   const [{ x, scale, opacity, background }] = useSpring(
     {
-      to: [{scale: 1, background: 'rgba(73, 82, 109, .75)', opacity: 1, x: offset.to([0, 1], [0, 1000]) }],
+      to: [{ scale: 1, background: 'rgba(73, 82, 109, .75)', opacity: 1, x: offset.to([0, 1], [0, 1000]) }],
       from: {
         scale: 1.5,
         opacity: 0,
@@ -44,15 +46,15 @@ export const Hello: FC<{ offset: SpringValue<number>; }> = ({ offset }) => {
     [],
   );
 
-  const [{ y }] = useSpring({ y: offset.to([0, .2], [200, 0]), config: config.stiff}, []);
+  const [{ y }] = useSpring({ y: offset.to([0, 0.2], [200, 0]), config: config.stiff }, []);
   const [{ rotateX }] = useSpring({ rotateX: y.to([0, 100], [0, 180]), config: config.stiff, immediate: true }, []);
   return (
     <div css={section} ref={mergeRefs([ref, localRef])}>
       <a.div css={box} style={{ scale, y, background, zIndex: 2, position: 'absolute', rotateX }}>
-        <HelloHeading opacity={opacity} x={x}/>
+        <HelloHeading opacity={opacity} x={x} />
         <HelloScrollDown />
       </a.div>
-      <HelloProfile opacity={opacity} x={x}/>
+      <HelloProfile opacity={opacity} x={x} />
     </div>
   );
 };

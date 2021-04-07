@@ -16,6 +16,7 @@ const flexBox = css`
   ${box}
   display: flex;
 `;
+
 const futuraFont = css`
   font-family: futura-pt, sans-serif;
   font-weight: 500;

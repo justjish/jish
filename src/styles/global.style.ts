@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 
-/** Entry point for Global Styles. 
- * 
- * Note: css prop configuration from @emotion is configured in two places 
+/** Entry point for Global Styles.
+ *
+ * Note: css prop configuration from @emotion is configured in two places
  * As a type in tsconfig.json for type-checking, and as a jsx injection in
- * @vite.config.js 
- * 
+ * @vite.config.js
+ *
  * */
 export const globalStyles = css`
   * {
@@ -19,8 +19,8 @@ export const globalStyles = css`
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x:hidden;
-    background-color: rgba(21, 16, 25, 1.00);
+    overflow-x: hidden;
+    background-color: rgba(21, 16, 25, 1);
     scroll-snap-type: y proximity;
   }
   body {

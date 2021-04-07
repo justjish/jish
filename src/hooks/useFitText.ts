@@ -20,18 +20,14 @@ export const useFitText = () => {
     const isDone = Math.abs(fontSize - fontSizePrev) <= RESOLUTION;
     const isOverflow =
       !!ref.current &&
-      (ref.current.scrollHeight > ref.current.offsetHeight ||
-        ref.current.scrollWidth > ref.current.offsetWidth);
+      (ref.current.scrollHeight > ref.current.offsetHeight || ref.current.scrollWidth > ref.current.offsetWidth);
     const isAsc = fontSize > fontSizePrev;
 
     // return if the font size has been adjusted "enough" (change within RESOLUTION)
     // reduce font size by one increment if it's overflowing
     if (isDone) {
       if (isOverflow) {
-        const fontSizeNew =
-          fontSizePrev < fontSize
-            ? fontSizePrev
-            : fontSize - (fontSizePrev - fontSize);
+        const fontSizeNew = fontSizePrev < fontSize ? fontSizePrev : fontSize - (fontSizePrev - fontSize);
         setState({
           fontSize: fontSizeNew,
           fontSizeMax,

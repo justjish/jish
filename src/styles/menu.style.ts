@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 import { blur } from 'styles/blur.style';
 export const menuBox = css`
   ${blur};
@@ -16,7 +16,6 @@ export const menuBox = css`
   max-width: 90%;
   height: 64px;
   width: 500px;
-
 `;
 
 export const menuItem = css`

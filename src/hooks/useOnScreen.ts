@@ -1,6 +1,6 @@
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
-/** 
+/**
  * Helps to determine if a component is onScreen using the IntersectionObeserver API
  */
 export const useOnScreen = (options = {} as IntersectionObserverInit) => {
@@ -13,6 +13,6 @@ export const useOnScreen = (options = {} as IntersectionObserverInit) => {
     if (ref) observer.observe(ref);
     // Remove observer on dismount.
     return () => ref && observer.unobserve(ref);
-  }, [ref,options]);
+  }, [ref, options]);
   return [setRef, view];
 };

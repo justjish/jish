@@ -1,16 +1,16 @@
 import { config, useSpring } from 'react-spring';
 /**
  * EXPERIMENTAL
- * 
+ *
  * Using React-Spring to handle 'scrollTo' smoothly.
  * Polyfill for Safari made this not needed for release,
  * however it can be expanded upon to provide a customized
  * scrollTo expierence.
- * 
+ *
  * @returns {scrollToTarget}
  */
 export const useScrollToPosition = () => {
-  const [{y}, yRef] = useSpring(({ y: 0 }),[]);
+  const [{ y }, yRef] = useSpring({ y: 0 }, []);
 
   let isStopped = false;
   const onWheel = () => {
@@ -33,8 +33,8 @@ export const useScrollToPosition = () => {
         if (!isStopped) {
           window.scrollTo(0, y);
         }
-			},
-			config:config.molasses
+      },
+      config: config.molasses,
     });
   };
 

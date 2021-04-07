@@ -1,5 +1,5 @@
 import { AiFillGithub, AiFillFacebook, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
-import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { MdEmail } from 'react-icons/md';
 export const externalData = [
   {
@@ -21,9 +21,8 @@ export const externalData = [
     Icon: HiOutlineDocumentDownload,
     message: 'Get the resume',
     handle: 'naw',
-    link: "/Resume_Sujish_Patel_04-2021.pdf",
+    link: '/Resume_Sujish_Patel_04-2021.pdf',
     download: true,
-    
   },
   {
     Icon: AiFillInstagram,
@@ -45,6 +44,5 @@ export const externalData = [
     handle: 'naw',
     link: 'https://www.facebook.com/justjish',
     download: false,
-    
-  }
+  },
 ];

@@ -6,24 +6,24 @@ import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';
 
 export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
-  const { scale, y } = useSpring({ scale: offset.to([0, 1], [2, 1]), y: offset.to([0,1],[0,200]) , from: { scale: 10, y:0 } });
-  // I could just base the size of the useBounds store, but media queries are just quicker.
+  const { scale, y } = useSpring({
+    scale: offset.to([0, 1], [2, 1]),
+    y: offset.to([0, 1], [0, 200]),
+    from: { scale: 10, y: 0 },
+  });
   const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '2rem');
-  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly },[mqFont]);
+  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   return (
     <a.div
       css={css`
         ${h3};
         z-index: 1;
-        position:absolute;
+        position: absolute;
       `}
       style={{ scale, fontSize, y }}
     >
       with
-      <div css={h3Inline}>
-        Years
-      </div>{' '}
-      of Experience
+      <div css={h3Inline}>Years</div> of Experience
     </a.div>
   );
 };

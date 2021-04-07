@@ -1,11 +1,10 @@
 import { css } from '@emotion/react';
 import { FC } from 'react';
-import { a, SpringValue , useSpring} from 'react-spring';
-export const StoryBackground:FC<{offset: SpringValue<number>}> = ({ offset }) => {
-
+import { a, SpringValue, useSpring } from 'react-spring';
+export const StoryBackground: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ r }] = useSpring(
     {
-      r: offset.to({ range:[0, 1], output:[0, 100] }),
+      r: offset.to({ range: [0, 1], output: [0, 100] }),
       from: { r: 0 },
       config: { mass: 50 / 15, tension: 50, friction: 26 },
     },
@@ -19,7 +18,7 @@ export const StoryBackground:FC<{offset: SpringValue<number>}> = ({ offset }) =>
       viewBox="0 0 100 100"
       css={css`
         z-index: -1;
-        position:absolute;
+        position: absolute;
       `}
     >
       <a.circle

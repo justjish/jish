@@ -26,20 +26,17 @@ export const StoryPlace: FC<{
   });
   const { bind, interactStyles } = useInteract({ onClick: noop });
   return (
-    
-      <a.div css={box} {...bind()} style={{ ...interactStyles,skewX, x, }}>
-        <img
-          css={css`
-            object-fit: contain;
-            height: 50px;
-          `}
-          src={logo}
-          alt={'company'}
-        />
-        <div css={h2}>{focus}</div>
-        <div css={h2}>{time}</div>
-      </a.div>
-
-    
+    <a.div css={box} {...bind()} style={{ ...interactStyles, skewX, x }}>
+      <img
+        css={css`
+          object-fit: contain;
+          height: 50px;
+        `}
+        src={logo}
+        alt={'company'}
+      />
+      <div css={h2}>{focus}</div>
+      <div css={h2}>{time}</div>
+    </a.div>
   );
 };

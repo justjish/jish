@@ -11,4 +11,3 @@ export const section = css`
   flex-direction: column;
   scroll-snap-align: center;
 `;
-
