@@ -1,10 +1,19 @@
-import reactRefresh from '@vitejs/plugin-react-refresh'; 
+import { defineConfig } from 'vite'; // Vite config
+/** Vite Plugins */
+
+// HMR Support for React - Currently buggy with react-spring - Not in use
+import reactRefresh from '@vitejs/plugin-react-refresh';
+// Used for relative imports - Gets the import path defined by tsconfig.json
 import tsconfigPaths from 'vite-tsconfig-paths';
+// Transforms images at compile time - Not in use
 import { imagetools } from 'vite-imagetools';
+// Enables the App to be a PWA
 import { VitePWA } from 'vite-plugin-pwa';
+// Compress Images to reduce bundle size
 import viteImagemin from 'vite-plugin-imagemin';
-import { defineConfig } from 'vite';
+// Imports SVGs as component
 import svgr from 'vite-plugin-svgr';
+// Preload Fonts to optimize initial render
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
@@ -43,28 +52,28 @@ export default defineConfig({
     }),
     VitePWA({
       manifest: {
-        name: "Jish.Dev",
-        short_name: "Jish",
-        start_url: ".",
-        display: "standalone",
-        background_color: "rgba(21, 16, 25, 1.00)",
-        theme_color: "rgba(12, 48, 149, 1.00)",
-        description: "Experiments with the web in 2021.",
+        name: 'Jish.Dev',
+        short_name: 'Jish',
+        start_url: '.',
+        display: 'standalone',
+        background_color: 'rgba(21, 16, 25, 1.00)',
+        theme_color: 'rgba(12, 48, 149, 1.00)',
+        description: 'Experiments with the web in 2021.',
         icons: [
           {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
           {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-          }
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
         ],
-      }
+      },
     }),
     ViteFonts({
       typekit: {
@@ -92,7 +101,9 @@ export default defineConfig({
   },
   server: { force: true },
   esbuild: {
-    jsxFactory: "jsx",
-    jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`
+    jsxFactory: 'jsx',
+    // Injects the 'css' into the JSX transformation
+    // Injects react into the components that need it.
+    jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`,
   },
 });
