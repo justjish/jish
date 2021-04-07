@@ -18,6 +18,12 @@ yarn install
 yarn dev
 ```
 
+## Build
+A few notes here. For build, we are doing a typescript compile because Vite uses esbuild which performs transpilation without type information. 
+```
+yarn build
+```
+
 ## Tech Choices
 * facebook/react@17: **component library**
   I just love their functional components + hooks implementation. Primarily chosen over vite/svelte because I wanted to explore web based animations with react-spring and design through motion. Also react@17 was chosen over react@16 because there are so many tiny performance considerations on re-renders now that React attaches itself to the root element vs html head.
