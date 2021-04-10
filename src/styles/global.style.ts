@@ -21,7 +21,6 @@ export const globalStyles = css`
     padding: 0;
     overflow-x: hidden;
     background-color: rgba(21, 16, 25, 1);
-    scroll-snap-type: y proximity;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,

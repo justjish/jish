@@ -8,9 +8,9 @@ import { box } from 'styles/box.style';
 import useBounds from 'hooks/useBounds';
 import { LearnHeading } from 'components/LearnHeading';
 import { LearnMessage } from 'components/LearnMessage';
-import { LearnClosing } from 'components/LearnClosing';
 import { LearnExternal } from 'components/LearnExternal';
 import { externalData } from 'data/LearnData';
+
 // Gotta love how easy these are.
 const grid = css`
   display: grid;

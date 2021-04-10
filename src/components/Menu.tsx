@@ -21,3 +21,4 @@ export const Menu: FC<{ items?: typeof MenuData }> = ({ items = MenuData }) => {
     </a.div>
   );
 };
+export default Menu;

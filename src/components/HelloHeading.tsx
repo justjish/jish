@@ -1,8 +1,19 @@
 import screenSizes from 'data/screenSizes';
+import useApp from 'hooks/useApp';
+import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
-import { FC } from 'react';
+import { noop } from 'lodash';
+import { FC, useCallback } from 'react';
 import { a, SpringValue, useSpring } from 'react-spring';
 import { h3, h1 } from 'styles/typography.style';
+
+const HiddenButton: FC = ({ children }) => {
+  const loadPlayground = useApp((state) => state.loadPlayground);
+  const onClick = useCallback(() => import.meta.env.DEV ? loadPlayground() : noop(), [loadPlayground]);
+  const { bind, interactStyles } = useInteract({ onClick });
+  return <a.div{...bind()} style={interactStyles}>{children}</a.div>
+}
+
 
 export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
   // Mobile First Design
@@ -16,8 +27,9 @@ export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<num
     { h1: '4rem', h3: '1.35rem' },
   );
   const [mqFont] = useSpring({ h1: sizes.h1, h3: sizes.h3 }, [sizes.h1, sizes.h3]);
+
   return (
-    <div>
+    <HiddenButton>
       <a.div css={h3} style={{ fontSize: mqFont.h3 }}>
         Jish.Dev Presents
       </a.div>
@@ -27,6 +39,6 @@ export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<num
       <a.div css={h3} style={{ opacity, fontSize: mqFont.h3, x }}>
         A Full Stack Developer
       </a.div>
-    </div>
+    </HiddenButton>
   );
 };

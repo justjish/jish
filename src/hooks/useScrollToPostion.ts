@@ -29,10 +29,8 @@ export const useScrollToPosition = () => {
         isStopped = false;
         window.removeEventListener('wheel', onWheel);
       },
-      onChange: ({ y }) => {
-        if (!isStopped) {
-          window.scrollTo(0, y);
-        }
+      onChange: () => {
+        if (!isStopped) window.scrollTo(0, to);
       },
       config: config.molasses,
     });
