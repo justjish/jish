@@ -12,13 +12,7 @@ export const BrainHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) =>
   const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '2rem');
   const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   return (
-    <a.div
-      css={css`
-        ${h3};
-        z-index: 2;
-      `}
-      style={{ scale, fontSize }}
-    >
+    <a.div css={h3} style={{ scale, fontSize }}>
       an <a.div css={h3Inline}>EXPANSIVE </a.div>skillset
     </a.div>
   );
