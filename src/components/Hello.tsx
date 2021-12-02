@@ -39,7 +39,7 @@ export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
         scale: 1.5,
         opacity: 0,
         background: 'rgba(255, 70, 118, 1.00)',
-        x: -500,
+        x: -200,
       },
       config: config.slow,
     },
