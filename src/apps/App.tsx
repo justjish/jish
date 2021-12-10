@@ -1,4 +1,4 @@
-import { FC} from 'react';
+import { FC, Fragment } from 'react';
 import { globalStyles } from 'styles/global.style';
 import { Global } from '@emotion/react';
 import useApp from 'hooks/useApp';
@@ -25,10 +25,10 @@ import useApp from 'hooks/useApp';
 export const App: FC = () => {
   const CurrentApp = useApp(state => state.Current);
   return (
-    <>
+    <Fragment>
       <Global styles={globalStyles} />
       <CurrentApp />
-    </>
+    </Fragment>
   );
 };
 export default App;
