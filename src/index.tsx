@@ -5,5 +5,5 @@ import { preRender, postRender } from 'config/startup';
 import App from 'apps/App';
 
 preRender();
-render(<StrictMode><App /></StrictMode>, document.getElementById("root"));
+render(<App />, document.getElementById('root'));
 postRender();
