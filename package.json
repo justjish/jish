@@ -64,5 +64,9 @@
     "vite-tsconfig-paths": "^2.5.1",
     "watch": "^1.0.2",
     "web-vitals": "^2.1.4"
+  },
+  "volta": {
+    "node": "16.14.2",
+    "yarn": "1.22.18"
   }
 }
