@@ -10,46 +10,46 @@ import { imagetools } from 'vite-imagetools';
 // Enables the App to be a PWA
 import { VitePWA } from 'vite-plugin-pwa';
 // Compress Images to reduce bundle size
-import viteImagemin from 'vite-plugin-imagemin';
+// import viteImagemin from 'vite-plugin-imagemin';
 // Imports SVGs as component
-import svgr from 'vite-plugin-svgr';
+// import svgr from 'vite-plugin-svgr';
 // Preload Fonts to optimize initial render
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    svgr(),
+    // svgr(),
     imagetools(),
     // reactRefresh(),
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      webp: {
-        quality: 75,
-      },
-      mozjpeg: {
-        quality: 65,
-      },
-      pngquant: {
-        quality: [0.65, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            removeViewBox: false,
-          },
-          {
-            removeEmptyAttrs: false,
-          },
-        ],
-      },
-    }),
+    // viteImagemin({
+    //   gifsicle: {
+    //     optimizationLevel: 7,
+    //     interlaced: false,
+    //   },
+    //   optipng: {
+    //     optimizationLevel: 7,
+    //   },
+    //   webp: {
+    //     quality: 75,
+    //   },
+    //   mozjpeg: {
+    //     quality: 65,
+    //   },
+    //   pngquant: {
+    //     quality: [0.65, 0.9],
+    //     speed: 4,
+    //   },
+    //   svgo: {
+    //     plugins: [
+    //       {
+    //         removeViewBox: false,
+    //       },
+    //       {
+    //         removeEmptyAttrs: false,
+    //       },
+    //     ],
+    //   },
+    // }),
     VitePWA({
       manifest: {
         name: 'Jish.Dev',
@@ -85,16 +85,6 @@ export default defineConfig({
   assetsInclude: ['heic'],
   optimizeDeps: {
     include: [
-      'firebase/app',
-      'firebase/firebase-auth',
-      'firebase/firebase-analytics',
-      'firebase/firebase-functions',
-      'firebase/firebase-firestore',
-      'firebase/firebase-database',
-      'firebase/firebase-analytics',
-      'firebase/firebase-remote-config',
-      'firebase/firebase-storage',
-      'firebase/firebase-performance',
       'lodash/fp',
       'zustand/middleware',
     ],
