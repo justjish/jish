@@ -1,8 +1,5 @@
 import { defineConfig } from 'vite'; // Vite config
 /** Vite Plugins */
-
-// HMR Support for React - Currently buggy with react-spring - Not in use
-import reactRefresh from '@vitejs/plugin-react-refresh';
 // Used for relative imports - Gets the import path defined by tsconfig.json
 import tsconfigPaths from 'vite-tsconfig-paths';
 // Transforms images at compile time - Not in use
