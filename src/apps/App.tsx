@@ -1,4 +1,4 @@
-import { FC} from 'react';
+import { FC } from 'react';
 import { globalStyles } from 'styles/global.style';
 import { Global } from '@emotion/react';
 import useApp from 'hooks/useApp';
@@ -23,7 +23,7 @@ import useApp from 'hooks/useApp';
  */
 
 export const App: FC = () => {
-  const CurrentApp = useApp(state => state.Current);
+  const CurrentApp = useApp((state) => state.Current);
   return (
     <>
       <Global styles={globalStyles} />
