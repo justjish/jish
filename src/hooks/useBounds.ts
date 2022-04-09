@@ -1,9 +1,9 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { RectReadOnly } from 'react-use-measure';
+import { type RectReadOnly } from 'react-use-measure';
 import { immer } from 'functions/middleware';
 
-type Details = RectReadOnly & { absoluteTop: number };
+type Details = RectReadOnly & { absoluteTop: number; };
 
 type State = {
   click: number;

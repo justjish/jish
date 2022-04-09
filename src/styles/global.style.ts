@@ -11,7 +11,6 @@ export const globalStyles = css`
   * {
     box-sizing: border-box;
   }
-
   html,
   body,
   #root {
