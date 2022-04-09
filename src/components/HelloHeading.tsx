@@ -1,5 +1,4 @@
 import screenSizes from 'data/screenSizes';
-import useApp from 'hooks/useApp';
 import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
 import { noop } from 'lodash';
@@ -8,12 +7,14 @@ import { a, SpringValue, useSpring } from 'react-spring';
 import { h3, h1 } from 'styles/typography.style';
 
 const HiddenButton: FC = ({ children }) => {
-  const loadPlayground = useApp((state) => state.loadPlayground);
-  const onClick = useCallback(() => import.meta.env.DEV ? loadPlayground() : noop(), [loadPlayground]);
+  const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);
   const { bind, interactStyles } = useInteract({ onClick });
-  return <a.div{...bind()} style={interactStyles}>{children}</a.div>
-}
-
+  return (
+    <a.div {...bind()} style={interactStyles}>
+      {children}
+    </a.div>
+  );
+};
 
 export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
   // Mobile First Design

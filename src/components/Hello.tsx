@@ -1,4 +1,4 @@
-import { FC, useEffect, Dispatch, SetStateAction, useRef, useCallback } from 'react';
+import { FC, useEffect, useRef, useCallback } from 'react';
 import { a, config, SpringValue, useSpring } from 'react-spring';
 import { section } from 'styles/section.style';
 import { box } from 'styles/box.style';
