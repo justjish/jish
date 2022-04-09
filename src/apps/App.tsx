@@ -31,7 +31,6 @@ import Learn from 'components/Learn';
  */
 
 export const App: FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
   /**
    * Using 1 scroll listener across entire component tree
    *
@@ -50,7 +49,7 @@ export const App: FC = () => {
   return (
     <>
       <Global styles={globalStyles} />
-      <div ref={ref} css={view}>
+      <div css={view}>
         <Hello offset={scroll} />
         <Story offset={scroll} />
         <Brain offset={scroll} />
