@@ -9,7 +9,6 @@ export const externalData = [
     link: 'https://github.com/sujishpatel/jish-dev',
     download: false,
   },
-
   {
     Icon: MdEmail,
     message: 'Send a message',
