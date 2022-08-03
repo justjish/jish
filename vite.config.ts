@@ -82,7 +82,6 @@ export default defineConfig({
   assetsInclude: ['heic'],
   optimizeDeps: {
     include: [
-      'lodash/fp',
       'zustand/middleware',
     ],
   },

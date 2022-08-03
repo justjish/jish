@@ -1,12 +1,12 @@
 import screenSizes from 'data/screenSizes';
 import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
-import { noop } from 'lodash';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, ReactNode } from 'react';
 import { a, SpringValue, useSpring } from 'react-spring';
 import { h3, h1 } from 'styles/typography.style';
 
-const HiddenButton: FC = ({ children }) => {
+const noop = () => {};
+const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
   const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);
   const { bind, interactStyles } = useInteract({ onClick });
   return (

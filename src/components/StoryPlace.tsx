@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { a, config, SpringValue, useSpring } from 'react-spring';
-import { noop } from 'lodash/fp';
 import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
 import { h2 } from 'styles/typography.style';
 import { box } from 'styles/box.style';
 
+const noop = () => {};
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   logo: string;
