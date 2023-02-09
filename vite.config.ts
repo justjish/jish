@@ -1,42 +1,12 @@
 import { defineConfig } from 'vite'; // Vite config
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import svg from 'vite-plugin-svgo';
-import viteImagemin from 'vite-plugin-imagemin';
 import { VitePWA } from 'vite-plugin-pwa';
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
     react({ plugins: [['@swc/plugin-emotion', {}]], jsxImportSource: '@emotion/react' }),
-    svg(),
     tsconfigPaths(),
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 20,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox',
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false,
-          },
-        ],
-      },
-    }),
     VitePWA({
       manifest: {
         name: 'Jish.Dev',
@@ -70,4 +40,9 @@ export default defineConfig({
     }),
   ],
   assetsInclude: ['heic'],
+  esbuild: {
+    jsx: 'automatic',
+    jsxFactory: 'jsx',
+    jsxImportSource: '@emotion/react',
+  },
 });

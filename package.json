@@ -8,9 +8,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@emotion/babel-plugin": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@react-spring/web": "^9.6.1",
     "@use-gesture/react": "^10.2.24",
+    "@vitejs/plugin-react": "^3.1.0",
     "immer": "^9.0.19",
     "randomcolor": "^0.6.2",
     "react": "18.2.0",
