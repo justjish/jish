@@ -31,6 +31,7 @@ export default defineConfig({
           },
         ],
       },
+      registerType: 'autoUpdate',
     }),
     ViteFonts({
       typekit: {
