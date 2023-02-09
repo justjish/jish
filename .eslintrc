@@ -1,10 +1,13 @@
 {
+  "plugins": [
+    "@emotion"
+  ],
   "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
+    "prettier",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -22,7 +25,16 @@
       }
     ],
     "react/prop-types": "off",
-    "@typescript-eslint/no-explicit-any": "error"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "react/no-unknown-property": [
+      "error",
+      {
+        "ignore": [
+          "css"
+        ]
+      }
+    ]
   },
   "settings": {
     "react": {

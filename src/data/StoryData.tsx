@@ -1,3 +1,4 @@
+import ellipsishealth from 'assets/logos/ellipsishealth.svg';
 import elementus from 'assets/logos/elementus.svg';
 import netsmart from 'assets/logos/netsmart.svg';
 import rutgers from 'assets/logos/rutgers.svg';
@@ -5,19 +6,27 @@ import erre from 'assets/logos/erre.svg'; //Note that I recreated this image by 
 
 export const StoryData = [
   {
+    logo: ellipsishealth,
+    focus: 'Principal Software Engineer',
+    time: '2021 - 2023',
+    color: `rgba(58, 186, 182, 1.00)`,
+    speed: 1,
+    includePlus: true,
+  },
+  {
     logo: elementus,
     focus: 'Full Stack Developer',
     time: '2020',
     color: 'rgba(121, 61, 251, 1.00)',
-    speed: 1,
+    speed: 2,
     includePlus: true,
   },
   {
     logo: netsmart,
     focus: 'Software Engineer',
-    time: '2016-2018',
+    time: '2016 - 2018',
     color: 'rgba(44, 79, 120, 1.00)',
-    speed: 2,
+    speed: 3,
     includePlus: true,
   },
   {
@@ -25,7 +34,7 @@ export const StoryData = [
     focus: 'B.A. Computer Science',
     time: '2016',
     color: 'rgba(225, 26, 55, 1.00)',
-    speed: 3,
+    speed: 4,
     includePlus: true,
   },
   {
@@ -33,9 +42,8 @@ export const StoryData = [
     focus: 'Head of IT and Marketing',
     time: '2011-2016',
     color: 'rgba(60, 132, 86, 1.00)',
-    speed: 4,
+    speed: 5,
     includePlus: false,
   },
-  
 ];
 export default StoryData;

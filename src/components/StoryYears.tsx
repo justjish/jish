@@ -1,14 +1,11 @@
 import { FC } from 'react';
-import { animated as a, SpringValue, useSpring } from 'react-spring';
-import { noop } from 'lodash/fp';
+import { animated as a, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
 import { h1, h2 } from 'styles/typography.style';
 import { box } from 'styles/box.style';
-import { useMedia } from 'hooks/useMedia';
-
+import { noop } from 'functions/utils';
 export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
-  const columnCount = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2);
   const [{ x }] = useSpring(
     {
       x: offset.to([1, 0], [0, 1000]),

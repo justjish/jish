@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { FC } from 'react';
-import { a, SpringValue, useSpring } from 'react-spring';
+import { a, SpringValue, useSpring } from '@react-spring/web';
 export const StoryBackground: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ r }] = useSpring(
     {

@@ -1,55 +1,12 @@
 import { defineConfig } from 'vite'; // Vite config
-/** Vite Plugins */
-
-// HMR Support for React - Currently buggy with react-spring - Not in use
-import reactRefresh from '@vitejs/plugin-react-refresh';
-// Used for relative imports - Gets the import path defined by tsconfig.json
+import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
-// Transforms images at compile time - Not in use
-import { imagetools } from 'vite-imagetools';
-// Enables the App to be a PWA
 import { VitePWA } from 'vite-plugin-pwa';
-// Compress Images to reduce bundle size
-import viteImagemin from 'vite-plugin-imagemin';
-// Imports SVGs as component
-import svgr from 'vite-plugin-svgr';
-// Preload Fonts to optimize initial render
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
+    react({ plugins: [['@swc/plugin-emotion', {}]], jsxImportSource: '@emotion/react' }),
     tsconfigPaths(),
-    svgr(),
-    imagetools(),
-    // reactRefresh(),
-    viteImagemin({
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      webp: {
-        quality: 75,
-      },
-      mozjpeg: {
-        quality: 65,
-      },
-      pngquant: {
-        quality: [0.65, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          {
-            removeViewBox: false,
-          },
-          {
-            removeEmptyAttrs: false,
-          },
-        ],
-      },
-    }),
     VitePWA({
       manifest: {
         name: 'Jish.Dev',
@@ -58,7 +15,7 @@ export default defineConfig({
         display: 'standalone',
         background_color: 'rgba(21, 16, 25, 1.00)',
         theme_color: 'rgba(12, 48, 149, 1.00)',
-        description: 'Experiments with the web in 2021.',
+        description: 'Experiments with the web in 2023.',
         icons: [
           {
             src: '/android-chrome-192x192.png',
@@ -74,6 +31,7 @@ export default defineConfig({
           },
         ],
       },
+      registerType: 'autoUpdate',
     }),
     ViteFonts({
       typekit: {
@@ -83,27 +41,9 @@ export default defineConfig({
     }),
   ],
   assetsInclude: ['heic'],
-  optimizeDeps: {
-    include: [
-      'firebase/app',
-      'firebase/firebase-auth',
-      'firebase/firebase-analytics',
-      'firebase/firebase-functions',
-      'firebase/firebase-firestore',
-      'firebase/firebase-database',
-      'firebase/firebase-analytics',
-      'firebase/firebase-remote-config',
-      'firebase/firebase-storage',
-      'firebase/firebase-performance',
-      'lodash/fp',
-      'zustand/middleware',
-    ],
-  },
-  server: { force: true },
   esbuild: {
+    jsx: 'automatic',
     jsxFactory: 'jsx',
-    // Injects the 'css' into the JSX transformation
-    // Injects react into the components that need it.
-    jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`,
+    jsxImportSource: '@emotion/react',
   },
 });

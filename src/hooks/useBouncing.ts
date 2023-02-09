@@ -1,4 +1,4 @@
-import { useSpring } from 'react-spring';
+import { useSpring } from '@react-spring/web';
 
 export const useBouncing = (range: number | string) => {
   const style = useSpring({

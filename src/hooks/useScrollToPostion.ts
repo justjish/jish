@@ -1,4 +1,4 @@
-import { config, useSpring } from 'react-spring';
+import { config, useSpring } from '@react-spring/web';
 /**
  * EXPERIMENTAL
  *
@@ -10,7 +10,7 @@ import { config, useSpring } from 'react-spring';
  * @returns {scrollToTarget}
  */
 export const useScrollToPosition = () => {
-  const [{ y }, yRef] = useSpring({ y: 0 }, []);
+  const [, yRef] = useSpring({ y: 0 }, []);
 
   let isStopped = false;
   const onWheel = () => {

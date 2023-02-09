@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { css } from '@emotion/react';
-import { SpringValue, a, useSpring, config } from 'react-spring';
+import { SpringValue, a, useSpring, config } from '@react-spring/web';
 import { h3, h3Inline } from 'styles/typography.style';
 import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';

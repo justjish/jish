@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { a, config, useSpring } from 'react-spring';
+import { a, config, useSpring } from '@react-spring/web';
 import { menuBox } from 'styles/menu.style';
 import { MenuData } from 'data/MenuData';
 import { MenuItem } from 'components/MenuItem';

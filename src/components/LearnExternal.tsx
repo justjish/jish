@@ -3,11 +3,10 @@ import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
 import { FC } from 'react';
 import { IconType } from 'react-icons';
-import { useSpring, config, a } from 'react-spring';
+import { useSpring, config, a } from '@react-spring/web';
 import { box } from 'styles/box.style';
 import { h4 } from 'styles/typography.style';
 import { css } from '@emotion/react';
-import { noop } from 'lodash-es';
 
 export const LearnExternal: FC<{
   Icon: IconType;
@@ -17,7 +16,7 @@ export const LearnExternal: FC<{
 }> = ({ Icon, message, link, download = false }) => {
   const mqFont = useMedia(screenSizes, ['3rem', '2.5rem', '2rem'], '1.5rem');
   const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
-  const { bind, interactStyles } = useInteract({ onClick: noop });
+  const { bind, interactStyles } = useInteract({ onClick: () => ({}) });
 
   return (
     <a.a

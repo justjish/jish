@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import { a, config, SpringValue, useSpring } from 'react-spring';
-import { noop } from 'lodash/fp';
+import { a, config, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
 import { h2 } from 'styles/typography.style';
 import { box } from 'styles/box.style';
-
+import { noop } from 'functions/utils';
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   logo: string;
@@ -14,7 +13,7 @@ export const StoryPlace: FC<{
   color: string;
   speed: number;
   includePlus?: boolean;
-}> = ({ offset, logo, focus, time, color, speed, includePlus = false }) => {
+}> = ({ offset, logo, focus, time, speed }) => {
   const [{ x }] = useSpring(() => ({
     x: offset.to([1, 0], [0, 1000]),
     config: { mass: 50 / 15, tension: 100 - 15 * speed, friction: 26 },

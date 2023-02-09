@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { a, SpringValue, useSpring } from 'react-spring';
+import { a, SpringValue, useSpring } from '@react-spring/web';
 import { SkillItem } from 'data/BrainData';
 import randomColor from 'randomcolor';
 import { css } from '@emotion/react';
@@ -29,7 +29,11 @@ const textStyle = (size: number) => css`
   font-size: ${(50 * size) / 100}px;
 `;
 
-const iconStyle = (size: number) => css`height: ${size}px; width: ${size}px;`;
+const iconStyle = (size: number) =>
+  css`
+    height: ${size}px;
+    width: ${size}px;
+  `;
 
 export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   Icon = null,

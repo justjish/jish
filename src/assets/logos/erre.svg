@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.8559 201.93823"><defs><style>.cls-1{font-size:54px;fill:#045cab;letter-spacing:-0.008em;}.cls-1,.cls-5,.cls-9{font-family:ITCAvantGardePro-Bold, ITC Avant Garde Gothic Pro;font-weight:700;}.cls-2{letter-spacing:-0.016em;}.cls-3{letter-spacing:-0.00799em;}.cls-4,.cls-5{fill:#108947;}.cls-5{font-size:34px;letter-spacing:0.01999em;}.cls-6{letter-spacing:0.02502em;}.cls-7{letter-spacing:0.005em;}.cls-8{letter-spacing:-0.03099em;}.cls-9{font-size:9px;fill:#065ca9;letter-spacing:0.02007em;}.cls-10{letter-spacing:0.01997em;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="erre"><text id="ellen_rosenbaum" data-name="ellen rosenbaum" class="cls-1" transform="translate(12.47117 93.08836)">ellen<tspan class="cls-2"><tspan x="0" y="47">r</tspan><tspan class="cls-3" x="18.73779" y="47">osenbaum</tspan></tspan></text><g id="Graphic"><path class="cls-4" d="M344,48l-43-.42981V38h13L243,0,173,38h13V86H301V55l36,.16371s.07,99.18679,0,99.26862c-.07.07165-337,0-337,0v6.31435s343.84-.02049,344-.174C344.15,160.40894,344,48,344,48ZM293,79H194V35.915l48.91749-26L293,35.915Z"/></g><text class="cls-5" transform="translate(45.11145 192.41908)">Re<tspan class="cls-6" x="45.52539" y="0">a</tspan><tspan x="70.31152" y="0">l Es</tspan><tspan class="cls-7" x="128.17871" y="0">t</tspan><tspan class="cls-6" x="140.28223" y="0">a</tspan><tspan class="cls-7" x="165.06836" y="0">t</tspan><tspan x="177.17188" y="0">e Inc</tspan><tspan class="cls-8" x="267.67871" y="0">.</tspan></text><text class="cls-9" transform="translate(301.18225 13.69154)">Licensed <tspan class="cls-10"><tspan x="-5.35938" y="9">Real Estate </tspan><tspan x="7.37598" y="18">Broker</tspan></tspan></text></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.8559 201.93823">
+  <defs>
+    <style>
+      .cls-1{font-size:54px;fill:#045cab;letter-spacing:-0.008em;}.cls-1,.cls-5,.cls-9{font-family:ITCAvantGardePro-Bold,
+      ITC Avant Garde Gothic
+      Pro;font-weight:700;}.cls-2{letter-spacing:-0.016em;}.cls-3{letter-spacing:-0.00799em;}.cls-4,.cls-5{fill:#108947;}.cls-5{font-size:34px;letter-spacing:0.01999em;}.cls-6{letter-spacing:0.02502em;}.cls-7{letter-spacing:0.005em;}.cls-8{letter-spacing:-0.03099em;}.cls-9{font-size:9px;fill:#065ca9;letter-spacing:0.02007em;}.cls-10{letter-spacing:0.01997em;}</style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="erre">
+      <text id="ellen_rosenbaum" data-name="ellen rosenbaum" class="cls-1"
+        transform="translate(12.47117 93.08836)">ellen<tspan class="cls-2">
+          <tspan x="0" y="47">r</tspan>
+          <tspan class="cls-3" x="18.73779" y="47">osenbaum</tspan>
+        </tspan></text>
+      <g id="Graphic">
+        <path class="cls-4"
+          d="M344,48l-43-.42981V38h13L243,0,173,38h13V86H301V55l36,.16371s.07,99.18679,0,99.26862c-.07.07165-337,0-337,0v6.31435s343.84-.02049,344-.174C344.15,160.40894,344,48,344,48ZM293,79H194V35.915l48.91749-26L293,35.915Z" />
+      </g>
+      <text class="cls-5" transform="translate(45.11145 192.41908)">Re<tspan class="cls-6"
+          x="45.52539" y="0">a</tspan><tspan x="70.31152" y="0">l Es</tspan><tspan class="cls-7"
+          x="128.17871" y="0">t</tspan><tspan class="cls-6" x="140.28223" y="0">a</tspan><tspan
+          class="cls-7" x="165.06836" y="0">t</tspan><tspan x="177.17188" y="0">e Inc</tspan><tspan
+          class="cls-8" x="267.67871" y="0">.</tspan></text>
+      <text class="cls-9" transform="translate(301.18225 13.69154)">Licensed <tspan class="cls-10">
+          <tspan x="-5.35938" y="9">Real Estate </tspan>
+          <tspan x="7.37598" y="18">Broker</tspan>
+        </tspan></text>
+    </g>
+  </g>
+</svg>

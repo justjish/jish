@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SpringValue, a, useSpring } from 'react-spring';
+import { SpringValue, a, useSpring } from '@react-spring/web';
 import { css } from '@emotion/react';
 import fbSDWebp from 'assets/pictures/fullbody@0.25x.webp';
 import fbHQPng from 'assets/pictures/fullbody@0.5x.png';

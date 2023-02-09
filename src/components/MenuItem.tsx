@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { a, useSpring } from 'react-spring';
+import { a, useSpring } from '@react-spring/web';
 import useInteract from 'hooks/useInteract';
 import { menuItem } from 'styles/menu.style';
 

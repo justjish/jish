@@ -1,8 +1,8 @@
 import { FC, useRef, useEffect, useCallback, useMemo } from 'react';
 import { section } from 'styles/section.style';
-import { a, SpringValue, useSpring, config } from 'react-spring';
+import { a, SpringValue, useSpring, config } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { css } from '@emotion/react';
 import { box } from 'styles/box.style';
 import useBounds from 'hooks/useBounds';

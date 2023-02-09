@@ -1,14 +1,15 @@
 import { FC, useCallback, useRef, useEffect, useMemo } from 'react';
-import { SpringValue } from 'react-spring';
+import { SpringValue } from '@react-spring/web';
 import { section } from 'styles/section.style';
 import { BrainData } from 'data/BrainData';
 import useBounds from 'hooks/useBounds';
 import useMeasure from 'react-use-measure';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import { css } from '@emotion/react';
 import { row } from 'styles/row.style';
 import { BrainSkill } from 'components/BrainSkill';
 import { BrainHeading } from 'components/BrainHeading';
+
 /**
  * A set of skills in my brain.
  * Notes:
