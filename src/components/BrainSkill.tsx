@@ -29,7 +29,11 @@ const textStyle = (size: number) => css`
   font-size: ${(50 * size) / 100}px;
 `;
 
-const iconStyle = (size: number) => css`height: ${size}px; width: ${size}px;`;
+const iconStyle = (size: number) =>
+  css`
+    height: ${size}px;
+    width: ${size}px;
+  `;
 
 export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   Icon = null,

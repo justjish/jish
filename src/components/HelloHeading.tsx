@@ -4,8 +4,7 @@ import { useMedia } from 'hooks/useMedia';
 import { FC, useCallback, ReactNode } from 'react';
 import { a, SpringValue, useSpring } from 'react-spring';
 import { h3, h1 } from 'styles/typography.style';
-
-const noop = () => {};
+import { noop } from 'functions/utils';
 const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
   const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);
   const { bind, interactStyles } = useInteract({ onClick });

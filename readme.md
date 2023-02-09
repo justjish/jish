@@ -1,52 +1,55 @@
 # Jish.Dev
 
-*A Constantly evovling web 'About Me' page*
+_A Constantly evovling web 'About Me' page_
 
 ## Overview
 
 I use this repo primarily to:
- * Expieriment with anything web related
- * Try out various 2021 *web* technologies 
- * Showcase and expierment with coding styles
+
+- Expieriment with anything web related
+- Try out various 2021 _web_ technologies
+- Showcase and expierment with coding styles
 
 To see free to check out [Jish.Dev](https://jish.dev) to see the currently released app.
 
 ## Run Locally
+
 ```
 git clone ...
-yarn install
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 ## Build
-A few notes here. For build, we are doing a typescript compile because Vite uses esbuild which performs transpilation without type information. 
+
+A few notes here. For build, we are doing a typescript compile because Vite uses esbuild which performs transpilation without type information.
+
 ```
-yarn build
+pnpm build
 ```
 
 ## Tech Choices
-* facebook/react@17: **component library**
-  I just love their functional components + hooks implementation. Primarily chosen over vite/svelte because I wanted to explore web based animations with react-spring and design through motion. Also react@17 was chosen over react@16 because there are so many tiny performance considerations on re-renders now that React attaches itself to the root element vs html head.
 
-* yarn: **package manager**
-  Chosen over npm because I just prefer it. However skypack+snowpack combination is something I am looking forward to see evovling.
+- react: **component library**
+  Went with React since libraries like 'react-spring' are so easy to use.
 
-* vitejs/vite: **the code bundler**
-  After testing both Snowpack and ViteJS, extensively I ended up choosing Vite since it bundles up the code. I like keeping a snowpack config around however, because ESM modules are great, and the prospect of moving away from a package manager seems exciting. Webpack and Parcel are great tools as well, but wanted to try the newer communities. I also noticed that my computer fans don't ramp up as much when using snowpack. 
+- pnpm: **package manager**
+  Just an alternative to npm
 
-* @emotion/react: **componenet styling library**
-  This evolved from styled-components -> @emotion/styled -> @emotion/react because the css prop helped to keep inline style adjustments seperated from react-spring which I use for animations.
+- vitejs/vite: **the code bundler**
+  Using their SWC for compliation and bundling because its fast 😀
 
-* pmndrs/react-spring: **an animation library**
-  Loved how performant they were and the api is great. Chosen over framer because it's light weight. 
+- @emotion/react: **componenet styling library**
+  Low level CSS-in-JS library. Keeping the styles seperate from the 'react-spring' styles is a nice benefit.
 
-* pmndrs/zustand: **state management library**
+- pmndrs/react-spring: **an animation library**
+  Loved how performant they were and the api is great. Chosen over framer because it's light weight.
+
+- pmndrs/zustand: **state management library**
   Rather than wrapping React context all over the place, I just went with unopinated state manager. Use it in a flux like pattern. It keeps the code simple and readable. Also allows for the ability to subscribe to the state, which provides much needed flexibility.
 
-* firebase: **hosting/functions/routing - the serverless server**
-  It's simple to get up and running and wanted to keep the code serverless. I generally prefer GCP over Azure or AWS because I just like that it all rests on Kubernetes and the products are well thought out from a developer expierence mindset. Plus I just like the design of the console :). 
+- firebase: **hosting/functions/routing - the serverless server**
+  Free CDN and Hosting... easy choice.
 
-* Typescript: **the primary language**
-  Because a fully typed web app is provides a great developer expierence. 
-
-* Cloud Build: builds and deploy - TODO
+- Typescript: **the primary language**
+  Once you go Typescript, its hard to go back.

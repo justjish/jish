@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'; // Vite config
+import react from '@vitejs/plugin-react-swc';
 /** Vite Plugins */
 // Used for relative imports - Gets the import path defined by tsconfig.json
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -14,6 +15,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
+    react({ plugins: [['@swc/plugin-emotion', {}]], jsxImportSource: '@emotion/react' }),
     tsconfigPaths(),
     // svgr(),
     imagetools(),
@@ -80,16 +82,4 @@ export default defineConfig({
     }),
   ],
   assetsInclude: ['heic'],
-  optimizeDeps: {
-    include: [
-      'zustand/middleware',
-    ],
-  },
-  server: { force: true },
-  esbuild: {
-    jsxFactory: 'jsx',
-    // Injects the 'css' into the JSX transformation
-    // Injects react into the components that need it.
-    jsxInject: `import {jsx} from "@emotion/react"; import React from "react";`,
-  },
 });

@@ -3,7 +3,7 @@ import { a, config, SpringValue, useSpring } from 'react-spring';
 import { section } from 'styles/section.style';
 import { box } from 'styles/box.style';
 import useMeasure from 'react-use-measure';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import useBounds from 'hooks/useBounds';
 import { HelloHeading } from 'components/HelloHeading';
 import { HelloProfile } from 'components/HelloProfile';

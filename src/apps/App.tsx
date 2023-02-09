@@ -1,8 +1,8 @@
-import { FC, useRef } from 'react';
+import { type FC } from 'react';
 import { globalStyles } from 'styles/global.style';
 import { Global } from '@emotion/react';
 import { useSpring } from 'react-spring';
-import { useScroll } from 'react-use-gesture';
+import { useScroll } from '@use-gesture/react';
 import { view } from 'styles/app.styles';
 import Menu from 'components/Menu';
 import Hello from 'components/Hello';
@@ -27,25 +27,25 @@ import Learn from 'components/Learn';
  *    to create a custom look without having to reverse engineer pre-existing styles.
  * 3. A scroll listener that is not debounced, to ensure fluid motion during scrolling.
  *
+ * Using 1 scroll listener across entire component tree
+ *
+ * **The React Component tree doesn't rerender after every 'set' because
+ * stateful values gotten from react-spring live outside of react's state management**
+ *
+ * It's a little bit of prop passing, but was the quickest solution for render jank,
+ * the alternative would be to use zustand (a state management library) and it's
+ * transient update feature.
+ *
+ * Also I purposfully didn't introduce debouncing to the scroll listener. Since I wanted
+ * the animations to be as fluid as possible.
+ *
+ *
  * @returns App Component
  */
 
 export const App: FC = () => {
-  /**
-   * Using 1 scroll listener across entire component tree
-   *
-   * **The React Component tree doesn't rerender after every 'set' because
-   * stateful values gotten from react-spring live outside of react's state management**
-   *
-   * It's a little bit of prop passing, but was the quickest solution for render jank,
-   * the alternative would be to use zustand (a state management library) and it's
-   * transient update feature.
-   *
-   * Also I purposfully didn't introduce debouncing to the scroll listener. Since I wanted
-   * the animations to be as fluid as possible.
-   **/
   const [{ scroll }] = useSpring({ scroll: window.scrollY }, []);
-  useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { domTarget: window });
+  useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { target: window });
   return (
     <>
       <Global styles={globalStyles} />

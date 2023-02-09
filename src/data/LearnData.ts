@@ -20,7 +20,7 @@ export const externalData = [
     Icon: HiOutlineDocumentDownload,
     message: 'Get the resume',
     handle: 'naw',
-    link: '/Resume_Sujish_Patel_04-2021.pdf',
+    link: '/Resume_Sujish_Patel_02-2023.pdf',
     download: true,
   },
   {

@@ -24,3 +24,5 @@ yarn.lock
 .yarn/releases/yarn-1.22.18.cjs
 
 .yarn/
+
+.swc/

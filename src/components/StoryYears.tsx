@@ -4,10 +4,8 @@ import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
 import { h1, h2 } from 'styles/typography.style';
 import { box } from 'styles/box.style';
-import { useMedia } from 'hooks/useMedia';
-const noop = () => {};
+import { noop } from 'functions/utils';
 export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
-  const columnCount = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2);
   const [{ x }] = useSpring(
     {
       x: offset.to([1, 0], [0, 1000]),

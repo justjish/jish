@@ -3,7 +3,6 @@ import { SpringValue, useSpring, config, a } from 'react-spring';
 import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';
 import { h3, h3Inline } from 'styles/typography.style';
-import { css } from '@emotion/react';
 
 // By adding the media query in component, then attaching it's value to the spring,
 // you can get animations as the browser triggers media query breakpoints.

@@ -2,7 +2,7 @@ import { FC, useRef, useEffect, useCallback, useMemo } from 'react';
 import { SpringValue } from 'react-spring';
 import useBounds from 'hooks/useBounds';
 import useMeasure from 'react-use-measure';
-import mergeRefs from 'react-merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 import StoryData from 'data/StoryData';
 import { section } from 'styles/section.style';
 import { row } from 'styles/row.style';

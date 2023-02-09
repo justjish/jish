@@ -1,9 +1,9 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { type RectReadOnly } from 'react-use-measure';
-import { immer } from 'functions/middleware';
+import { immer } from 'zustand/middleware/immer';
 
-type Details = RectReadOnly & { absoluteTop: number; };
+type Details = RectReadOnly & { absoluteTop: number };
 
 type State = {
   click: number;
@@ -23,7 +23,7 @@ type State = {
  * A globally accessible store to that holds important sizing information per component
  * Also used by the Nav Menu to determine where to go.
  */
-const useBounds = create<State>(
+const useBounds = create<State, [['zustand/devtools', never], ['zustand/immer', never]]>(
   devtools(
     immer((set) => ({
       click: 0,
@@ -32,7 +32,6 @@ const useBounds = create<State>(
       brain: { x: 0, y: 0, width: 0, height: 0, top: 0, right: 0, bottom: 0, left: 0, absoluteTop: 0 },
       lives: { x: 0, y: 0, width: 0, height: 0, top: 0, right: 0, bottom: 0, left: 0, absoluteTop: 0 },
       learn: { x: 0, y: 0, width: 0, height: 0, top: 0, right: 0, bottom: 0, left: 0, absoluteTop: 0 },
-
       setClick: (to: number) => set((state) => void (state.click = to)),
       setHello: (bounds: Details) => set((state) => void (state.hello = bounds)),
       setStory: (bounds: Details) => set((state) => void (state.story = bounds)),
