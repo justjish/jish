@@ -1,5 +1,5 @@
 import { FC, useCallback, useRef, useEffect } from 'react';
-import { SpringValue, useSpring, config } from 'react-spring';
+import { SpringValue, useSpring, config } from '@react-spring/web';
 import { section } from 'styles/section.style';
 import useMeasure from 'react-use-measure';
 import useBounds from 'hooks/useBounds';

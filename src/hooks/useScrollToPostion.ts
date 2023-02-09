@@ -1,4 +1,4 @@
-import { config, useSpring } from 'react-spring';
+import { config, useSpring } from '@react-spring/web';
 /**
  * EXPERIMENTAL
  *

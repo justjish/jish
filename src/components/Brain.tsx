@@ -1,5 +1,5 @@
 import { FC, useCallback, useRef, useEffect, useMemo } from 'react';
-import { SpringValue } from 'react-spring';
+import { SpringValue } from '@react-spring/web';
 import { section } from 'styles/section.style';
 import { BrainData } from 'data/BrainData';
 import useBounds from 'hooks/useBounds';

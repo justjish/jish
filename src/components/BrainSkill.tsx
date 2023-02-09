@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { a, SpringValue, useSpring } from 'react-spring';
+import { a, SpringValue, useSpring } from '@react-spring/web';
 import { SkillItem } from 'data/BrainData';
 import randomColor from 'randomcolor';
 import { css } from '@emotion/react';

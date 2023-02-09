@@ -1,4 +1,4 @@
-import { useSpring } from 'react-spring';
+import { useSpring } from '@react-spring/web';
 export const useShuffle = () => {
   const style = useSpring({
     from: { y: 0, x: 0, opacity: 1 },

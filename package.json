@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@react-spring/web": "^9.6.1",
     "@use-gesture/react": "^10.2.24",
     "immer": "^9.0.19",
     "randomcolor": "^0.6.2",
@@ -16,7 +17,6 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-merge-refs": "^2.0.1",
-    "react-spring": "^9.6.1",
     "react-use-measure": "^2.1.1",
     "smoothscroll-polyfill": "^0.4.4",
     "vite": "^4.1.1",
@@ -42,7 +42,9 @@
     "vite-imagetools": "4.0.18",
     "vite-plugin-compress": "2.1.1",
     "vite-plugin-fonts": "^0.7.0",
+    "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-pwa": "^0.14.3",
+    "vite-plugin-svgo": "^1.2.0",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.5",
     "web-vitals": "^3.1.1"

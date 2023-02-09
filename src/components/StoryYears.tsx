@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { animated as a, SpringValue, useSpring } from 'react-spring';
+import { animated as a, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from 'hooks/useInteract';
 import { css } from '@emotion/react';
 import { h1, h2 } from 'styles/typography.style';

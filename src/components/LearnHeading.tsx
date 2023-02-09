@@ -1,5 +1,5 @@
 import { useMedia } from 'hooks/useMedia';
-import { useSpring, config, a } from 'react-spring';
+import { useSpring, config, a } from '@react-spring/web';
 import screenSizes from 'data/screenSizes';
 import { h3, h3Inline } from 'styles/typography.style';
 

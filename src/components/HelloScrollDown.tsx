@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import scrolldown from 'assets/icons/scrolldown.svg';
 import { useBouncing } from 'hooks/useBouncing';
-import { a, useSpring } from 'react-spring';
+import { a, useSpring } from '@react-spring/web';
 import { css } from '@emotion/react';
 import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';

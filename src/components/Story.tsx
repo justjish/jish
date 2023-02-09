@@ -1,5 +1,5 @@
 import { FC, useRef, useEffect, useCallback, useMemo } from 'react';
-import { SpringValue } from 'react-spring';
+import { SpringValue } from '@react-spring/web';
 import useBounds from 'hooks/useBounds';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';

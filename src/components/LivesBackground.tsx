@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SpringValue, a } from 'react-spring';
+import { SpringValue, a } from '@react-spring/web';
 import { row } from 'styles/row.style';
 import svgFrame from 'assets/graphics/cityFrameCircle.svg';
 import { css } from '@emotion/react';

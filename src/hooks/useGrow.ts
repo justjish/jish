@@ -1,4 +1,4 @@
-import { useSpring } from 'react-spring';
+import { useSpring } from '@react-spring/web';
 /**
  * Hook that will grow font to a final size on mount.
  * Note* All fonts are read as rem. Feel free to add

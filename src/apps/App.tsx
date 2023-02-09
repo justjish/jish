@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { globalStyles } from 'styles/global.style';
 import { Global } from '@emotion/react';
-import { useSpring } from 'react-spring';
+import { useSpring } from '@react-spring/web';
 import { useScroll } from '@use-gesture/react';
 import { view } from 'styles/app.styles';
 import Menu from 'components/Menu';

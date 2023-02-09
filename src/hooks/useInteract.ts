@@ -1,4 +1,4 @@
-import { useSpring, config } from 'react-spring';
+import { useSpring, config } from '@react-spring/web';
 import { useGesture } from '@use-gesture/react';
 
 /**

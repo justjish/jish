@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SpringValue, useSpring, config, a } from 'react-spring';
+import { SpringValue, useSpring, config, a } from '@react-spring/web';
 import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';
 import { h3, h3Inline } from 'styles/typography.style';
