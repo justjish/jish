@@ -20,11 +20,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "outDir": "dist",
     "sourceMap": false,
     "composite": false,
-    "paths": {}
+    "paths": {
+      "~/*": ["./app/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["app"],
+  "exclude": ["node_modules", "dist"]
 }
