@@ -31,7 +31,12 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   return (
     <a.div className={clsx(Icon ? grid : flex)} style={{ y, color }}>
       {Icon && <Icon className="m-auto" title={desc} style={{ height: `${size}px`, width: `${size}px` }} />}
-      <div className={'font-medium not-italic uppercase font-futura m-auto'} style={{ fontSize: `${(50 * size) / 100}px` }}>{desc}</div>
+      <div
+        className={'font-medium not-italic uppercase font-futura m-auto'}
+        style={{ fontSize: `${(50 * size) / 100}px` }}
+      >
+        {desc}
+      </div>
     </a.div>
   );
 };
