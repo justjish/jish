@@ -8,7 +8,7 @@ import { StoryPlace } from 'components/StoryPlace';
 import { StoryYears } from 'components/StoryYears';
 import { StoryHeading } from 'components/StoryHeading';
 import { StoryBackground } from 'components/StoryBackground';
-import { useMenuState } from 'context/MenuContext';
+import { useMenuState } from 'hooks/useMenu';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
   const [ref, bounds] = useMeasure({ debounce: 200 });

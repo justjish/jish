@@ -1,9 +1,9 @@
 import { createContext, useContext, useRef, type ReactNode, type FC } from 'react';
 import { proxy, useSnapshot } from 'valtio';
+import { devtools } from 'valtio/utils';
 import { type RectReadOnly } from 'react-use-measure';
 
 type Details = RectReadOnly & { absoluteTop: number };
-
 export type MenuState = {
   click: number;
   hello: Details;
@@ -36,6 +36,7 @@ export const MenuProvider: FC<{ children: ReactNode }> = ({ children }) => {
       setLearn: (bounds: Details) => void (state.learn = bounds),
     }),
   ).current;
+  devtools(state, { name: 'Menu' });
   return <MenuContext.Provider value={state}>{children}</MenuContext.Provider>;
 };
 export const useMenuState = () => {

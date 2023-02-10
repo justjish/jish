@@ -6,7 +6,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { HelloHeading } from 'components/HelloHeading';
 import { HelloProfile } from 'components/HelloProfile';
 import { HelloScrollDown } from './HelloScrollDown';
-import { useMenuState } from 'context/MenuContext';
+import { useMenuState } from 'hooks/useMenu';
 
 /**
  * Hello

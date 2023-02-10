@@ -5,7 +5,7 @@ import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
 import { LivesHeading } from 'components/LivesHeading';
 import { LivesBackground } from 'components/LivesBackground';
-import { useMenuState } from 'context/MenuContext';
+import { useMenuState } from 'hooks/useMenu';
 
 const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();

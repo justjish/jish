@@ -8,7 +8,7 @@ import { LearnMessage } from 'components/LearnMessage';
 import { LearnExternal } from 'components/LearnExternal';
 import { externalData } from 'data/LearnData';
 import { clsx } from 'clsx';
-import { useMenuState } from 'context/MenuContext';
+import { useMenuState } from 'hooks/useMenu';
 
 const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();

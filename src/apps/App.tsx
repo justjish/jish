@@ -8,8 +8,8 @@ import Story from 'components/Story';
 import Brain from 'components/Brain';
 import Lives from 'components/Lives';
 import Learn from 'components/Learn';
-import { StoryProvider } from 'context/StoryContext';
-import { MenuProvider } from 'context/MenuContext';
+import { StoryProvider } from 'hooks/useStory';
+import { MenuProvider } from 'hooks/useMenu';
 
 /**
  *

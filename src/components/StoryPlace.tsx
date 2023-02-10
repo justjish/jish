@@ -6,7 +6,7 @@ import { h2, box } from 'styles/legacy';
 import { clsx } from 'clsx';
 
 import { useCallback } from 'react';
-import { useStorySnapshot, useStoryState } from 'context/StoryContext';
+import { useStorySnapshot, useStoryState } from 'hooks/useStory';
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   id: number;

@@ -4,7 +4,7 @@ import { h3, h3Inline } from 'styles/legacy';
 import { useMedia } from 'hooks/useMedia';
 import { clsx } from 'clsx';
 import screenSizes from 'data/screenSizes';
-import { useStorySnapshot } from 'context/StoryContext';
+import { useStorySnapshot } from 'hooks/useStory';
 
 export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const snapshot = useStorySnapshot();

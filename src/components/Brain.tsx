@@ -7,7 +7,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { BrainSkill } from 'components/BrainSkill';
 import { BrainHeading } from 'components/BrainHeading';
 import { clsx } from 'clsx';
-import { useMenuState } from 'context/MenuContext';
+import { useMenuState } from 'hooks/useMenu';
 
 /**
  * A set of skills in my brain.
