@@ -1,15 +1,9 @@
-import { FC } from 'react';
-import { css } from '@emotion/react';
-import { h4 } from 'styles/typography.style';
+import { type FC } from 'react';
+import { h4 } from 'styles/legacy';
+import { clsx } from 'clsx';
 
 export const LearnMessage: FC<{ show?: boolean }> = () => (
-  <div
-    css={css`
-      ${h4};
-      color: white;
-      font-size: 1.5rem;
-    `}
-  >
+  <div className={clsx(h4, 'text-white text-[2rem] pb-10')}>
     In the meantime ...
   </div>
 );

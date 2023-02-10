@@ -1,5 +1,4 @@
-import { css } from '@emotion/react';
-import { FC } from 'react';
+import { type FC } from 'react';
 import { a, SpringValue, useSpring } from '@react-spring/web';
 export const StoryBackground: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ r }] = useSpring(
@@ -16,28 +15,21 @@ export const StoryBackground: FC<{ offset: SpringValue<number> }> = ({ offset })
       width="100%"
       height="100%"
       viewBox="0 0 100 100"
-      css={css`
-        z-index: -1;
-        position: absolute;
-      `}
+      className='z-[-1] absolute'
     >
       <a.circle
         cx="-50%"
         cy="50%"
         r={r}
         fill="rgba(8, 9, 69, 1.00)"
-        css={css`
-          mix-blend-mode: screen;
-        `}
+        className={'mix-blend-screen'}
       />
       <a.circle
+        className={'mix-blend-screen'}
         cx="100%"
         cy="50%"
         r={r}
         fill="rgba(4, 40, 110, 1.00)"
-        css={css`
-          mix-blend-mode: screen;
-        `}
       />
     </svg>
   );

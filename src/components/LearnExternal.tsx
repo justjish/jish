@@ -4,9 +4,8 @@ import { useMedia } from 'hooks/useMedia';
 import { FC } from 'react';
 import { IconType } from 'react-icons';
 import { useSpring, config, a } from '@react-spring/web';
-import { box } from 'styles/box.style';
-import { h4 } from 'styles/typography.style';
-import { css } from '@emotion/react';
+import { box, h4 } from 'styles/legacy';
+import { clsx } from 'clsx';
 
 export const LearnExternal: FC<{
   Icon: IconType;
@@ -22,37 +21,14 @@ export const LearnExternal: FC<{
     <a.a
       {...bind()}
       href={link}
-      css={css`
-        ${box};
-        text-decoration: none;
-        color: white;
-      `}
+      className={clsx(box, 'no-underline text-[white]')}
       style={{ ...interactStyles }}
       download={download}
       target="_blank"
       rel="noopener"
     >
-      <a.div
-        css={css`
-          ${h4};
-          color: white;
-        `}
-        style={{ fontSize }}
-      >
-        <Icon
-          css={css`
-            vertical-align: middle;
-          `}
-        />{' '}
-        <div
-          css={css`
-            ${h4};
-            font-size: 0.5em;
-          `}
-        >
-          {' '}
-          {message}
-        </div>{' '}
+      <a.div className={clsx(h4, 'no-underline text-[white]')} style={{ fontSize }}>
+        <Icon className="align-middle m-auto" /> <div className={clsx(h4, 'text-[0.5em]')}>{message}</div>
       </a.div>
     </a.a>
   );

@@ -3,8 +3,9 @@ import useInteract from 'hooks/useInteract';
 import { useMedia } from 'hooks/useMedia';
 import { FC, useCallback, ReactNode } from 'react';
 import { a, SpringValue, useSpring } from '@react-spring/web';
-import { h3, h1 } from 'styles/typography.style';
+import { h3, h1 } from 'styles/legacy';
 import { noop } from 'functions/utils';
+import { clsx } from 'clsx';
 const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
   const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);
   const { bind, interactStyles } = useInteract({ onClick });
@@ -30,13 +31,13 @@ export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<num
 
   return (
     <HiddenButton>
-      <a.div css={h3} style={{ fontSize: mqFont.h3 }}>
+      <a.div className={clsx(h3, 'text-center')} style={{ fontSize: mqFont.h3 }}>
         Jish.Dev Presents
       </a.div>
-      <a.div css={h1} style={{ opacity, fontSize: mqFont.h1, x }}>
+      <a.div className={clsx(h1, 'text-center')} style={{ opacity, fontSize: mqFont.h1, x }}>
         Sujish Patel
       </a.div>
-      <a.div css={h3} style={{ opacity, fontSize: mqFont.h3, x }}>
+      <a.div className={clsx(h3, 'text-center')} style={{ opacity, fontSize: mqFont.h3, x }}>
         A Full Stack Developer
       </a.div>
     </HiddenButton>

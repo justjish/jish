@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import { animated as a, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from 'hooks/useInteract';
-import { css } from '@emotion/react';
-import { h1, h2 } from 'styles/typography.style';
-import { box } from 'styles/box.style';
+import { box, h2, h1 } from 'styles/legacy';
+import { clsx } from 'clsx';
 import { noop } from 'functions/utils';
 export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ x }] = useSpring(
@@ -16,20 +15,12 @@ export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const { bind, interactStyles } = useInteract({ onClick: noop });
   return (
     <a.div
-      css={css`
-        ${box};
-        width: 350px;
-      `}
+      className={clsx(box, 'w-[350px]')}
       {...bind()}
       style={{ ...interactStyles, x }}
     >
-      <div css={h2}>Years Coding</div>
-      <div
-        css={css`
-          ${h1};
-          font-size: '8em';
-        `}
-      >
+      <div className={h2}>Years Coding</div>
+      <div className={clsx(h1, 'text-[8em]')}>
         10+
       </div>
     </a.div>

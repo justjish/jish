@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import { type FC } from 'react';
 import { a, config, useSpring } from '@react-spring/web';
-import { menuBox } from 'styles/menu.style';
+import { menuBox } from 'styles/legacy';
 import { MenuData } from 'data/MenuData';
 import { MenuItem } from 'components/MenuItem';
 
@@ -14,7 +14,7 @@ export const Menu: FC<{ items?: typeof MenuData }> = ({ items = MenuData }) => {
     [],
   );
   return (
-    <a.div css={menuBox} style={{ width }}>
+    <a.div className={menuBox} style={{ width }}>
       {items.map((props, index) => (
         <MenuItem {...props} key={index} />
       ))}
