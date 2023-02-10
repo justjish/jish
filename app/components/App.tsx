@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { useScroll, useSpring } from '@react-spring/web';
 import { useWindowHeightRef } from 'hooks/useWindowHeightRef';
-
 import Menu from 'components/Menu';
 import Hello from 'components/Hello';
 import Story from 'components/Story';
