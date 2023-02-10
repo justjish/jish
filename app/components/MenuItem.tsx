@@ -1,8 +1,8 @@
 import { FC, useCallback } from 'react';
 import { a, useSpring } from '@react-spring/web';
-import useInteract from 'hooks/useInteract';
-import { menuItem } from 'styles/legacy';
-import { useMenuSnapshot } from 'hooks/useMenu';
+import useInteract from '~/hooks/useInteract';
+import { menuItem } from '~/styles/legacy';
+import { useMenuSnapshot } from '~/hooks/useMenu';
 import { MenuLookupType } from '../data/MenuData';
 
 export const MenuItem: FC<{ icon: string; lookup: MenuLookupType; alt: string }> = ({ icon = '', alt, lookup }) => {

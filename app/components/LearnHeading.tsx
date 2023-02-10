@@ -1,7 +1,7 @@
-import { useMedia } from 'hooks/useMedia';
+import { useMedia } from '~/hooks/useMedia';
 import { useSpring, config, a } from '@react-spring/web';
-import screenSizes from 'data/screenSizes';
-import { h3, h3Inline } from 'styles/legacy';
+import screenSizes from '~/data/screenSizes';
+import { h3, h3Inline } from '~/styles/legacy';
 
 export const LearnHeading = () => {
   const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '1rem');

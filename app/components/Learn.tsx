@@ -2,13 +2,13 @@ import { type FC, useRef, useEffect, useMemo } from 'react';
 import { a, SpringValue, useSpring, config } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import { box, section } from 'styles/legacy';
-import { LearnHeading } from 'components/LearnHeading';
-import { LearnMessage } from 'components/LearnMessage';
-import { LearnExternal } from 'components/LearnExternal';
-import { externalData } from 'data/LearnData';
+import { box, section } from '~/styles/legacy';
+import { LearnHeading } from '~/components/LearnHeading';
+import { LearnMessage } from '~/components/LearnMessage';
+import { LearnExternal } from '~/components/LearnExternal';
+import { externalData } from '~/data/LearnData';
 import { clsx } from 'clsx';
-import { useMenuState } from 'hooks/useMenu';
+import { useMenuState } from '~/hooks/useMenu';
 
 const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();

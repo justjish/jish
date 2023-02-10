@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { SpringValue, useSpring, config, a } from '@react-spring/web';
-import { useMedia } from 'hooks/useMedia';
-import screenSizes from 'data/screenSizes';
-import { h3, h3Inline } from 'styles/legacy';
+import { useMedia } from '~/hooks/useMedia';
+import screenSizes from '~/data/screenSizes';
+import { h3, h3Inline } from '~/styles/legacy';
 import { clsx } from 'clsx';
 
 export const LivesHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {

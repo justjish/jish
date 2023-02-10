@@ -2,13 +2,13 @@ import { type FC, useRef, useEffect, useMemo } from 'react';
 import { SpringValue } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import StoryData from 'data/StoryData';
-import { section, row } from 'styles/legacy';
-import { StoryPlace } from 'components/StoryPlace';
-import { StoryYears } from 'components/StoryYears';
-import { StoryHeading } from 'components/StoryHeading';
-import { StoryBackground } from 'components/StoryBackground';
-import { useMenuState } from 'hooks/useMenu';
+import StoryData from '~/data/StoryData';
+import { section, row } from '~/styles/legacy';
+import { StoryPlace } from '~/components/StoryPlace';
+import { StoryYears } from '~/components/StoryYears';
+import { StoryHeading } from '~/components/StoryHeading';
+import { StoryBackground } from '~/components/StoryBackground';
+import { useMenuState } from '~/hooks/useMenu';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
   const [ref, bounds] = useMeasure({ debounce: 200 });

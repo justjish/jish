@@ -1,9 +1,9 @@
 import { type FC } from 'react';
-import scrolldown from 'assets/icons/scrolldown.svg';
-import { useBouncing } from 'hooks/useBouncing';
+import scrolldown from '~/assets/icons/scrolldown.svg';
+import { useBouncing } from '~/hooks/useBouncing';
 import { a, useSpring } from '@react-spring/web';
-import { useMedia } from 'hooks/useMedia';
-import screenSizes from 'data/screenSizes';
+import { useMedia } from '~/hooks/useMedia';
+import screenSizes from '~/data/screenSizes';
 
 export const HelloScrollDown: FC = () => {
   const [{ y }] = useBouncing(2);

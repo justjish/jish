@@ -1,8 +1,8 @@
-import { h4, row } from 'styles/legacy';
+import { h4, row } from '~/styles/legacy';
 import { clsx } from 'clsx';
-import viteSvg from 'assets/logos/vite.svg';
-import reactSvg from 'assets/logos/react.svg';
-import heartSvg from 'assets/icons/love.svg';
+import viteSvg from '~/assets/logos/vite.svg';
+import reactSvg from '~/assets/logos/react.svg';
+import heartSvg from '~/assets/icons/love.svg';
 
 const ViteLogo = () => <img src={viteSvg} alt="vitejs" width="32px" />;
 const ReactLogo = () => <img src={reactSvg} alt="reactjs" width="32px" />;

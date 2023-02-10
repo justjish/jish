@@ -1,7 +1,7 @@
 import { useMemo, type FC } from 'react';
 import { a, config, useSpring } from '@react-spring/web';
-import { menuBox } from 'styles/legacy';
-import { MenuItem } from 'components/MenuItem';
+import { menuBox } from '~/styles/legacy';
+import { MenuItem } from '~/components/MenuItem';
 import { items } from '../data/MenuData';
 export const Menu: FC = () => {
   const [{ width }] = useSpring(

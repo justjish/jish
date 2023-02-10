@@ -1,8 +1,8 @@
-import ellipsishealth from 'assets/logos/ellipsishealth.svg';
-import elementus from 'assets/logos/elementus.svg';
-import netsmart from 'assets/logos/netsmart.svg';
-import rutgers from 'assets/logos/rutgers.svg';
-import erre from 'assets/logos/erre.svg'; //Note that I recreated this image by hand as an svg to get my lighthouse score up :)
+import ellipsishealth from '~/assets/logos/ellipsishealth.svg';
+import elementus from '~/assets/logos/elementus.svg';
+import netsmart from '~/assets/logos/netsmart.svg';
+import rutgers from '~/assets/logos/rutgers.svg';
+import erre from '~/assets/logos/erre.svg'; //Note that I recreated this image by hand as an svg to get my lighthouse score up :)
 
 export const StoryData = [
   {

@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { h4 } from 'styles/legacy';
+import { h4 } from '~/styles/legacy';
 import { clsx } from 'clsx';
 
 export const LearnMessage: FC<{ show?: boolean }> = () => (

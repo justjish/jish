@@ -1,12 +1,12 @@
 import { type FC, useRef, useState, useEffect, useMemo } from 'react';
 import { a, config, SpringValue, useResize, useSpring } from '@react-spring/web';
-import useInteract from 'hooks/useInteract';
-import { useMeasurementCapture } from 'hooks/useMeasurementCapture';
-import { h2, box } from 'styles/legacy';
+import useInteract from '~/hooks/useInteract';
+import { useMeasurementCapture } from '~/hooks/useMeasurementCapture';
+import { h2, box } from '~/styles/legacy';
 import { clsx } from 'clsx';
 
 import { useCallback } from 'react';
-import { useStorySnapshot, useStoryState } from 'hooks/useStory';
+import { useStorySnapshot, useStoryState } from '~/hooks/useStory';
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   id: number;

@@ -1,10 +1,10 @@
-import screenSizes from 'data/screenSizes';
-import useInteract from 'hooks/useInteract';
-import { useMedia } from 'hooks/useMedia';
+import screenSizes from '~/data/screenSizes';
+import useInteract from '~/hooks/useInteract';
+import { useMedia } from '~/hooks/useMedia';
 import { FC } from 'react';
 import { IconType } from 'react-icons';
 import { useSpring, config, a } from '@react-spring/web';
-import { box, h4 } from 'styles/legacy';
+import { box, h4 } from '~/styles/legacy';
 import { clsx } from 'clsx';
 
 export const LearnExternal: FC<{

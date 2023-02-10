@@ -1,10 +1,10 @@
-import screenSizes from 'data/screenSizes';
-import useInteract from 'hooks/useInteract';
-import { useMedia } from 'hooks/useMedia';
+import screenSizes from '~/data/screenSizes';
+import useInteract from '~/hooks/useInteract';
+import { useMedia } from '~/hooks/useMedia';
 import { FC, useCallback, ReactNode } from 'react';
 import { a, SpringValue, useSpring } from '@react-spring/web';
-import { h3, h1 } from 'styles/legacy';
-import { noop } from 'functions/utils';
+import { h3, h1 } from '~/styles/legacy';
+import { noop } from '~/functions/utils';
 import { clsx } from 'clsx';
 const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
   const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);

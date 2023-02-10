@@ -1,12 +1,12 @@
 import { FC, useEffect, useRef } from 'react';
 import { a, config, SpringValue, useSpring } from '@react-spring/web';
-import { section, box } from 'styles/legacy';
+import { section, box } from '~/styles/legacy';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import { HelloHeading } from 'components/HelloHeading';
-import { HelloProfile } from 'components/HelloProfile';
+import { HelloHeading } from '~/components/HelloHeading';
+import { HelloProfile } from '~/components/HelloProfile';
 import { HelloScrollDown } from './HelloScrollDown';
-import { useMenuState } from 'hooks/useMenu';
+import { useMenuState } from '~/hooks/useMenu';
 
 /**
  * Hello

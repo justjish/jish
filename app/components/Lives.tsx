@@ -1,11 +1,11 @@
 import { type FC, useRef, useEffect } from 'react';
 import { SpringValue, useSpring, config } from '@react-spring/web';
-import { section } from 'styles/legacy';
+import { section } from '~/styles/legacy';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import { LivesHeading } from 'components/LivesHeading';
-import { LivesBackground } from 'components/LivesBackground';
-import { useMenuState } from 'hooks/useMenu';
+import { LivesHeading } from '~/components/LivesHeading';
+import { LivesBackground } from '~/components/LivesBackground';
+import { useMenuState } from '~/hooks/useMenu';
 
 const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();

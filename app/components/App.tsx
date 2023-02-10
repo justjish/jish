@@ -1,14 +1,14 @@
 import { type FC } from 'react';
 import { useScroll, useSpring } from '@react-spring/web';
-import { useWindowHeightRef } from 'hooks/useWindowHeightRef';
-import Menu from 'components/Menu';
-import Hello from 'components/Hello';
-import Story from 'components/Story';
-import Brain from 'components/Brain';
-import Lives from 'components/Lives';
-import Learn from 'components/Learn';
-import { StoryProvider } from 'hooks/useStory';
-import { MenuProvider } from 'hooks/useMenu';
+import { useWindowHeightRef } from '~/hooks/useWindowHeightRef';
+import Menu from '~/components/Menu';
+import Hello from '~/components/Hello';
+import Story from '~/components/Story';
+import Brain from '~/components/Brain';
+import Lives from '~/components/Lives';
+import Learn from '~/components/Learn';
+import { StoryProvider } from '~/hooks/useStory';
+import { MenuProvider } from '~/hooks/useMenu';
 
 /**
  *
