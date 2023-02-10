@@ -12,15 +12,16 @@ type CancelCaptureFunction = () => boolean;
  */
 type PreventCaptureDependencyList = DependencyList;
 /**
- *
+ * The parameters for the useMeasurementCapture hook.
+ * @param preventCapture A tuple containing a function that returns a boolean to determine whether or not to cancel the capture of the initial measurements.
  */
 export type useMeasurementCaptureParams = {
-  preventCapture?: [fn: CancelCaptureFunction, deps: PreventCaptureDependencyList];
+  preventCapture: [fn: CancelCaptureFunction, deps: PreventCaptureDependencyList];
 };
 
 /**
  * This hook captures the initial height and width of an element after it has rendered.
- * In order for the measurement to be captured, you must use the 'setPreventCapture' function ensure.
+ * In order for the measurement to be captured, you must define preventCapture.
  */
 export const useMeasurementCapture = (
   { preventCapture }: useMeasurementCaptureParams = { preventCapture: [() => true, []] },
@@ -38,10 +39,9 @@ export const useMeasurementCapture = (
       }
   >({ originalHeight: null, originalWidth: null, isReady: false });
 
-  // We default the cancelCapture function to always return true. This allows the user to set the function later on.
-  const [[cancelCapture, deps], trigger] = useState<
-    Exclude<Exclude<useMeasurementCaptureParams, undefined>['preventCapture'], undefined>
-  >(preventCapture!);
+  // By placing this in state, we can allow the user to update the preventCapture function and dependency list at any time.
+  const [[cancelCapture, deps], updatePreventChange] =
+    useState<Exclude<useMeasurementCaptureParams, undefined>['preventCapture']>(preventCapture);
 
   const [measureRef, bounds] = useMeasure({ debounce: 200 });
   const localRef = useRef<HTMLDivElement>(null);
@@ -66,5 +66,5 @@ export const useMeasurementCapture = (
     // Set the height and width of the element
     set({ originalHeight: bounds.height, originalWidth: bounds.width, isReady: true });
   }, [localRef.current, bounds, originalHeight, originalWidth, ...deps]);
-  return [mergeRefs([measureRef, localRef]), { originalHeight, originalWidth, isReady }, trigger] as const;
+  return [mergeRefs([measureRef, localRef]), { originalHeight, originalWidth, isReady }, updatePreventChange] as const;
 };

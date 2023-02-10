@@ -1,10 +1,9 @@
-import { type FC } from 'react';
+import { useMemo, type FC } from 'react';
 import { a, config, useSpring } from '@react-spring/web';
 import { menuBox } from 'styles/legacy';
-import { MenuData } from 'data/MenuData';
 import { MenuItem } from 'components/MenuItem';
-
-export const Menu: FC<{ items?: typeof MenuData }> = ({ items = MenuData }) => {
+import { items } from '../data/MenuData';
+export const Menu: FC = () => {
   const [{ width }] = useSpring(
     {
       from: { width: '38px' },

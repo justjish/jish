@@ -14,15 +14,9 @@ export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   );
   const { bind, interactStyles } = useInteract({ onClick: noop });
   return (
-    <a.div
-      className={clsx(box, 'w-[350px]')}
-      {...bind()}
-      style={{ ...interactStyles, x }}
-    >
+    <a.div className={clsx(box, 'w-[350px]')} {...bind()} style={{ ...interactStyles, x }}>
       <div className={h2}>Years Coding</div>
-      <div className={clsx(h1, 'text-[8em]')}>
-        10+
-      </div>
+      <div className={clsx(h1, 'text-[8em]')}>10+</div>
     </a.div>
   );
 };

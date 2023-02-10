@@ -1,7 +1,4 @@
 {
-  "plugins": [
-    "@emotion"
-  ],
   "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
@@ -19,7 +16,7 @@
   },
   "rules": {
     "prettier/prettier": [
-      "error",
+      "warn",
       {
         "singleQuote": true
       }
@@ -30,9 +27,7 @@
     "react/no-unknown-property": [
       "error",
       {
-        "ignore": [
-          "css"
-        ]
+        "ignore": ["css"]
       }
     ]
   },

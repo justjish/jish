@@ -1,12 +1,12 @@
-import { FC, useEffect, useRef, useCallback } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { a, config, SpringValue, useSpring } from '@react-spring/web';
 import { section, box } from 'styles/legacy';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import useBounds from 'hooks/useBounds';
 import { HelloHeading } from 'components/HelloHeading';
 import { HelloProfile } from 'components/HelloProfile';
 import { HelloScrollDown } from './HelloScrollDown';
+import { useMenuState } from 'hooks/useMenu';
 
 /**
  * Hello
@@ -25,11 +25,8 @@ export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   // the actual position position of the component post render.
   const [ref, bounds] = useMeasure();
   const localRef = useRef<HTMLDivElement>(null);
-  const updateBounds = useCallback(
-    useBounds((state) => state.setHello),
-    [],
-  );
-  useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
+  const { setHello } = useMenuState();
+  useEffect(() => setHello({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, setHello]);
 
   const [{ x, scale, opacity, background }] = useSpring(
     {

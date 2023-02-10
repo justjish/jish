@@ -6,7 +6,7 @@ import { h2, box } from 'styles/legacy';
 import { clsx } from 'clsx';
 
 import { useCallback } from 'react';
-import { useStorySnapshot, useStoryState } from 'context/StoryContext';
+import { useStorySnapshot, useStoryState } from 'hooks/useStory';
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   id: number;
@@ -19,16 +19,19 @@ export const StoryPlace: FC<{
 }> = ({ id, offset, logo, focus, time, speed }) => {
   const state = useStoryState();
   const snap = useStorySnapshot();
-  const onSelect = useCallback(async (id: number) => {
-    switch (snap.selected) {
-      case id:  // The same one is selected, so deselect it
-        state.selected = null;
-        return;
-      default: // Either null or a different one is selected, so update selection to itself.
-        state.selected = id;
-        return
-    }
-  }, [state, snap]);
+  const onSelect = useCallback(
+    async (id: number) => {
+      switch (snap.selected) {
+        case id: // The same one is selected, so deselect it
+          state.selected = null;
+          return;
+        default: // Either null or a different one is selected, so update selection to itself.
+          state.selected = id;
+          return;
+      }
+    },
+    [state, snap],
+  );
   const {
     bind,
     interactStyles: { scale },
@@ -53,25 +56,25 @@ export const StoryPlace: FC<{
     () =>
       isReady
         ? {
-          height: originalHeight!,
-          width: originalWidth!,
-          zIndex: 1,
-          config: config.slow,
-          x: x,
-          y: 0,
-          display: 'block',
-          scale: scale,
-          skewX,
-          opacity: 1,
-        }
+            height: originalHeight!,
+            width: originalWidth!,
+            zIndex: 1,
+            config: config.slow,
+            x: x,
+            y: 0,
+            display: 'block',
+            scale: scale,
+            skewX,
+            opacity: 1,
+          }
         : {},
     [isReady, originalHeight, originalWidth, x, scale, skewX],
   );
   const expanded = useMemo(() => {
     if (!isReady) return {};
     return {
-      height: window.innerHeight * .75,
-      width: window.innerWidth * .75,
+      height: window.innerHeight * 0.75,
+      width: window.innerWidth * 0.75,
       opacity: 1,
       zIndex: 999,
       config: config.slow,
@@ -103,7 +106,7 @@ export const StoryPlace: FC<{
       default: // Another one is selected
         api.start(removed);
         card.display.set('none');
-        return
+        return;
     }
   }, [originalHeight, originalWidth, snap, id, x, api, scale, card]);
 

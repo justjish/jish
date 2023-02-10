@@ -1,13 +1,15 @@
 import { type FC } from 'react';
-import { useSpring } from '@react-spring/web';
-import { useScroll } from '@use-gesture/react';
+import { useScroll, useSpring } from '@react-spring/web';
+import { useWindowHeightRef } from 'hooks/useWindowHeightRef';
+
 import Menu from 'components/Menu';
 import Hello from 'components/Hello';
 import Story from 'components/Story';
 import Brain from 'components/Brain';
 import Lives from 'components/Lives';
 import Learn from 'components/Learn';
-import { StoryProvider } from 'context/StoryContext';
+import { StoryProvider } from 'hooks/useStory';
+import { MenuProvider } from 'hooks/useMenu';
 
 /**
  *
@@ -42,19 +44,25 @@ import { StoryProvider } from 'context/StoryContext';
  */
 
 export const App: FC = () => {
-  const [{ scroll }] = useSpring({ scroll: window.scrollY }, []);
-  useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { target: window });
+  // Do not destructure, this holds a reference to the window height
+  const heightRef = useWindowHeightRef();
+  // This provides the row scroll position
+  const scrollPos = useScroll({});
+  // We interpolate the scroll position to a value between 0 and 4, representing the sections of the page
+  const [{ offset }] = useSpring({ offset: scrollPos.scrollY.to((v) => v / heightRef.current) }, [scrollPos]);
   return (
-    <div className="absolute w-screen h-[500vh] overflow-x-hidden m-0 p-0">
-      <Hello offset={scroll} />
-      <StoryProvider>
-        <Story offset={scroll} />
-      </StoryProvider>
-      <Brain offset={scroll} />
-      <Lives offset={scroll} />
-      <Learn offset={scroll} />
-      <Menu />
-    </div>
+    <MenuProvider>
+      <div className="absolute w-screen h-[500vh] overflow-x-hidden m-0 p-0">
+        <Hello offset={offset} />
+        <StoryProvider>
+          <Story offset={offset} />
+        </StoryProvider>
+        <Brain offset={offset} />
+        <Lives offset={offset} />
+        <Learn offset={offset} />
+        <Menu />
+      </div>
+    </MenuProvider>
   );
 };
 export default App;
