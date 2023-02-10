@@ -1,8 +1,8 @@
-import screenSizes from '~/data/screenSizes';
 import useInteract from '~/hooks/useInteract';
-import { useMedia } from '~/hooks/useMedia';
-import { FC, useCallback, ReactNode } from 'react';
-import { a, SpringValue, useSpring } from '@react-spring/web';
+import type { FC, ReactNode } from 'react';
+import { useCallback } from 'react';
+import type { SpringValue } from '@react-spring/web';
+import { a } from '@react-spring/web';
 import { h3, h1 } from '~/styles/legacy';
 import { noop } from '~/functions/utils';
 import { clsx } from 'clsx';
@@ -17,27 +17,21 @@ const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
-  // Mobile First Design
-  const sizes = useMedia(
-    screenSizes,
-    [
-      { h1: '9rem', h3: '3rem' },
-      { h1: '7rem', h3: '2.5rem' },
-      { h1: '6rem', h3: '2rem' },
-    ],
-    { h1: '4rem', h3: '1.35rem' },
-  );
-  const [mqFont] = useSpring({ h1: sizes.h1, h3: sizes.h3 }, [sizes.h1, sizes.h3]);
-
   return (
     <HiddenButton>
-      <a.div className={clsx(h3, 'text-center')} style={{ fontSize: mqFont.h3 }}>
+      <a.div className={clsx(h3, 'text-center text-[1.35rem] sm:text-[2rem] lg:text-[2.5rem] 2xl:text-[3rem]')}>
         Jish.Dev Presents
       </a.div>
-      <a.div className={clsx(h1, 'text-center')} style={{ opacity, fontSize: mqFont.h1, x }}>
+      <a.div
+        className={clsx(h1, 'text-center text-[4rem] sm:text-[6rem] lg:text-[7rem] 2xl:text-[9rem]')}
+        style={{ opacity, x }}
+      >
         Sujish Patel
       </a.div>
-      <a.div className={clsx(h3, 'text-center')} style={{ opacity, fontSize: mqFont.h3, x }}>
+      <a.div
+        className={clsx(h3, 'text-center text-[1.35rem] sm:text-[2rem] lg:text-[2.5rem] 2xl:text-[3rem]')}
+        style={{ opacity, x }}
+      >
         A Full Stack Developer
       </a.div>
     </HiddenButton>

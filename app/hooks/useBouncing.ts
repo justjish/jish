@@ -7,5 +7,5 @@ export const useBouncing = (range: number | string) => {
     to: { y: range },
     config: { mass: 1, tension: 50, friction: 0 }, //No friction is away to allow this to go forever
   });
-  return [style];
+  return [style] as const;
 };

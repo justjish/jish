@@ -1,9 +1,8 @@
 import { type FC } from 'react';
-import { SpringValue, a, useSpring, config } from '@react-spring/web';
+import type { SpringValue } from '@react-spring/web';
+import { a, useSpring, config } from '@react-spring/web';
 import { h3, h3Inline } from '~/styles/legacy';
-import { useMedia } from '~/hooks/useMedia';
 import { clsx } from 'clsx';
-import screenSizes from '~/data/screenSizes';
 import { useStorySnapshot } from '~/hooks/useStory';
 
 export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
@@ -22,10 +21,11 @@ export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) =>
         },
     [snapshot, offset],
   );
-  const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '2rem');
-  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   return (
-    <a.div className={clsx(h3, 'z-[1] absolute')} style={{ scale, fontSize, y }}>
+    <a.div
+      className={clsx(h3, 'z-[1] absolute text-[2rem] sm:text-[3rem] lg:text-[3.5rem] 2xl:text-[4rem]')}
+      style={{ scale, y }}
+    >
       with
       <div className={h3Inline}>Years</div> of Experience
     </a.div>

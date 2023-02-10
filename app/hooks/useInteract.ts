@@ -11,7 +11,7 @@ export const useInteract = ({ onClick = () => ({}) }: { onClick: () => void }) =
   const [interactStyles, api] = useSpring({ scale: 1, config: config.wobbly }, []);
   const bind = useGesture({
     onMouseDown: () => interactStyles.scale.start(0.9),
-    onMouseUp: async ({ hovering, event }) => {
+    onMouseUp: async () => {
       onClick();
     },
     onHover: ({ hovering }) => (hovering ? interactStyles.scale.start(1.1) : interactStyles.scale.start(1)),

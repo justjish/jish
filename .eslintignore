@@ -5,4 +5,4 @@
 /public
 /node_modules
 /dist
-/app/styles/tailwind.css
+./app/styles/tailwind.css

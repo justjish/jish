@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "@remix-run",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -31,5 +32,5 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["dist", "node_modules", "*.js", "*.jsx", "build", "public"]
+  "ignorePatterns": ["dist", "node_modules", "*.js", "*.jsx", "build", "public", "./app/styles/tailwind.css"]
 }

@@ -8,7 +8,7 @@ export const useOnScreen = (options = {} as IntersectionObserverInit) => {
   const [view, set] = useState(false);
   useEffect(() => {
     // Create observer on mount.
-    const observer = new IntersectionObserver(([entry]) => set(entry.isIntersecting), options);
+    const observer = new IntersectionObserver(([entry]) => set(entry?.isIntersecting ?? false), options);
     // If the ref is ready, attach it to observer.
     if (ref) observer.observe(ref);
     // Remove observer on dismount.

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { isSSR } from '../functions/utils';
-
+import type { SupportedSizes } from '~/data/screenSizes';
 // Function that gets value based on matching media query
 const getValue = <T>({
   mediaQueryLists,
@@ -17,9 +17,15 @@ const getValue = <T>({
   // Return related value or defaultValue if none
   return values?.[index] || defaultValue;
 };
-
-// SSR Friendly useMedia hook
-export const useMedia = <T>(queries: string[], values: T[], defaultValue: T) => {
+/**
+ * useMedia Used to responsively change the value of a variable based on breakpoints.
+ * @deprecated Use Tailwind's breakpoints instead. This will always throw a hydration error due to SSR mismatch.
+ * @param queries
+ * @param values
+ * @param defaultValue
+ * @returns
+ */
+export const useMedia = <T>(queries: Readonly<SupportedSizes[]>, values: T[], defaultValue: T) => {
   const [value, setValue] = useState<T>(() =>
     isSSR()
       ? getValue({ values, mediaQueryLists: [], defaultValue })

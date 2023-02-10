@@ -1,13 +1,10 @@
-import { useMedia } from '~/hooks/useMedia';
-import { useSpring, config, a } from '@react-spring/web';
-import screenSizes from '~/data/screenSizes';
+import { a } from '@react-spring/web';
 import { h3, h3Inline } from '~/styles/legacy';
+import { clsx } from 'clsx';
 
 export const LearnHeading = () => {
-  const mqFont = useMedia(screenSizes, ['4rem', '3.5rem', '3rem'], '1rem');
-  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   return (
-    <a.div className={h3} style={{ fontSize }}>
+    <a.div className={clsx(h3, 'text-[1rem] sm:text-[3rem] lg:text-[3.5rem] 2xl:text-[4rem]')}>
       More<div className={h3Inline}> Coming </div>Soon!
     </a.div>
   );

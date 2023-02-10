@@ -1,9 +1,7 @@
-import screenSizes from '~/data/screenSizes';
 import useInteract from '~/hooks/useInteract';
-import { useMedia } from '~/hooks/useMedia';
-import { FC } from 'react';
-import { IconType } from 'react-icons';
-import { useSpring, config, a } from '@react-spring/web';
+import type { FC } from 'react';
+import type { IconType } from 'react-icons';
+import { a } from '@react-spring/web';
 import { box, h4 } from '~/styles/legacy';
 import { clsx } from 'clsx';
 
@@ -13,8 +11,6 @@ export const LearnExternal: FC<{
   link: string;
   download?: boolean;
 }> = ({ Icon, message, link, download = false }) => {
-  const mqFont = useMedia(screenSizes, ['3rem', '2.5rem', '2rem'], '1.5rem');
-  const [{ fontSize }] = useSpring({ fontSize: mqFont, config: config.wobbly }, [mqFont]);
   const { bind, interactStyles } = useInteract({ onClick: () => ({}) });
 
   return (
@@ -27,7 +23,9 @@ export const LearnExternal: FC<{
       target="_blank"
       rel="noopener"
     >
-      <a.div className={clsx(h4, 'no-underline text-[white]')} style={{ fontSize }}>
+      <a.div
+        className={clsx(h4, 'no-underline text-[white] text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] 2xl:text-[3rem]')}
+      >
         <Icon className="m-auto align-middle" /> <div className={clsx(h4, 'text-[0.5em]')}>{message}</div>
       </a.div>
     </a.a>
