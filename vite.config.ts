@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
-    react({ plugins: [['@swc/plugin-emotion', {}]], jsxImportSource: '@emotion/react' }),
+    react(),
     tsconfigPaths(),
     VitePWA({
       manifest: {
@@ -41,9 +41,4 @@ export default defineConfig({
     }),
   ],
   assetsInclude: ['heic'],
-  esbuild: {
-    jsx: 'automatic',
-    jsxFactory: 'jsx',
-    jsxImportSource: '@emotion/react',
-  },
 });
