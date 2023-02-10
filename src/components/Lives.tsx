@@ -1,17 +1,17 @@
-import { FC, useCallback, useRef, useEffect } from 'react';
+import { type FC, useRef, useEffect } from 'react';
 import { SpringValue, useSpring, config } from '@react-spring/web';
 import { section } from 'styles/legacy';
 import useMeasure from 'react-use-measure';
-import useBounds from 'hooks/useBounds';
 import { mergeRefs } from 'react-merge-refs';
 import { LivesHeading } from 'components/LivesHeading';
 import { LivesBackground } from 'components/LivesBackground';
+import { useMenuState } from 'context/MenuContext';
 
 const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();
   const localRef = useRef<HTMLDivElement>(null);
-  const updateBounds = useBounds(useCallback((state) => state.setLives, []));
-  useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, updateBounds]);
+  const { setLives } = useMenuState();
+  useEffect(() => setLives({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 300 }), [bounds, setLives]);
 
   const [{ scale }] = useSpring(
     { scale: offset.to({ range: [2, 4], output: [3, 1], extrapolate: 'clamp' }), config: config.molasses },
