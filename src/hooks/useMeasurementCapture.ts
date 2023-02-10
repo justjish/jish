@@ -39,8 +39,8 @@ export const useMeasurementCapture = (
       }
   >({ originalHeight: null, originalWidth: null, isReady: false });
 
-  // We default the cancelCapture function to always return true. This allows the user to set the function later on.
-  const [[cancelCapture, deps], trigger] =
+  // By placing this in state, we can allow the user to update the preventCapture function and dependency list at any time.
+  const [[cancelCapture, deps], updatePreventChange] =
     useState<Exclude<useMeasurementCaptureParams, undefined>['preventCapture']>(preventCapture);
 
   const [measureRef, bounds] = useMeasure({ debounce: 200 });
@@ -66,5 +66,5 @@ export const useMeasurementCapture = (
     // Set the height and width of the element
     set({ originalHeight: bounds.height, originalWidth: bounds.width, isReady: true });
   }, [localRef.current, bounds, originalHeight, originalWidth, ...deps]);
-  return [mergeRefs([measureRef, localRef]), { originalHeight, originalWidth, isReady }, trigger] as const;
+  return [mergeRefs([measureRef, localRef]), { originalHeight, originalWidth, isReady }, updatePreventChange] as const;
 };

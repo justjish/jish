@@ -28,7 +28,7 @@ export const LearnExternal: FC<{
       rel="noopener"
     >
       <a.div className={clsx(h4, 'no-underline text-[white]')} style={{ fontSize }}>
-        <Icon className="align-middle m-auto" /> <div className={clsx(h4, 'text-[0.5em]')}>{message}</div>
+        <Icon className="m-auto align-middle" /> <div className={clsx(h4, 'text-[0.5em]')}>{message}</div>
       </a.div>
     </a.a>
   );

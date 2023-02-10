@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
  * Helps to determine if a component is onScreen using the IntersectionObeserver API
  */
 export const useOnScreen = (options = {} as IntersectionObserverInit) => {
-  const [ref, setRef] = useState<HTMLDivElement>();
+  const [ref, setRef] = useState<HTMLElement>();
   const [view, set] = useState(false);
   useEffect(() => {
     // Create observer on mount.
