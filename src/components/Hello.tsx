@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useCallback } from 'react';
 import { a, config, SpringValue, useSpring } from '@react-spring/web';
-import { section } from 'styles/section.style';
-import { box } from 'styles/box.style';
+import { section, box } from 'styles/legacy';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
 import useBounds from 'hooks/useBounds';
@@ -49,8 +48,8 @@ export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ y }] = useSpring({ y: offset.to([0, 0.2], [200, 0]), config: config.stiff }, []);
   const [{ rotateX }] = useSpring({ rotateX: y.to([0, 100], [0, 180]), config: config.stiff, immediate: true }, []);
   return (
-    <div css={section} ref={mergeRefs([ref, localRef])}>
-      <a.div css={box} style={{ scale, y, background, zIndex: 2, position: 'absolute', rotateX }}>
+    <div className={section} ref={mergeRefs([ref, localRef])}>
+      <a.div className={box} style={{ scale, y, background, zIndex: 2, position: 'absolute', rotateX }}>
         <HelloHeading opacity={opacity} x={x} />
         <HelloScrollDown />
       </a.div>

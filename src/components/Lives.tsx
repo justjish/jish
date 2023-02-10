@@ -1,6 +1,6 @@
 import { FC, useCallback, useRef, useEffect } from 'react';
 import { SpringValue, useSpring, config } from '@react-spring/web';
-import { section } from 'styles/section.style';
+import { section } from 'styles/legacy';
 import useMeasure from 'react-use-measure';
 import useBounds from 'hooks/useBounds';
 import { mergeRefs } from 'react-merge-refs';
@@ -25,7 +25,7 @@ const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
     [bounds.height],
   );
   return (
-    <div css={section} ref={mergeRefs([localRef, ref])}>
+    <div className={section} ref={mergeRefs([localRef, ref])}>
       <LivesBackground scale={scale} y={y} />
       <LivesHeading offset={offset} />
     </div>

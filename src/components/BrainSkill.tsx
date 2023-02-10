@@ -1,40 +1,12 @@
-import { FC, useMemo } from 'react';
+import { type FC } from 'react';
 import { a, SpringValue, useSpring } from '@react-spring/web';
 import { SkillItem } from 'data/BrainData';
 import randomColor from 'randomcolor';
-import { css } from '@emotion/react';
-import { box } from 'styles/box.style';
+import { grid, flex } from 'styles/legacy';
 import { isEven } from 'functions/utils';
+import { clsx } from 'clsx';
 
-const gridBox = css`
-  ${box}
-  display: grid;
-  grid-template-columns: 0.2fr 0.8fr;
-  gap: 0.4rem;
-`;
-const flexBox = css`
-  ${box}
-  display: flex;
-`;
-
-const futuraFont = css`
-  font-family: futura-pt, sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  text-transform: uppercase;
-`;
-
-const textStyle = (size: number) => css`
-  ${futuraFont};
-  font-size: ${(50 * size) / 100}px;
-`;
-
-const iconStyle = (size: number) =>
-  css`
-    height: ${size}px;
-    width: ${size}px;
-  `;
-
+// TODO: Fix sizing of icons.
 export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
   Icon = null,
   idx,
@@ -56,15 +28,10 @@ export const BrainSkill: FC<SkillItem & { offset: SpringValue<number> }> = ({
     [],
   );
 
-  // Wrapping styles in useMemo for performance optimizations on lower end devices.
-  const cssBox = useMemo(() => (Icon ? gridBox : flexBox), [Icon]);
-  const cssIcon = useMemo(() => iconStyle(size), [size]);
-  const cssText = useMemo(() => textStyle(size), [size]);
-
   return (
-    <a.div css={cssBox} style={{ y, color }}>
-      {Icon && <Icon title={desc} css={cssIcon} />}
-      <div css={cssText}>{desc}</div>
+    <a.div className={clsx(Icon ? grid : flex)} style={{ y, color }}>
+      {Icon && <Icon className="m-auto" title={desc} style={{ height: `${size}px`, width: `${size}px` }} />}
+      <div className={'font-medium not-italic uppercase font-futura m-auto'} style={{ fontSize: `${(50 * size) / 100}px` }}>{desc}</div>
     </a.div>
   );
 };

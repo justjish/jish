@@ -1,8 +1,7 @@
-import { FC } from 'react';
+import { type FC } from 'react';
 import scrolldown from 'assets/icons/scrolldown.svg';
 import { useBouncing } from 'hooks/useBouncing';
 import { a, useSpring } from '@react-spring/web';
-import { css } from '@emotion/react';
 import { useMedia } from 'hooks/useMedia';
 import screenSizes from 'data/screenSizes';
 
@@ -13,11 +12,7 @@ export const HelloScrollDown: FC = () => {
 
   return (
     <a.img
-      css={css`
-        top: 80vh;
-        position: 'relative';
-        z-index: 10;
-      `}
+      className='relative z-10 m-auto'
       height={size}
       width={size}
       src={scrolldown}

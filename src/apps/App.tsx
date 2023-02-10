@@ -1,15 +1,13 @@
 import { type FC } from 'react';
-import { globalStyles } from 'styles/global.style';
-import { Global } from '@emotion/react';
 import { useSpring } from '@react-spring/web';
 import { useScroll } from '@use-gesture/react';
-import { view } from 'styles/app.styles';
 import Menu from 'components/Menu';
 import Hello from 'components/Hello';
 import Story from 'components/Story';
 import Brain from 'components/Brain';
 import Lives from 'components/Lives';
 import Learn from 'components/Learn';
+import { StoryProvider } from 'context/StoryContext';
 
 /**
  *
@@ -47,17 +45,16 @@ export const App: FC = () => {
   const [{ scroll }] = useSpring({ scroll: window.scrollY }, []);
   useScroll(({ xy: [, y] }) => scroll.set(y / window.innerHeight), { target: window });
   return (
-    <>
-      <Global styles={globalStyles} />
-      <div css={view}>
-        <Hello offset={scroll} />
+    <div className="absolute w-screen h-[500vh] overflow-x-hidden m-0 p-0">
+      <Hello offset={scroll} />
+      <StoryProvider>
         <Story offset={scroll} />
-        <Brain offset={scroll} />
-        <Lives offset={scroll} />
-        <Learn offset={scroll} />
-        <Menu />
-      </div>
-    </>
+      </StoryProvider>
+      <Brain offset={scroll} />
+      <Lives offset={scroll} />
+      <Learn offset={scroll} />
+      <Menu />
+    </div>
   );
 };
 export default App;

@@ -1,21 +1,14 @@
-import { FC, useRef, useEffect, useCallback, useMemo } from 'react';
-import { section } from 'styles/section.style';
+import { type FC, useRef, useEffect, useCallback, useMemo } from 'react';
 import { a, SpringValue, useSpring, config } from '@react-spring/web';
 import useMeasure from 'react-use-measure';
 import { mergeRefs } from 'react-merge-refs';
-import { css } from '@emotion/react';
-import { box } from 'styles/box.style';
+import { box, section } from 'styles/legacy';
 import useBounds from 'hooks/useBounds';
 import { LearnHeading } from 'components/LearnHeading';
 import { LearnMessage } from 'components/LearnMessage';
 import { LearnExternal } from 'components/LearnExternal';
 import { externalData } from 'data/LearnData';
-
-// Gotta love how easy these are.
-const grid = css`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-`;
+import { clsx } from 'clsx';
 
 const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();
@@ -40,17 +33,11 @@ const Learn: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const ExternalLinks = useMemo(() => externalData.map((props, i) => <LearnExternal {...props} key={i} />), []);
 
   return (
-    <div css={section} ref={mergeRefs([localRef, ref])}>
-      <a.div
-        css={css`
-          ${box};
-          overflow: hidden;
-        `}
-        style={{ opacity, scale, y }}
-      >
+    <div className={section} ref={mergeRefs([localRef, ref])}>
+      <a.div className={clsx(box, "overflow-hidden")} style={{ opacity, scale, y }}>
         <LearnHeading />
         <LearnMessage />
-        <div css={grid}> {...ExternalLinks} </div>
+        <div className='grid grid-cols-[repeat(3,1fr)] gap-5'> {...ExternalLinks} </div>
       </a.div>
     </div>
   );
