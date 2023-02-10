@@ -15,7 +15,10 @@ const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ d
   const localRef = useRef<HTMLDivElement>(null);
   const updateBounds = useBounds(useCallback((state) => state.setStory, []));
   useEffect(() => updateBounds({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds]);
-  const Places = useMemo(() => data.map((props, i) => <StoryPlace key={i} offset={offset} id={i} {...props} />), [offset]);
+  const Places = useMemo(
+    () => data.map((props, i) => <StoryPlace key={i} offset={offset} id={i} {...props} />),
+    [offset],
+  );
   return (
     <div className={section} ref={mergeRefs([ref, localRef])}>
       <div className={row}>
