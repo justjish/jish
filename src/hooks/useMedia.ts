@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { isSSR } from '../functions/utils';
 
 // Function that gets value based on matching media query
 const getValue = <T>({
@@ -19,7 +20,11 @@ const getValue = <T>({
 
 // SSR Friendly useMedia hook
 export const useMedia = <T>(queries: string[], values: T[], defaultValue: T) => {
-  const [value, setValue] = useState<T>(getValue({ values, mediaQueryLists: [], defaultValue }));
+  const [value, setValue] = useState<T>(() =>
+    isSSR()
+      ? getValue({ values, mediaQueryLists: [], defaultValue })
+      : getValue({ values, mediaQueryLists: queries.map((q) => window.matchMedia(q)), defaultValue }),
+  );
   useEffect(
     () => {
       const mediaQueryLists = queries.map((q) => window.matchMedia(q));
