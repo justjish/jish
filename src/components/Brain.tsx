@@ -23,9 +23,7 @@ const Brain: FC<{ data?: typeof BrainData; offset: SpringValue<number> }> = ({ d
   const Skills = useMemo(() => data.map((o, index) => <BrainSkill key={index} offset={offset} {...o} />), []);
   return (
     <div className={section} ref={mergeRefs([localRef, ref])}>
-      <div className={clsx(row, 'absolute h-screen overflow-hidden gap-2')}>
-        {...Skills}
-      </div>
+      <div className={clsx(row, 'absolute h-screen overflow-hidden gap-2')}>{...Skills}</div>
       <BrainHeading offset={offset} />
     </div>
   );
