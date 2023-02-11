@@ -9,14 +9,14 @@
     "dev:style": "tailwindcss -c ./tailwind.config.cjs -i ./styles/app.css -o ./app/styles/app.css -w",
     "dev:remix": "remix watch",
     "dev:wrangler": "NODE_ENV=development wrangler pages dev ./public --compatibility-date=2022-12-01",
-    "build": "run-s build:*",
+    "build": "npm run build:style && npm run build:remix",
     "build:style": "cross-env NODE_ENV=production tailwindcss -c ./tailwind.config.cjs -m -i ./styles/app.css -o app/styles/app.css",
     "build:remix": "remix build",
     "v:dev": "vite",
     "v:build": "npm run w:cleanup && vite build",
     "v:serve": "vite preview",
     "w:cleanup": "rimraf .cache ./dist ./build/index.js ./build ./public/build ./app/styles/app.css",
-    "w:prebuild": "pnpm run cleanup",
+    "w:prebuild": "npm run cleanup",
     "w:dev": "concurrently \"npm:dev:*\"",
     "w:dev:miniflare": "miniflare --modules --build-command \"node ./scripts/build.mjs\" --build-watch-path ./worker --build-watch-path ./build/index.js --no-cache --watch --open",
     "w:dev:remix": "remix watch",
@@ -29,11 +29,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.3.0",
     "@react-spring/web": "^9.6.1",
     "@remix-run/cloudflare": "^1.12.0",
     "@remix-run/cloudflare-pages": "^1.12.0",
-    "@remix-run/cloudflare-workers": "^1.12.0",
     "@remix-run/react": "^1.12.0",
     "@remix-run/server-runtime": "^1.12.0",
     "@tailwindcss/container-queries": "^0.1.0",
@@ -87,5 +85,10 @@
     "vite-tsconfig-paths": "^4.0.5",
     "web-vitals": "^3.1.1",
     "wrangler": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=16",
+    "npm": ">=9",
+    "yarn": ">=1"
   }
 }
