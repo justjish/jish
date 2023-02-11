@@ -1,5 +1,5 @@
 {
   "editor.formatOnSave": true,
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+  "spellright.documentTypes": ["markdown", "latex"]
 }

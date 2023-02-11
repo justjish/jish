@@ -8,7 +8,7 @@
     "v:dev": "vite",
     "v:build": "npm run cleanup && vite build",
     "v:serve": "vite preview",
-    "cleanup": "rimraf .cache ./dist ./build/index.js ./build/index.js.map ./public/build ./app/styles/app.css",
+    "cleanup": "rimraf .cache ./dist ./build/index.js ./build ./public/build ./app/styles/app.css",
     "prebuild": "pnpm run cleanup",
     "dev": "concurrently \"npm:dev:*\"",
     "dev:miniflare": "miniflare --modules --build-command \"node ./scripts/build.mjs\" --build-watch-path ./worker --build-watch-path ./build/index.js --no-cache --watch --open",
@@ -18,16 +18,20 @@
     "build:remix": "remix build",
     "build:style": "cross-env NODE_ENV=production tailwindcss -c ./tailwind.config.cjs -m -i ./styles/app.css -o app/styles/app.css",
     "build:worker": "cross-env NODE_ENV=production node ./scripts/build.mjs",
-    "postcss:dev:css": "postcss styles --base styles --dir app/styles -w",
-    "postcss:build:css": "cross-env NODE_ENV=production postcss styles --base styles --dir app/styles --env production",
+    "postcss:dev:css": "echo 'NEED_TO_FIX' postcss styles --base styles --dir app/styles -w",
+    "postcss:build:css": "echo 'NEED_TO_FIX' cross-env NODE_ENV=production postcss styles --base styles --dir app/styles --env production",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src",
     "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,tsx,css,md,yml}": "prettier --write"
   },
   "license": "MIT",
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.0",
     "@react-spring/web": "^9.6.1",
     "@remix-run/cloudflare": "^1.12.0",
+    "@remix-run/cloudflare-pages": "^1.12.0",
     "@remix-run/cloudflare-workers": "^1.12.0",
     "@remix-run/react": "^1.12.0",
     "@remix-run/server-runtime": "^1.12.0",

@@ -5,6 +5,7 @@ specifiers:
   '@cloudflare/workers-types': ^4.20230115.0
   '@react-spring/web': ^9.6.1
   '@remix-run/cloudflare': ^1.12.0
+  '@remix-run/cloudflare-pages': ^1.12.0
   '@remix-run/cloudflare-workers': ^1.12.0
   '@remix-run/dev': ^1.12.0
   '@remix-run/eslint-config': ^1.12.0
@@ -60,6 +61,7 @@ dependencies:
   '@cloudflare/kv-asset-handler': 0.3.0
   '@react-spring/web': 9.6.1_biqbaboplfbrettd7655fr4n2y
   '@remix-run/cloudflare': 1.12.0_tfrijzlcj6bqm55smhpqnj6nee
+  '@remix-run/cloudflare-pages': 1.12.0_tfrijzlcj6bqm55smhpqnj6nee
   '@remix-run/cloudflare-workers': 1.12.0_tfrijzlcj6bqm55smhpqnj6nee
   '@remix-run/react': 1.12.0_biqbaboplfbrettd7655fr4n2y
   '@remix-run/server-runtime': 1.12.0
@@ -2628,6 +2630,17 @@ packages:
       '@react-spring/types': 9.6.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@remix-run/cloudflare-pages/1.12.0_tfrijzlcj6bqm55smhpqnj6nee:
+    resolution:
+      { integrity: sha512-Xr7yhGlafY/JUTdBxVpMXJpBHgJsSwPGJ4tObol+s70monwNkIcRLKjt5+Aj8TjPR0NJ/I+sJbxFPHf65mTtRg== }
+    engines: { node: '>=14' }
+    peerDependencies:
+      '@cloudflare/workers-types': ^3.0.0
+    dependencies:
+      '@cloudflare/workers-types': 4.20230115.0
+      '@remix-run/cloudflare': 1.12.0_tfrijzlcj6bqm55smhpqnj6nee
     dev: false
 
   /@remix-run/cloudflare-workers/1.12.0_tfrijzlcj6bqm55smhpqnj6nee:

@@ -32,7 +32,6 @@ yarn.lock
 /.cache
 
 build/*
-!build/index.d.ts
 /public/build
 
 # Remix stacks
@@ -43,6 +42,7 @@ build/*
 
 # Tailwind
 /app/styles/tailwind.css
+/app/styles/app.css
 
 # Cypress
 /cypress/videos

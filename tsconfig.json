@@ -37,6 +37,6 @@
       "~/*": ["./app/*"]
     }
   },
-  "include": ["app", "worker.env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.mjs"],
+  "include": ["app", "types/worker.env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.mjs"],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }
