@@ -5,6 +5,7 @@ export default {
   serverModuleFormat: 'esm',
   future: {
     unstable_dev: true,
+    v2_routeConvention: true,
   },
   server: './server.ts',
   serverBuildTarget: 'cloudflare-pages',

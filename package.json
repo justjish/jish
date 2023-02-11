@@ -9,22 +9,9 @@
     "dev:style": "tailwindcss -c ./tailwind.config.cjs -i ./styles/app.css -o ./app/styles/app.css -w",
     "dev:remix": "remix watch",
     "dev:wrangler": "NODE_ENV=development wrangler pages dev ./public --compatibility-date=2022-12-01",
-    "build": "npm run build:style && npm run build:remix",
+    "build": "run-s build:*",
     "build:style": "cross-env NODE_ENV=production tailwindcss -c ./tailwind.config.cjs -m -i ./styles/app.css -o app/styles/app.css",
     "build:remix": "remix build",
-    "v:dev": "vite",
-    "v:build": "npm run w:cleanup && vite build",
-    "v:serve": "vite preview",
-    "w:cleanup": "rimraf .cache ./dist ./build/index.js ./build ./public/build ./app/styles/app.css",
-    "w:prebuild": "npm run cleanup",
-    "w:dev": "concurrently \"npm:dev:*\"",
-    "w:dev:miniflare": "miniflare --modules --build-command \"node ./scripts/build.mjs\" --build-watch-path ./worker --build-watch-path ./build/index.js --no-cache --watch --open",
-    "w:dev:remix": "remix watch",
-    "w:build": "npm run build:style && npm run build:remix && npm run build:worker",
-    "w:build:remix": "remix build",
-    "w:build:worker": "cross-env NODE_ENV=production node ./scripts/build.mjs",
-    "p:dev:css": "echo 'NEED_TO_FIX' postcss styles --base styles --dir app/styles -w",
-    "p:build:css": "echo 'NEED_TO_FIX' cross-env NODE_ENV=production postcss styles --base styles --dir app/styles --env production",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
   },
   "license": "MIT",
@@ -36,7 +23,6 @@
     "@remix-run/server-runtime": "^1.12.0",
     "@tailwindcss/container-queries": "^0.1.0",
     "@use-gesture/react": "^10.2.24",
-    "@vitejs/plugin-react": "^3.1.0",
     "clsx": "^1.2.1",
     "isbot": "^3.6.5",
     "npm-run-all": "^4.1.5",
@@ -61,31 +47,48 @@
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
-    "@vitejs/plugin-react-swc": "^3.1.0",
     "autoprefixer": "^10.4.13",
-    "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.17.7",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
-    "miniflare": "^2.11.0",
     "postcss": "^8.4.21",
-    "postcss-cli": "^10.1.0",
     "prettier": "^2.8.4",
     "pretty-quick": "^3.1.3",
-    "rimraf": "^4.1.2",
     "tailwindcss": "^3.2.6",
-    "ts-node": "^10.9.1",
     "typescript": "^4.9.5",
-    "vite": "^4.1.1",
-    "vite-plugin-fonts": "^0.7.0",
-    "vite-plugin-pwa": "^0.14.3",
-    "vite-tsconfig-paths": "^4.0.5",
-    "web-vitals": "^3.1.1",
     "wrangler": "^2.9.1"
   },
+  "overrides": {
+    "@remix-run/cloudflare": {
+      "devDependencies": {
+        "@cloudflare/workers-types": "latest"
+      }
+    },
+    "@remix-run/cloudflare-pages": {
+      "devDependencies": {
+        "@cloudflare/workers-types": "latest"
+      }
+    }
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "all"
+  },
+  "prettierignore": [
+    "/.cache",
+    "/.github",
+    "/.husky",
+    "/build",
+    "/public",
+    "/node_modules",
+    "/dist",
+    "/app/styles/tailwind.css"
+  ],
   "engines": {
     "node": ">=16",
     "npm": ">=9",
