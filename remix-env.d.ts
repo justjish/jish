@@ -27,3 +27,10 @@ declare module '@remix-run/cloudflare' {
     context: LoadContext;
   }
 }
+
+declare module '@remix-run/server-runtime' {
+  export interface AppLoadContext {
+    env: Env;
+    ctx: ExecutionContext;
+  }
+}
