@@ -1,4 +1,4 @@
-import { defineConfig } from 'spa'; // Vite config
+import { defineConfig } from 'vite'; // Vite config
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA } from 'vite-plugin-pwa';
