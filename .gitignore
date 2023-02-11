@@ -53,3 +53,5 @@ build/*
 /.env
 
 /spa-dist
+
+/functions

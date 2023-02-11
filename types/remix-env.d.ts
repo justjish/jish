@@ -1,7 +1,6 @@
 /// <reference types="@remix-run/dev" />
 /// <reference types="@remix-run/cloudflare" />
 /// <reference types="@cloudflare/workers-types" />
-/// <reference types="@remix-run/cloudflare-pages/globals" />
 
 interface Env {
   // Required by the worker adapter
