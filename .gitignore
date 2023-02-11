@@ -30,7 +30,9 @@ yarn.lock
 
 # Remix
 /.cache
-/build
+
+build/*
+!build/index.d.ts
 /public/build
 
 # Remix stacks
@@ -49,3 +51,5 @@ yarn.lock
 # Miniflare
 /.mf
 /.env
+
+/spa-dist

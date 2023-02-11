@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'; // Vite config
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA } from 'vite-plugin-pwa';
-import ViteFonts from 'vite-plugin-fonts';
 export default defineConfig({
   plugins: [
     react(),
@@ -33,12 +32,7 @@ export default defineConfig({
       },
       registerType: 'autoUpdate',
     }),
-    ViteFonts({
-      typekit: {
-        id: 'gen7ewv',
-        defer: true,
-      },
-    }),
   ],
   assetsInclude: ['heic'],
+  build: { outDir: 'spa-dist', copyPublicDir: true },
 });

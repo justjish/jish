@@ -1,6 +1,6 @@
 import type { LinksFunction, MetaFunction, LoaderFunction } from '@remix-run/cloudflare';
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
-import stylesUrl from '~/styles/tailwind.css';
+import stylesUrl from '~/styles/app.css';
 
 /**
  * The `links` export is a function that returns an array of objects that map to

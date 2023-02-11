@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        vag: ['vag-rundschrift-d', 'sans-serif'],
+        acier: ['acier-bat-gris', 'sans-serif'],
+        sauna: ['sauna-new', 'sans-serif'],
         omnium: ['omnium', 'sans-serif'],
-        acier: 'acier-bat-gris, sans-serif',
-        vag: 'vag-rundschrift-d, sans-serif',
-        futura: 'futura-pt, sans-serif',
-        sauna: 'sauna-new, sans-serif',
+        futura: ['futura-pt', 'sans-serif'],
       },
     },
   },
