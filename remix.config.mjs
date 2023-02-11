@@ -3,6 +3,9 @@
  */
 export default {
   serverModuleFormat: 'esm',
+  future: {
+    unstable_dev: true,
+  },
   server: './server.ts',
   serverBuildTarget: 'cloudflare-pages',
   devServerBroadcastDelay: 1000,

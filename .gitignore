@@ -31,7 +31,7 @@ yarn.lock
 # Remix
 /.cache
 
-build/*
+/build/*
 /public/build
 
 # Remix stacks
@@ -55,3 +55,4 @@ build/*
 /spa-dist
 
 /functions
+/build

@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["vite/client", "@cloudflare/workers-types", "@remix-run/server-runtime"],
+    "types": ["vite/client"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -37,6 +37,6 @@
       "~/*": ["./app/*"]
     }
   },
-  "include": ["app", "types/worker.env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.mjs"],
+  "include": ["app", "**/*.ts", "**/*.tsx", "postcss.config.mjs"],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }
