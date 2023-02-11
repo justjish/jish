@@ -1,9 +1,8 @@
 {
-  "name": "jish-dev",
+  "name": "jish",
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "module": "./dist/worker.mjs",
   "scripts": {
     "prepare": "husky install",
     "dev": "npm run build && run-p dev:*",
@@ -27,9 +26,6 @@
     "p:dev:css": "echo 'NEED_TO_FIX' postcss styles --base styles --dir app/styles -w",
     "p:build:css": "echo 'NEED_TO_FIX' cross-env NODE_ENV=production postcss styles --base styles --dir app/styles --env production",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
-  },
-  "lint-staged": {
-    "*.{js,mjs,ts,tsx,css,md,yml}": "prettier --write"
   },
   "license": "MIT",
   "dependencies": {
