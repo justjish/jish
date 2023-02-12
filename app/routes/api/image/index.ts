@@ -1,4 +1,5 @@
 import type { LoaderFunction } from '@remix-run/cloudflare';
+import { redirect } from '@remix-run/server-runtime';
 import { LoaderConfig, TransformOptions } from '~/image-lib/server/types';
 import { imageLoader, KVCache, Resolver, cloudflareResolver, kvResolver } from '~/image-lib/server';
 import { IMAGE_DOMAINS_WHITELIST } from '~/utils/constants';
@@ -20,19 +21,17 @@ const createResolver =
 
 export const loader: LoaderFunction = async ({ request, context }) => {
   const reqUrl = new URL(request.url);
-  console.log('reqUrl', reqUrl);
   const reqUri = decodeQuery(reqUrl.searchParams, 'src')!;
-  console.log('reqUri', reqUri);
   const src = decodeURI(reqUri);
-  console.log('src', src);
-  const assetUrl = parseURL(src, context.SELF_URL);
-  console.log('assetUrl', assetUrl);
-  const assetRes = context.ASSETS.fetch(assetUrl, { headers: request.headers });
-  console.log('assetRes', assetRes);
-  const optimize = await fetch(assetUrl.href, {
-    cf: { image: { width: 300, format: 'avif', fit: 'scale-down' } },
-    headers: request.headers,
-  });
+  const assetUrl = parseURL(src, reqUrl.origin);
+  return redirect(assetUrl.href, { cf: { image: { width: 300, format: 'avif', fit: 'scale-down' } } });
+  // console.log('assetUrl', assetUrl);
+  // const assetRes = context.ASSETS.fetch(assetUrl, { headers: request.headers });
+  // console.log('assetRes', assetRes);
+  // const optimize = await fetch(assetUrl.href, {
+  //   cf: { image: { width: 300, format: 'avif', fit: 'scale-down' } },
+  //   headers: request.headers,
+  // });
 
-  return optimize;
+  // return optimize;
 };
