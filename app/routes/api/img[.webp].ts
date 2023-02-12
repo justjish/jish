@@ -7,7 +7,11 @@ export const loader: LoaderFunction = async ({ request, context }) => {
     headers: request.headers,
   });
 
-  return resize;
+  return new Response(resize.body, {
+    headers: {
+      'Content-Type': 'image/webp',
+    },
+  });
   // console.log('assetUrl', assetUrl);
   // const assetRes = context.ASSETS.fetch(assetUrl, { headers: request.headers });
   // console.log('assetRes', assetRes);
