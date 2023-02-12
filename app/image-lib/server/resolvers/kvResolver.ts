@@ -41,10 +41,14 @@ const handleAsset = (
     };
   }
 
-  return getAssetFromKV(event, {
-    cacheControl,
-    ...options,
-  });
+  return pageAssets
+    ? pageAssets.fetch(event.request.url, { cf: { image: { width: 500, fit: 'scale-down' }, ...cacheControl } })
+    : getAssetFromKV(event, {
+        cacheControl: {
+          bypassCache: true,
+        },
+        ...options,
+      });
 };
 
 export const kvResolver: Resolver = async (_asset, url, options, basePath, pageAssets) => {
