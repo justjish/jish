@@ -32,5 +32,21 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["dist", "node_modules", "*.js", "*.jsx", "build", "public", "./app/styles/tailwind.css"]
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "*.js",
+    "*.jsx",
+    "build",
+    "public",
+    "./app/styles/tailwind.css",
+    "/.cache",
+    "/.github",
+    "/.husky",
+    "/build",
+    "/public",
+    "/node_modules",
+    "/dist",
+    "./app/styles/tailwind.css"
+  ]
 }

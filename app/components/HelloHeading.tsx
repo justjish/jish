@@ -1,24 +1,18 @@
 import useInteract from '~/hooks/useInteract';
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
 import { useCallback } from 'react';
 import type { SpringValue } from '@react-spring/web';
 import { a } from '@react-spring/web';
 import { h3, h1 } from '~/styles/legacy';
-import { noop } from '~/functions/utils';
+import { noop } from '~/utils/utils';
 import { clsx } from 'clsx';
-const HiddenButton: FC<{ children: ReactNode }> = ({ children }) => {
-  const onClick = useCallback(() => (import.meta.env.DEV ? noop() : noop()), []);
-  const { bind, interactStyles } = useInteract({ onClick });
-  return (
-    <a.div {...bind()} style={interactStyles}>
-      {children}
-    </a.div>
-  );
-};
 
 export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
+  const onClick = useCallback(() => noop(), []);
+  const { bind, interactStyles } = useInteract({ onClick });
+
   return (
-    <HiddenButton>
+    <a.div {...bind()} style={interactStyles}>
       <a.div className={clsx(h3, 'text-center text-[1.35rem] sm:text-[2rem] lg:text-[2.5rem] 2xl:text-[3rem]')}>
         Jish.Dev Presents
       </a.div>
@@ -34,6 +28,6 @@ export const HelloHeading: FC<{ opacity: SpringValue<number>; x: SpringValue<num
       >
         A Full Stack Developer
       </a.div>
-    </HiddenButton>
+    </a.div>
   );
 };

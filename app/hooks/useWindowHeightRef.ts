@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useIsomorphicLayoutEffect } from '@react-spring/web';
-import { isSSR } from '~/functions/utils';
+import { isSSR } from '~/utils/utils';
 
 export const useWindowHeightRef = () => {
   const ref = useRef(1);
