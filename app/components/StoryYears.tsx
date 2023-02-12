@@ -3,7 +3,7 @@ import { animated as a, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from '~/hooks/useInteract';
 import { box, h2, h1 } from '~/styles/legacy';
 import { clsx } from 'clsx';
-import { noop } from '~/functions/utils';
+import { noop } from '~/utils/utils';
 export const StoryYears: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ x }] = useSpring(
     {

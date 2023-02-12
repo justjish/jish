@@ -3,7 +3,7 @@ import { a, SpringValue, useSpring } from '@react-spring/web';
 import { SkillItem } from '~/data/BrainData';
 import randomColor from 'randomcolor';
 import { grid, flex } from '~/styles/legacy';
-import { isEven } from '~/functions/utils';
+import { isEven } from '~/utils/utils';
 import { clsx } from 'clsx';
 
 // TODO: Fix sizing of icons.

@@ -1,6 +1,6 @@
-import type { LinksFunction, MetaFunction, LoaderFunction } from '@remix-run/cloudflare';
+import { json, type LinksFunction, type MetaFunction, type LoaderFunction } from '@remix-run/server-runtime';
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
-import stylesUrl from '~/styles/app.css';
+import appStyles from '~/styles/app.css';
 
 /**
  * The `links` export is a function that returns an array of objects that map to
@@ -11,7 +11,7 @@ import stylesUrl from '~/styles/app.css';
  * https://remix.run/api/app#links
  */
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: stylesUrl }];
+  return [{ rel: 'stylesheet', href: appStyles }];
 };
 
 export const meta: MetaFunction = () => {
@@ -20,8 +20,8 @@ export const meta: MetaFunction = () => {
   };
 };
 
-export const loader: LoaderFunction = async () => {
-  return { date: new Date() };
+export const loader: LoaderFunction = async ({ context }) => {
+  return json({ date: new Date() });
 };
 
 export default function App() {
@@ -37,7 +37,7 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env['NODE_ENV'] === 'development' && <LiveReload />}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
   );
@@ -56,6 +56,11 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
         {children}
         <ScrollRestoration />
         <Scripts />
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "4e2d2deea0954d71b1504d3ef9ce5613"}'
+        ></script>
         {process.env['NODE_ENV'] === 'development' && <LiveReload />}
       </body>
     </html>
