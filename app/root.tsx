@@ -13,7 +13,6 @@ import appStyles from '~/styles/app.css';
 export const links: LinksFunction = () => {
   return [{ rel: 'stylesheet', href: appStyles }];
 };
-
 export const meta: MetaFunction = () => {
   return {
     viewport: 'width=device-width, initial-scale=1',
