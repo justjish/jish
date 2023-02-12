@@ -19,7 +19,7 @@ const handleAsset = (
 ): Promise<Response> => {
   if (process.env.NODE_ENV === 'development') {
     return pageAssets
-      ? pageAssets.fetch(event.request.url, { cf: { image: { width: 500, fit: 'scale-down' } } })
+      ? pageAssets.fetch(event.request.url, { cf: { image: { width: 500, fit: 'scale-down', format: 'avif' } } })
       : getAssetFromKV(event, {
           cacheControl: {
             bypassCache: true,
@@ -42,7 +42,9 @@ const handleAsset = (
   }
 
   return pageAssets
-    ? pageAssets.fetch(event.request.url, { cf: { image: { width: 500, fit: 'scale-down' }, ...cacheControl } })
+    ? pageAssets.fetch(event.request.url, {
+        cf: { image: { width: 500, fit: 'scale-down', format: 'avif' }, ...cacheControl },
+      })
     : getAssetFromKV(event, {
         cacheControl: {
           bypassCache: true,
