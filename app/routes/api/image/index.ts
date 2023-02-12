@@ -29,9 +29,10 @@ export const loader: LoaderFunction = async ({ request, context }) => {
   console.log('assetUrl', assetUrl);
   const assetRes = context.ASSETS.fetch(assetUrl, { headers: request.headers });
   console.log('assetRes', assetRes);
-  const optimize = fetch(assetUrl.href, {
+  const optimize = await fetch(assetUrl.href, {
     cf: { image: { width: 300, format: 'avif', fit: 'scale-down' } },
     headers: request.headers,
   });
+
   return optimize;
 };
