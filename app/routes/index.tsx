@@ -5,7 +5,7 @@ import App from '~/components/App';
 
 export const meta: MetaFunction = () => {
   return {
-    title: 'remix-worker-template',
+    title: 'jish.dev',
     description: 'All-in-one remix starter template for Cloudflare Workers',
   };
 };
@@ -14,7 +14,8 @@ export const links: LinksFunction = () => {
   return [];
 };
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request, context }: LoaderArgs) => {
+  const { ...args } = context;
   return json({
     title: 'remix-worker-template',
   });

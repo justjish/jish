@@ -1,17 +1,13 @@
-name = "jish"
+
+name = "jish-dev"
+main = "main.ts"
+
+workers_dev = true
+
 compatibility_date = "2022-11-30"
-compatibility_flags = [
-  "streams_enable_constructors",
-]
 
-[pages]
+[define]
+"process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
+
+[site]
 bucket = "./public"
-
-kv_namespaces = [
-  { binding = "IMAGE_KV", preview_id = "fc47db46ef5c4605ae9972feb922d6c4" }
-]
-
-[env.main]
-kv_namespaces = [
-  { binding = "IMAGE_KV", id = "81e4ce5717d44035b86c1b04e08f2023" }
-]

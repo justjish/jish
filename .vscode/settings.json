@@ -1,4 +1,7 @@
 {
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown", "latex"]
+  "spellright.documentTypes": ["markdown", "latex"],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/sujishpatel/Code/%40justjish/jish-dev/.github/workflows/deploy.yml"
+  }
 }

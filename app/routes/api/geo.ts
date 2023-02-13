@@ -8,7 +8,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
   return new Response(
     JSON.stringify({
       doesCFExistInRequest,
-      cfContentsInRequest: request?.cf,
+      cfContentsInRequest: request?.arrayBuffer(),
       doesCFExistInContext,
       propertiesOfRequest,
       propertiesOfContext,

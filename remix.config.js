@@ -1,4 +1,3 @@
-import { flatRoutes } from 'remix-flat-routes';
 /**
  * @type {import('@remix-run/dev').AppConfig}
  */
@@ -7,9 +6,8 @@ export default {
   future: {
     unstable_dev: true,
   },
-  server: './server.ts',
-  serverBuildTarget: 'cloudflare-pages',
+  devServerPort: 8002,
   devServerBroadcastDelay: 1000,
-  ignoredRouteFiles: ['.*'],
+  ignoredRouteFiles: ['**/.*'],
   serverDependenciesToBundle: ['react-merge-refs'],
 };
