@@ -34,8 +34,6 @@ yarn.lock
 /build/*
 /public/build
 
-# Remix stacks
-/package-lock.json
 
 # Custom Build
 /dist
