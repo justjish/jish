@@ -40,7 +40,8 @@ yarn.lock
 
 # Tailwind
 /app/styles/tailwind.css
-/app/styles/app.css
+/app/styles/app.
+/packages/remix-app/build/
 
 # Cypress
 /cypress/videos
