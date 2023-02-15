@@ -1,115 +1,42 @@
 {
-  "name": "jish",
+  "name": "monorepo",
+  "version": "0.0.0",
   "private": true,
-  "sideEffects": false,
-  "type": "module",
+  "workspaces": [
+    "config/*",
+    "packages/*"
+  ],
   "scripts": {
-    "prepare": "husky install",
-    "dev": "NODE_ENV=development run-p dev:*",
-    "dev:style": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css -w",
-    "dev:remix": "remix watch",
-    "dev:cloudflare": "wrangler dev",
-    "build": "NODE_ENV=production run-s build:*",
-    "build:style": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
-    "build:remix": "remix build",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.3.0",
-    "@next-boost/hybrid-disk-cache": "^0.3.0",
-    "@react-spring/web": "^9.6.1",
-    "@remix-run/cloudflare": "^1.12.0",
-    "@remix-run/cloudflare-pages": "^1.12.0",
-    "@remix-run/react": "^1.12.0",
-    "@remix-run/server-runtime": "^1.12.0",
-    "@tailwindcss/container-queries": "^0.1.0",
-    "@types/query-string": "^6.3.0",
-    "@use-gesture/react": "^10.2.24",
-    "clsx": "^1.2.1",
-    "is-svg": "^4.3.2",
-    "isbot": "^3.6.5",
-    "js-image-lib": "^0.1.7",
-    "mime-tree": "^0.1.4",
-    "npm-run-all": "^4.1.5",
-    "query-string": "^8.1.0",
-    "randomcolor": "^0.6.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.7.1",
-    "react-merge-refs": "^2.0.1",
-    "react-use-measure": "^2.1.1",
-    "remix-flat-routes": "^0.5.7",
-    "remix-image": "latest",
-    "remix-image-cloudflare": "^0.1.5",
-    "remix-image-wasm": "^0.1.3",
-    "smoothscroll-polyfill": "^0.4.4",
-    "tozod": "^3.0.0",
-    "ts-to-zod": "^2.0.1",
-    "type-fest": "^3.5.7",
-    "valtio": "^1.10.1",
-    "zod": "^3.20.6"
+    "build": "npx --yes turbo run build",
+    "dev": "npx --yes turbo run dev --parallel",
+    "lint": "npx --yes turbo run lint",
+    "typecheck": "npx --yes turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md}\""
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230115.0",
-    "@miniflare/tre": "^3.0.0-next.8",
-    "@remix-run/dev": "^1.12.0",
-    "@remix-run/eslint-config": "^1.12.0",
-    "@remix-run/serve": "^1.12.0",
-    "@types/randomcolor": "^0.5.7",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@types/smoothscroll-polyfill": "^0.3.1",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
-    "@typescript-eslint/parser": "^5.51.0",
-    "autoprefixer": "^10.4.13",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
-    "postcss": "^8.4.21",
-    "postcss-font-grabber": "^3.1.0",
     "prettier": "^2.8.4",
-    "pretty-quick": "^3.1.3",
-    "tailwindcss": "^3.2.6",
-    "typescript": "^4.9.5",
-    "wrangler": "^2.9.1"
+    "typescript": "beta"
   },
   "overrides": {
     "@remix-run/cloudflare": {
       "@cloudflare/workers-types": "latest"
     },
-    "@remix-run/cloudflare-pages": {
-      "@cloudflare/workers-types": "latest"
-    },
     "@remix-run/cloudflare-workers": {
       "@cloudflare/workers-types": "latest"
     },
+    "remix-image@>1.3.0": {
+      "@cloudflare/kv-asset-handler": "^0.3.0"
+    },
     "remix-image": {
-      "@cloudflare/kv-asset-handler": "latest"
+      "@cloudflare/kv-asset-handler": "^0.3.0"
+    },
+    "@cloudflare/kv-asset-handler": {
+      "@cloudflare/workers-types": "latest"
     }
   },
-  "prettier": {
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true,
-    "printWidth": 120,
-    "trailingComma": "all"
-  },
-  "prettierignore": [
-    "/.cache",
-    "/.github",
-    "/.husky",
-    "/build",
-    "/public",
-    "/node_modules",
-    "/dist",
-    "/app/styles/tailwind.css"
-  ],
   "engines": {
     "node": ">=16",
-    "npm": ">=9",
-    "yarn": ">=1"
-  }
+    "npm": ">=9"
+  },
+  "packageManager": "npm@9.3.1"
 }

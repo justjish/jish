@@ -1,8 +1,0 @@
-<svg height='100px' width='100px' fill="#000000" xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" version="1.1"
-  style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;"
-  viewBox="0 0 661 643" x="0px" y="0px" fill-rule="evenodd" clip-rule="evenodd"><defs><style type="text/css">
-   
-    .fil0 {fill:#000000}
-   
-  </style></defs><g><path class="fil0" d="M567 422l0 128c0,51 -42,93 -94,93l-285 0c-52,0 -93,-42 -93,-93l0 -128c-97,0 -121,-88 -66,-159 79,-79 158,-157 237,-236 37,-36 92,-36 129,0 79,79 158,157 237,236 55,71 31,159 -65,159zm-236 -209c73,5 129,44 135,102 6,59 13,94 -135,279 -149,-185 -141,-220 -136,-279 6,-58 63,-97 136,-102zm0 73c30,0 54,24 54,54 0,31 -24,55 -54,55 -31,0 -55,-24 -55,-55 0,-30 24,-54 55,-54z"></path></g></svg>

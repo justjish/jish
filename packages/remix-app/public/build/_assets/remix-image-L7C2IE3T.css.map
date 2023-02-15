@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/remix-image/remix-image.css"],
+  "sourcesContent": ["img.remix-image {\n  transition: 0.125s filter ease-in-out;\n  filter: blur(0px);\n}\n\nimg.remix-image.blur {\n  filter: blur(15px);\n}\n\n.remix-image.blur-in {\n  filter: blur(0px);\n  animation-name: blurIn;\n  animation-iteration-count: 1;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease-in;\n  animation-duration: 0.5s;\n}\n\n@keyframes blurIn {\n  0% {\n    filter: blur(15px);\n  }\n  100% {\n    filter: blur(0px);\n    background: white;\n  }\n}\n"],
+  "mappings": ";AAAA;AACE;AACA;;AAGF;AACE;;AAGF;AACE;AACA;AACA;AACA;AACA;AACA;;AAGF;;AAEI;;;AAGA;AACA;;;",
+  "names": []
+}
