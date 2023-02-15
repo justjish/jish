@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development run-p dev:*",
     "dev:style": "tailwindcss -i ./styles/app.css -o ./app/styles/app.css -w",
     "dev:remix": "remix watch",
-    "dev:cloudflare": "wrangler dev --experimental-local",
+    "dev:cloudflare": "wrangler dev",
     "build": "NODE_ENV=production run-s build:*",
     "build:style": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "build:remix": "remix build",
@@ -40,7 +40,9 @@
     "react-merge-refs": "^2.0.1",
     "react-use-measure": "^2.1.1",
     "remix-flat-routes": "^0.5.7",
+    "remix-image": "latest",
     "remix-image-cloudflare": "^0.1.5",
+    "remix-image-wasm": "^0.1.3",
     "smoothscroll-polyfill": "^0.4.4",
     "tozod": "^3.0.0",
     "ts-to-zod": "^2.0.1",
@@ -83,6 +85,9 @@
     },
     "@remix-run/cloudflare-workers": {
       "@cloudflare/workers-types": "latest"
+    },
+    "remix-image": {
+      "@cloudflare/kv-asset-handler": "latest"
     }
   },
   "prettier": {

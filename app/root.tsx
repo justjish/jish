@@ -1,6 +1,7 @@
 import { json, type LinksFunction, type MetaFunction, type LoaderFunction } from '@remix-run/server-runtime';
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
 import appStyles from '~/styles/app.css';
+import imageStyles from 'remix-image/remix-image.css';
 
 /**
  * The `links` export is a function that returns an array of objects that map to
@@ -11,7 +12,10 @@ import appStyles from '~/styles/app.css';
  * https://remix.run/api/app#links
  */
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: appStyles }];
+  return [
+    { rel: 'stylesheet', href: appStyles },
+    { rel: 'stylesheet', href: imageStyles },
+  ];
 };
 export const meta: MetaFunction = () => {
   return {
@@ -36,7 +40,7 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        {process.env['NODE_ENV'] === 'development' && <LiveReload />}
       </body>
     </html>
   );
