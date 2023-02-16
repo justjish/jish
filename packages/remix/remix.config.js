@@ -11,9 +11,5 @@ export default {
   devServerPort: 8002,
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*'],
-  serverDependenciesToBundle: [
-    'react-merge-refs',
-    './vendor/remix-image/packages/remix-image/build/server/pure',
-    './vendor/remix-image/packages/remix-image-wasm',
-  ],
+  serverDependenciesToBundle: ["superstruct"],
 };

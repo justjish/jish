@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { isSSR } from '~/utils/utils';
+import { isSSR } from '../utils.js';
 function getWindowDimensions() {
   const width = isSSR() ? 0 : window.innerWidth;
   const height = isSSR() ? 0 : window.innerHeight;

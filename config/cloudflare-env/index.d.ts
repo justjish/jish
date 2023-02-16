@@ -1,7 +1,14 @@
+import type { KVNamespace, IncomingRequestCfProperties, ExecutionContext } from "@cloudflare/workers-types/experimental";
 interface Env {
   __STATIC_CONTENT: KVNamespace;
   IMAGE_KV: KVNamespace;
   SESSION_SECRET: string;
+}
+// https://stackoverflow.com/a/59499895
+declare module globalThis {
+  interface ProcessEnv {
+    NODE_ENV: 'development' | 'production' | 'test';
+  }
 }
 interface AppLoadContext {
   ASSET_MANIFEST: any;

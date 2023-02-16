@@ -1,12 +1,11 @@
+/* img.css */
 img.jish-img {
   transition: 0.125s filter ease-in-out;
   filter: blur(0px);
 }
-
 img.jish-img.blur {
   filter: blur(15px);
 }
-
 .jish-img.blur-in {
   filter: blur(0px);
   animation-name: blurIn;
@@ -15,7 +14,6 @@ img.jish-img.blur {
   animation-timing-function: ease-in;
   animation-duration: 0.5s;
 }
-
 @keyframes blurIn {
   0% {
     filter: blur(15px);
@@ -25,3 +23,5 @@ img.jish-img.blur {
     background: white;
   }
 }
+/*! For license information please see img.css.LEGAL.txt */
+/*# sourceMappingURL=img.css.map */

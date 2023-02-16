@@ -2,11 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@jish/tsconfig/base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "types": ["esnext"],
+    "target": "es2022",
+    "types": ["@jish/cloudflare-env", "@types/node"],
     "strict": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "exactOptionalPropertyTypes": false,
+    "noUnusedLocals": false,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -15,8 +18,11 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noUnusedParameters": false,
+    "rootDir": "./src",
+    "outDir": "."
   },
-  "include": ["**/*.ts","**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules","**/*/node_modules/**/*"]
 }

@@ -1,13 +1,13 @@
 import { FC, useRef, useEffect, useMemo } from 'react';
 import { SpringValue } from '@react-spring/web';
-import { section, row } from '~/styles/legacy';
-import { BrainData } from '~/data/BrainData';
-import useMeasure from 'react-use-measure';
+import { section, row } from '~/styles/legacy.js';
+import { BrainData } from '~/data/BrainData.js';
+import useMeasure from 'react-use-measure/src/web/index.js';
 import { mergeRefs } from 'react-merge-refs';
-import { BrainSkill } from '~/components/BrainSkill';
-import { BrainHeading } from '~/components/BrainHeading';
+import { BrainSkill } from '~/components/BrainSkill.js';
+import { BrainHeading } from '~/components/BrainHeading.js';
 import { clsx } from 'clsx';
-import { useMenuState } from '~/hooks/useMenu';
+import { useMenuState } from '~/hooks/useMenu.js';
 
 /**
  * A set of skills in my brain.
