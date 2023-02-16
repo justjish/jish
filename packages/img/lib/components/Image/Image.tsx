@@ -98,7 +98,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(
         loading={loading}
         style={imageStyle()}
         className={clsx(
-          !unoptimized && "remix-image",
+          !unoptimized && "jish-img",
           !unoptimized && placeholder === "blur" && "blur-in",
           className
         )}
