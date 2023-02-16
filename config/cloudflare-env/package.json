@@ -1,17 +1,17 @@
 {
-  "name": "cloudflare-env",
+  "name": "@jish/cloudflare-env",
   "version": "0.0.0",
   "license": "MIT",
-  "types": "index.ts",
+  "types": "index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "latest",
-    "eslint": "^8.34.0",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
-    "typescript": "^4.9.5"
+    "@cloudflare/workers-types": "^4.20230214.0",
+    "@jish/eslint-config": "workspace:*",
+    "@jish/tsconfig": "workspace:*",
+    "typescript": "4.9.5"
   }
 }

@@ -1,0 +1,8 @@
+packages:
+  - 'packages/**'
+  - 'config/**'
+  - 'docs'
+  - '!**/test/**'
+  - '!out/**'
+  - 'examples/**'
+  - '!**/functions'

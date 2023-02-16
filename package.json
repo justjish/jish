@@ -1,5 +1,5 @@
 {
-  "name": "monorepo",
+  "name": "jish-root",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -7,22 +7,26 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npx --yes turbo run build",
-    "dev": "npx --yes turbo run dev --parallel",
-    "lint": "npx --yes turbo run lint",
-    "typecheck": "npx --yes turbo run typecheck",
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpx turbo run build",
+    "dev": "pnpx turbo run dev --parallel",
+    "lint": "pnpx turbo run lint",
+    "typecheck": "pnpx turbo run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md}\""
   },
   "devDependencies": {
     "prettier": "^2.8.4",
-    "typescript": "beta"
+    "typescript": "4.9.5"
   },
   "overrides": {
+    "@remix-run/eslint-config": {
+      "typescript": "4.9.5"
+    },
     "@remix-run/cloudflare": {
-      "@cloudflare/workers-types": "latest"
+      "@cloudflare/workers-types": "^4.20230214.0"
     },
     "@remix-run/cloudflare-workers": {
-      "@cloudflare/workers-types": "latest"
+      "@cloudflare/workers-types": "^4.20230214.0"
     },
     "remix-image@>1.3.0": {
       "@cloudflare/kv-asset-handler": "^0.3.0"
@@ -31,12 +35,30 @@
       "@cloudflare/kv-asset-handler": "^0.3.0"
     },
     "@cloudflare/kv-asset-handler": {
-      "@cloudflare/workers-types": "latest"
+      "@cloudflare/workers-types": "^4.20230214.0"
     }
   },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "all"
+  },
+  "prettierignore": [
+    "**/.cache",
+    "**/.github",
+    "**/.husky",
+    "**/build",
+    "**/public",
+    "**/node_modules",
+    "**/dist",
+    "**/app/styles/tailwind.css"
+  ],
   "engines": {
     "node": ">=16",
-    "npm": ">=9"
+    "npm": ">=9",
+    "pnpm": ">=7"
   },
-  "packageManager": "npm@9.3.1"
+  "packageManager": "pnpm@7.27.0"
 }

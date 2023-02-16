@@ -1,6 +1,6 @@
 
 name = "jish-dev"
-main = "entry.worker.ts"
+main = "main.ts"
 
 workers_dev = true
 kv_namespaces = [
@@ -13,7 +13,7 @@ compatibility_date = "2022-11-30"
 "process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
 
 [site]
-bucket = "../remix-app/public"
+bucket = "../remix/public"
 
 [[rules]]
 globs = ["**/*.wasm"]

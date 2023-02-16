@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@jish/tsconfig/base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "types": ["esnext"],
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "exactOptionalPropertyTypes": false,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleResolution": "node"
+  },
+  "include": ["**/*.ts","**/*.tsx"],
+  "exclude": ["node_modules"]
+}

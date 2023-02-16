@@ -1,5 +1,5 @@
 {
-  "name": "tsconfig",
+  "name": "@jish/tsconfig",
   "version": "10.0.0",
   "private": true,
   "files": [

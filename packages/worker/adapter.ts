@@ -1,4 +1,4 @@
-///<reference types="cloudflare-env" />
+///<reference types="@jish/cloudflare-env" />
 import { createRequestHandler as createRemixRequestHandler } from "@remix-run/cloudflare";
 import type { ServerBuild } from "@remix-run/server-runtime";
 import {

@@ -1,24 +1,27 @@
 {
-  "name": "worker",
+  "name": "@jish/worker",
   "version": "0.0.0",
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
-    "dev": "wrangler dev --env dev",
+    "dev": "wrangler dev",
     "lint": "eslint .",
     "typecheck": "tsc -b"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.0",
+    "@jsquash/avif": "^1.0.2",
     "@remix-run/cloudflare": "^1.13.0",
-    "remix-app": "*"
+    "@jish/remix": "workspace:*",
+    "wasm-feature-detect": "^1.5.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "latest",
-    "cloudflare-env": "*",
+    "@cloudflare/workers-types": "^4.20230214.0",
+    "@jish/cloudflare-env": "workspace:*",
     "eslint": "^8.34.0",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
-    "typescript": "^4.9.5",
+    "@jish/eslint-config": "workspace:*",
+    "@jish/tsconfig": "workspace:*",
+    "typescript": "4.9.5",
     "wrangler": "^2.9.1"
   }
 }

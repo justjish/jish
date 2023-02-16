@@ -1,0 +1,63 @@
+{
+  "name": "@jish/img",
+  "version": "0.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "files": [
+    "dist",
+    "img.css"
+  ],
+  "exports": {
+    "./react": {
+      "import": "./dist/react.js",
+      "types": "./dist/react.d.ts"
+    },
+    "./cfworker": {
+      "import": "./dist/cfworker.js",
+      "types": "./dist/cfworker.d.ts"
+    },
+    "./node": {
+      "import": "./dist/node.js",
+      "types": "./dist/node.d.ts"
+    },
+    "./pure": {
+      "import": "./dist/pure.js",
+      "types": "./dist/pure.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite build -c vite.config.ts --watch",
+    "build": "vite build -c vite.config.ts",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
+  },
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "fast-glob": "^3.2.12",
+    "is-svg": "^4.3.2",
+    "js-image-lib": "^1.0.1",
+    "lru-cache": "^7.15.0",
+    "mime-tree": "^0.1.4",
+    "query-string": "^8.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@cloudflare/kv-asset-handler": "^0.3.0",
+    "@next-boost/hybrid-disk-cache": "^0.3.0"
+  },
+  "devDependencies": {
+    "esmo": "^0.16.3",
+    "esno": "^0.16.3",
+    "@cloudflare/workers-types": "^4.20230214.0",
+    "@jish/eslint-config": "workspace:*",
+    "@jish/tsconfig": "workspace:*",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.3",
+    "vite-tsconfig-paths": "^4.0.5"
+  }
+}
