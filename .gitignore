@@ -55,7 +55,7 @@ yarn.lock
 
 /functions
 /build.turbo
-
+packages/img/lib**
 packages/img/lib/**
 packages/img/img.node.d.ts
 packages/img/img.node.d.ts.map
