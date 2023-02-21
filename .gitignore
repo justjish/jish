@@ -76,4 +76,7 @@ packages/img/index-*.js
 packages/img/index-*.js.map
 packages/img/index-*.js
 packages/img/index-*.js.map
+packages/remix/build/**
+packages/remix/.cache/**
+packages/remix/public/build/**
 
