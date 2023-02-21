@@ -40,11 +40,7 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "4e2d2deea0954d71b1504d3ef9ce5613"}'
-        ></script>
+        {process.env.NODE_ENV === 'production' && <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "60176af6d4724c15a9bc6f4e1dcbc259"}'></script>}
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} />}
       </body>
     </html>
