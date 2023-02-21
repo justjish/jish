@@ -260,6 +260,7 @@ importers:
       '@jsquash/avif': ^1.0.2
       '@remix-run/cloudflare': ^1.13.0
       eslint: ^8.34.0
+      reflare: ^1.1.0
       typescript: 4.9.5
       wasm-feature-detect: ^1.5.0
       wrangler: ^2.9.1
@@ -268,6 +269,7 @@ importers:
       '@jish/remix': link:../remix
       '@jsquash/avif': 1.0.2
       '@remix-run/cloudflare': 1.13.0_f2nunn3czneiaufanhhmxbuesa
+      reflare: 1.1.0
       wasm-feature-detect: 1.5.0
     devDependencies:
       '@cloudflare/workers-types': 4.20230215.0
@@ -9985,6 +9987,10 @@ packages:
       indent-string: 5.0.0
       strip-indent: 4.0.0
     dev: true
+
+  /reflare/1.1.0:
+    resolution: {integrity: sha512-PefIcZRirmVWB8mGgq90xwbGEnv8w4NOymekm6C5jXZlmbfe7ZQkreFtefJ0/K01Xq2hkqGxXVKOikN7KAoTRA==}
+    dev: false
 
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}

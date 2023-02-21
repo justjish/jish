@@ -7,6 +7,8 @@ import {
   NotFoundError,
 } from "@cloudflare/kv-asset-handler";
 import { RequestWithCloudflare, Env } from "@jish/cloudflare-env";
+import useReflare from 'reflare';
+import { RouteList } from "reflare/dist/types";
 
 interface GetLoadContextFunction<Env = unknown> {
   (
@@ -69,3 +71,14 @@ export const createAssetHandler = (ASSET_MANIFEST: any) => {
     }
   };
 };
+
+
+export const createProxyHandler = (routeList:RouteList) => {
+  return async (request: Request, env: Env, ctx: ExecutionContext) => {
+    const proxy = useReflare({
+      provider: 'static',
+      routeList: routeList
+    })
+    return (await proxy).handle(request);
+  };
+}
