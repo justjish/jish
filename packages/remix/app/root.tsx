@@ -59,7 +59,7 @@ export default function App() {
           defer
           type="text/partytown"
           src={'/scripts/cfa.js'}
-          data-cf-beacon={JSON.stringify({ token: '60176af6d4724c15a9bc6f4e1dcbc259', version: '2023.2.0', si: 100 })}
+          data-cf-beacon={JSON.stringify({ token: '60176af6d4724c15a9bc6f4e1dcbc259', version: '2023.2.0', si: 100,send: {to: '/p/cfa'}  })}
         />
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} />}
       </body>

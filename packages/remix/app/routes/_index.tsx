@@ -23,6 +23,5 @@ export const loader = async ({ request, context }: LoaderArgs) => {
 
 export default function Index() {
   const { title } = useLoaderData<typeof loader>();
-
   return <App />;
 }
