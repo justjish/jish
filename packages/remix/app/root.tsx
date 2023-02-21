@@ -5,7 +5,8 @@ import {
   type LoaderFunction,
   HeadersFunction,
 } from '@remix-run/server-runtime';
-import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
+import { Partytown } from '@builder.io/partytown/react';
 import appStyles from '~/styles/app.css';
 import imageStyles from 'remix-image/remix-image.css';
 
@@ -46,6 +47,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <title>{'Jish.Dev'}</title>
+        <Partytown debug={process.env.NODE_ENV === 'development'} forward={['dataLayer.push', '__cfBeacon']} />
         <Meta />
         <Links />
       </head>
@@ -53,9 +55,12 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'production' && (
-          <script defer src={'/scripts/cfa.js'} data-cf-beacon={JSON.stringify({"rayId":"79cf945ace7417b1","token":"60176af6d4724c15a9bc6f4e1dcbc259","version":"2023.2.0","si":100})}></script>
-        )}
+        <script
+          defer
+          type="text/partytown"
+          src={'/scripts/cfa.js'}
+          data-cf-beacon={JSON.stringify({ token: '60176af6d4724c15a9bc6f4e1dcbc259', version: '2023.2.0', si: 100 })}
+        />
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} />}
       </body>
     </html>

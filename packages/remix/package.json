@@ -7,11 +7,13 @@
   "main": "./build/index.js",
   "types": "./build.d.ts",
   "scripts": {
-    "dev": "NODE_ENV=development remix watch",
-    "build": "NODE_ENV=production remix build",
+    "dev": "pnpm run partytown && NODE_ENV=development remix watch",
+    "partytown": "partytown copylib public/~partytown",
+    "build": "pnpm run partytown && NODE_ENV=production remix build",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.5",
     "@cloudflare/kv-asset-handler": "^0.3.0",
     "@jish/img": "workspace:*",
     "@next-boost/hybrid-disk-cache": "^0.3.0",
