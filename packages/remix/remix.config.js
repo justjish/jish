@@ -11,5 +11,5 @@ export default {
   devServerPort: 8002,
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*'],
-  serverDependenciesToBundle: ["superstruct"],
+  serverDependenciesToBundle: ["superstruct", "@jish/img","react-merge-refs"],
 };

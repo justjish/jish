@@ -1,11 +1,12 @@
 ///<reference types="@jish/cloudflare-env" />
 import { createRequestHandler as createRemixRequestHandler } from "@remix-run/cloudflare";
-import type { ServerBuild } from "@remix-run/server-runtime";
+import type { AppLoadContext, RequestHandler, ServerBuild } from "@remix-run/server-runtime";
 import {
   getAssetFromKV,
   MethodNotAllowedError,
   NotFoundError,
 } from "@cloudflare/kv-asset-handler";
+import { RequestWithCloudflare, Env } from "@jish/cloudflare-env";
 
 interface GetLoadContextFunction<Env = unknown> {
   (
@@ -24,7 +25,7 @@ export const createRequestHandler = <Env>({
 }): ExportedHandlerFetchHandler<Env> => {
   const handleRequest = createRemixRequestHandler(
     build,
-    process.env["NODE_ENV"]
+    process.env.NODE_ENV
   ) as RequestHandler;
   return (request: RequestWithCloudflare, env: Env, ctx: ExecutionContext) => {
     return handleRequest(request, getLoadContext(request, env, ctx));

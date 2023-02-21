@@ -55,3 +55,25 @@ yarn.lock
 
 /functions
 /build.turbo
+
+packages/img/lib/**
+packages/img/img.node.d.ts
+packages/img/img.node.d.ts.map
+packages/img/img.node.js
+packages/img/img.node.js.map
+packages/img/img.pure.d.ts
+packages/img/img.pure.d.ts.map
+packages/img/img.pure.js
+packages/img/img.pure.js.map
+packages/img/img.react.d.ts
+packages/img/img.react.d.ts.map
+packages/img/img.react.js
+packages/img/img.worker.d.ts
+packages/img/img.worker.d.ts.map
+packages/img/img.worker.js
+packages/img/img.worker.js.map
+packages/img/index-*.js
+packages/img/index-*.js.map
+packages/img/index-*.js
+packages/img/index-*.js.map
+

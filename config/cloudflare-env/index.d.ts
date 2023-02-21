@@ -1,5 +1,5 @@
 import type { KVNamespace, IncomingRequestCfProperties, ExecutionContext } from "@cloudflare/workers-types/experimental";
-interface Env {
+export interface Env {
   __STATIC_CONTENT: KVNamespace;
   IMAGE_KV: KVNamespace;
   SESSION_SECRET: string;
@@ -10,7 +10,7 @@ declare module globalThis {
     NODE_ENV: 'development' | 'production' | 'test';
   }
 }
-interface AppLoadContext {
+export interface AppLoadContext {
   ASSET_MANIFEST: any;
   env: Env;
   ctx: ExecutionContext;
@@ -26,8 +26,10 @@ interface AppLoadContext {
   // };
 }
 
-type RequestWithCloudflare = Request & { cf?: IncomingRequestCfProperties };
-type RequestHandler = (
+export type RequestWithCloudflare = Request & { cf?: IncomingRequestCfProperties };
+export type RequestHandler = (
   request: RequestWithCloudflare,
   loadContext?: AppLoadContext
 ) => Promise<Response>;
+
+export * from "@cloudflare/workers-types/experimental"

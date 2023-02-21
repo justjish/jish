@@ -4,7 +4,7 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "NODE_ENV='development' wrangler dev",
     "lint": "eslint .",
     "typecheck": "tsc -b"
   },

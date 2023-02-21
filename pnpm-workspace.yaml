@@ -1,6 +1,6 @@
 packages:
-  - 'packages/**'
-  - 'config/**'
+  - 'packages/*'
+  - 'config/*'
   - 'docs'
   - '!**/test/**'
   - '!out/**'

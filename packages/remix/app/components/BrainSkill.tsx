@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { a, SpringValue, useSpring } from '@react-spring/web';
-import { SkillItem } from '~/data/BrainData';
+import { SkillItem } from '~/components/data/BrainData';
 import randomColor from 'randomcolor';
 import { grid, flex } from '~/styles/legacy';
 import { isEven } from '~/utils/utils';

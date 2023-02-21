@@ -1,89 +1,33 @@
 {
   "name": "@jish/img",
   "type": "module",
-  "source": "/src/img.ts",
-  "main": "./img.js",
-  "types": "./img.d.ts",
+  "source": "/src/*.ts",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=9.0.0",
     "pnpm": ">=6.0.0"
   },
-  "exports": {
-    ".": {
-      "types": "./img.d.ts",
-      "import": "./img.js",
-      "require": "./img.cjs",
-      "default": "./img.js"
-    },
-    "./cfworker.js": {
-      "types": "./cfworker.d.ts",
-      "import": {
-        "types":"./cfworker.d.mts",
-        "default":"./cfworker.mjs"
-      },
-      "require":{
-        "types": "./cfworker.d.cts",
-         "default": "./cfworker.cjs"
-      },
-      "default": "./cfworker.js"
-    },
-    "./node.js": {
-      "types": "./node.d.mts",
-      "import": {
-        "types":"./node.d.mts",
-        "default":"./node.mjs"
-      },
-      "require": {
-        "types": "./node.d.cts",
-        "default": "./node.cjs"
-      },
-      "node": "./node.js"
-    },
-    "./pure.js": {
-      "types": "./pure.d.ts",
-      "import": {
-        "types":"./pure.d.ts",
-        "default":"./pure.js"
-      },
-      "require": {
-        "types": "./pure.d.cts",
-        "default": "./pure.cjs"
-      },
-      "default": "./pure.js"
-    },
-    "./react.js": {
-      "types": "./react.d.ts",
-      "import": {
-        "types":"./react.d.ts",
-        "default":"./react.js"
-      },
-      "require": {
-        "types": "./react.d.cts",
-        "default":"./react.cjs"
-      },
-      "default": "./react.js"
-    },
-    "./package.json": "./package.json",
-    "./img.css": "./img.css"
-  },
-  "imports": {
-    "#dep": {
-      "node": "@next-boost/hybrid-disk-cache"
-    }
-  },
-  
+  "types": "./types/*.d.ts",
   "version": "0.0.0",
   "license": "MIT",
   "sideEffects": false,
   "files": [
-    "dist",
-    "img.css"
+    "lib",
+    "img.node.js",
+    "img.pure.js",
+    "img.react.js",
+    "img.worker.js",
+    "index-*.js"
   ],
   "scripts": {
-    "dev": "microbundle lib/*.ts --watch",
-    "build": "nanobundle build",
-     "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
+    "dev": "rollup -c --watch",
+    "dev:microbundle": "microbundle lib/*.ts --watch",
+    "build": "rollup -c ",
+    "build:nanobundle": "nanobundle build --bundle --outdir",
+    "build:react": "microbundle -entry ./react ./lib/img.react.tsx --strict --globals react=React react/jsx-runtime={jsx as _jsx} --name img --target node,chrome,firefox,safari,edge,ios,android --external=react,react/jsx-runtime --tsconfig tsconfig.json",
+    "build:img": "microbundle ./lib/img.ts --strict --globals react=React ",
+    "build:worker": "microbundle ./lib/img.worker.ts --strict --external=@cloudflare/workers-types,kvAssetHandler=@cloudflare/kv-asset-handler",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx,.vue src"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.3.0",
@@ -97,13 +41,21 @@
     "query-string": "^8.1.0",
     "react": "^18.2.0"
   },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react/jsx-dev-runtime": "^18.2.0",
+    "react/jsx-runtime": "^18.2.0"
+  },
   "devDependencies": {
     "@jish/cloudflare-env": "workspace:*",
     "@jish/eslint-config": "workspace:*",
     "@jish/tsconfig": "workspace:*",
     "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.0",
     "@swc/cli": "^0.1.62",
     "@swc/core": "^1.3.35",
     "@swc/helpers": "^0.4.14",
@@ -111,9 +63,14 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "esbuild": "^0.17.10",
     "microbundle": "^0.15.1",
     "nanobundle": "^1.5.0",
+    "rollup": "^3.17.2",
+    "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-node-externals": "^5.1.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "4.9.5",
     "vite": "^4.1.1",
     "vite-plugin-dts": "^1.7.3"

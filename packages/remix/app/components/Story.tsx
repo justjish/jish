@@ -1,33 +1,27 @@
-import { type FC, useRef, useEffect, useMemo } from 'react';
+import { type FC, useMemo } from 'react';
 import { SpringValue } from '@react-spring/web';
-import useMeasure from 'react-use-measure';
-import { mergeRefs } from 'react-merge-refs';
-import StoryData from '~/data/StoryData';
-import { section, row } from '~/styles/legacy';
+import StoryData from '~/components/data/StoryData';
+import { row } from '~/styles/legacy';
 import { StoryPlace } from '~/components/StoryPlace';
 import { StoryYears } from '~/components/StoryYears';
 import { StoryHeading } from '~/components/StoryHeading';
 import { StoryBackground } from '~/components/StoryBackground';
-import { useMenuState } from '~/hooks/useMenu';
+import { Section } from '~/ui/Section';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
-  const [ref, bounds] = useMeasure({ debounce: 200 });
-  const localRef = useRef<HTMLDivElement>(null);
-  const { setStory } = useMenuState();
-  useEffect(() => setStory({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 100 }), [bounds, setStory]);
   const Places = useMemo(
     () => data.map((props, i) => <StoryPlace key={i} offset={offset} id={i} {...props} />),
     [offset],
   );
   return (
-    <div className={section} ref={mergeRefs([ref, localRef])}>
+    <Section sectionKey="story">
       <div className={row}>
         <StoryBackground offset={offset} />
         {Places}
         <StoryYears offset={offset} />
       </div>
       <StoryHeading offset={offset} />
-    </div>
+    </Section>
   );
 };
 export default Story;

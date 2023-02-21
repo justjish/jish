@@ -3,18 +3,18 @@ import { a, useSpring } from '@react-spring/web';
 import useInteract from '~/hooks/useInteract';
 import { menuItem } from '~/styles/legacy';
 import { useMenuSnapshot } from '~/hooks/useMenu';
-import { MenuLookupType } from '../data/MenuData';
+import { MenuLookupType } from './data/MenuData';
 
 export const MenuItem: FC<{ icon: string; lookup: MenuLookupType; alt: string }> = ({ icon = '', alt, lookup }) => {
-  const { [lookup]: details } = useMenuSnapshot();
+  const { [lookup]: {bounds} } = useMenuSnapshot();
   const handleClick = useCallback(() => {
-    window.scrollTo({ top: details['absoluteTop'], left: 0, behavior: 'smooth' });
-  }, [details]);
+    window.scrollTo({ top: bounds.absoluteTop, left: 0, behavior: 'smooth' });
+  }, [bounds]);
   const { height, width } = useSpring({ height: '30px', width: '30px' });
   const { bind, interactStyles } = useInteract({ onClick: handleClick });
   return (
     <a.div className={menuItem} {...bind()} style={{ ...interactStyles }}>
-      <a.img height={height} width={width} src={icon} alt={alt} draggable="false"></a.img>
+      <a.img height={height} width={width} src={icon} alt={alt} loading={'eager'} decoding={'sync'} draggable="false"></a.img>
     </a.div>
   );
 };

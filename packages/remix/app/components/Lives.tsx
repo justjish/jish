@@ -1,18 +1,12 @@
-import { type FC, useRef, useEffect } from 'react';
+import { type FC } from 'react';
 import { SpringValue, useSpring, config } from '@react-spring/web';
-import { section } from '~/styles/legacy';
 import useMeasure from 'react-use-measure';
-import { mergeRefs } from 'react-merge-refs';
 import { LivesHeading } from '~/components/LivesHeading';
 import { LivesBackground } from '~/components/LivesBackground';
-import { useMenuState } from '~/hooks/useMenu';
+import { Section } from '~/ui/Section';
 
 const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [ref, bounds] = useMeasure();
-  const localRef = useRef<HTMLDivElement>(null);
-  const { setLives } = useMenuState();
-  useEffect(() => setLives({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 300 }), [bounds, setLives]);
-
   const [{ scale }] = useSpring(
     { scale: offset.to({ range: [2, 4], output: [3, 1], extrapolate: 'clamp' }), config: config.molasses },
     [],
@@ -25,10 +19,10 @@ const Lives: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
     [bounds.height],
   );
   return (
-    <div className={section} ref={mergeRefs([localRef, ref])}>
+    <Section sectionKey="lives" ref={ref}>
       <LivesBackground scale={scale} y={y} />
       <LivesHeading offset={offset} />
-    </div>
+    </Section>
   );
 };
 

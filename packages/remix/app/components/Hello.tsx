@@ -1,12 +1,10 @@
-import { FC, useEffect, useRef } from 'react';
+import { type FC } from 'react';
 import { a, config, SpringValue, useSpring } from '@react-spring/web';
-import { section, box } from '~/styles/legacy';
-import useMeasure from 'react-use-measure';
-import { mergeRefs } from 'react-merge-refs';
+import { box } from '~/styles/legacy';
 import { HelloHeading } from '~/components/HelloHeading';
 import { HelloProfile } from '~/components/HelloProfile';
 import { HelloScrollDown } from './HelloScrollDown';
-import { useMenuState } from '~/hooks/useMenu';
+import { Section } from '~/ui/Section';
 
 /**
  * Hello
@@ -20,14 +18,6 @@ import { useMenuState } from '~/hooks/useMenu';
  */
 
 export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
-  // Some boilerplate to register the size and position of the component into the
-  // useBounds store. This way Navigation menu knows where to 'scrollTo' based on
-  // the actual position position of the component post render.
-  const [ref, bounds] = useMeasure();
-  const localRef = useRef<HTMLDivElement>(null);
-  const { setHello } = useMenuState();
-  useEffect(() => setHello({ ...bounds, absoluteTop: localRef.current?.offsetTop ?? 0 }), [bounds, setHello]);
-
   const [{ x, scale, opacity, background }] = useSpring(
     {
       to: [{ scale: 1, background: 'rgba(73, 82, 109, .75)', opacity: 1, x: offset.to([0, 1], [0, 1000]) }],
@@ -45,13 +35,13 @@ export const Hello: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const [{ y }] = useSpring({ y: offset.to([0, 0.2], [200, 0]), config: config.stiff }, []);
   const [{ rotateX }] = useSpring({ rotateX: y.to([0, 100], [0, 180]), config: config.stiff, immediate: true }, []);
   return (
-    <div className={section} ref={mergeRefs([ref, localRef])}>
+    <Section sectionKey="hello">
       <a.div className={box} style={{ scale, y, background, zIndex: 2, position: 'absolute', rotateX }}>
         <HelloHeading opacity={opacity} x={x} />
         <HelloScrollDown />
       </a.div>
       <HelloProfile opacity={opacity} x={x} />
-    </div>
+    </Section>
   );
 };
 export default Hello;

@@ -1,6 +1,7 @@
 import { createAssetHandler, createRequestHandler } from "./adapter";
 import manifest from "__STATIC_CONTENT_MANIFEST";
 import * as build from "@jish/remix";
+import type { Env } from "@jish/cloudflare-env";
 const ASSET_MANIFEST = JSON.parse(manifest);
 
 const handleAsset = createAssetHandler(ASSET_MANIFEST);
