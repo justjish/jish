@@ -1,4 +1,10 @@
-import { json, type LinksFunction, type MetaFunction, type LoaderFunction } from '@remix-run/server-runtime';
+import {
+  json,
+  type LinksFunction,
+  type MetaFunction,
+  type LoaderFunction,
+  HeadersFunction,
+} from '@remix-run/server-runtime';
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
 import appStyles from '~/styles/app.css';
 import imageStyles from 'remix-image/remix-image.css';
@@ -23,6 +29,13 @@ export const meta: MetaFunction = () => {
   };
 };
 
+export const headers: HeadersFunction = () => {
+  return {
+    'Cross-Origin-Embedder-Policy': 'credentialless',
+    'Cross-Origin-Opener-Policy': 'same-origin',
+  };
+};
+
 export const loader: LoaderFunction = async ({ context }) => {
   return json({ date: new Date() });
 };
@@ -40,9 +53,9 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {/* {process.env.NODE_ENV === 'production' && (
-          <script defer src={'/scripts/cfa.js'} data-cf-beacon={JSON.stringify({"token": "60176af6d4724c15a9bc6f4e1dcbc259"})}></script>
-        )} */}
+        {process.env.NODE_ENV === 'production' && (
+          <script defer src={'/scripts/cfa.js'} data-cf-beacon={JSON.stringify({"rayId":"79cf945ace7417b1","token":"60176af6d4724c15a9bc6f4e1dcbc259","version":"2023.2.0","si":100})}></script>
+        )}
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} />}
       </body>
     </html>
