@@ -1,6 +1,5 @@
 import { json, type LinksFunction, type MetaFunction, type LoaderFunction } from '@remix-run/server-runtime';
 import { Link, Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
-import cfaSource from '~/scripts/beacon.min.js';
 import appStyles from '~/styles/app.css';
 import imageStyles from 'remix-image/remix-image.css';
 
@@ -42,7 +41,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'production' && (
-          <script defer src={cfaSource} data-cf-beacon='{"token": "60176af6d4724c15a9bc6f4e1dcbc259"}'></script>
+          <script defer src={'/scripts/cfa.js'} data-cf-beacon='{"token": "60176af6d4724c15a9bc6f4e1dcbc259"}'></script>
         )}
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} />}
       </body>
