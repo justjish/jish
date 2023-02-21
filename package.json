@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpx turbo run build",
-    "dev": "pnpx turbo run dev --parallel",
+    "build": "NODE_ENV='production' pnpx turbo run build",
+    "dev": "NODE_ENV='development' pnpx turbo run dev --parallel",
     "lint": "pnpx turbo run lint",
     "typecheck": "pnpx turbo run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md}\""
