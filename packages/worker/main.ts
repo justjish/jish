@@ -26,8 +26,6 @@ const handleRequest = createRequestHandler<Env>({
   },
 });
 
-
-
 export default {
   async fetch(request, env, ctx) {
     try {
