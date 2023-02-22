@@ -23,10 +23,10 @@
       "typescript": "4.9.5"
     },
     "@remix-run/cloudflare": {
-      "@cloudflare/workers-types": "^4.20230214.0"
+      "@cloudflare/workers-types": "^4.20230221.0"
     },
     "@remix-run/cloudflare-workers": {
-      "@cloudflare/workers-types": "^4.20230214.0"
+      "@cloudflare/workers-types": "^4.20230221.0"
     },
     "remix-image@>1.3.0": {
       "@cloudflare/kv-asset-handler": "^0.3.0"
@@ -35,7 +35,7 @@
       "@cloudflare/kv-asset-handler": "^0.3.0"
     },
     "@cloudflare/kv-asset-handler": {
-      "@cloudflare/workers-types": "^4.20230214.0"
+      "@cloudflare/workers-types": "^4.20230221.0"
     }
   },
   "prettier": {
