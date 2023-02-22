@@ -80,3 +80,5 @@ packages/remix/build/**
 packages/remix/.cache/**
 packages/remix/public/build/**
 
+packages/worker/.mf/cert/cert.pem
+.gitignore

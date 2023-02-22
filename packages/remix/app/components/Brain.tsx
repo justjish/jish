@@ -1,13 +1,10 @@
-import { FC, useRef, useEffect, useMemo } from 'react';
+import { type FC, useMemo } from 'react';
 import { SpringValue } from '@react-spring/web';
-import { section, row } from '~/styles/legacy';
+import { row } from '~/styles/legacy';
 import { BrainData } from '~/components/data/BrainData';
-import useMeasure from 'react-use-measure';
-import { mergeRefs } from 'react-merge-refs';
 import { BrainSkill } from '~/components/BrainSkill';
 import { BrainHeading } from '~/components/BrainHeading';
 import { clsx } from 'clsx';
-import { useMenuState } from '~/hooks/useMenu';
 import { Section } from '~/ui/Section';
 
 /**

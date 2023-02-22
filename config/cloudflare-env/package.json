@@ -2,16 +2,17 @@
   "name": "@jish/cloudflare-env",
   "version": "0.0.0",
   "license": "MIT",
-  "types": "index.d.ts",
+  "types": "types/cloudflare-env.d.ts",
   "sideEffects": false,
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230214.0",
+    "@cloudflare/workers-types": "^4.20230221.0",
     "@jish/eslint-config": "workspace:*",
     "@jish/tsconfig": "workspace:*",
+    "@types/node": "^18.14.0",
     "typescript": "4.9.5"
   }
 }

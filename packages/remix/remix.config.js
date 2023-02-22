@@ -3,13 +3,13 @@
  */
 export default {
   serverModuleFormat: 'esm',
+  serverPlatform: "neutral",
   future: {
-    unstable_dev: true,
     unstable_tailwind: true,
     v2_routeConvention: true,
   },
   devServerPort: 8002,
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*'],
-  serverDependenciesToBundle: ["superstruct", "@jish/img","react-merge-refs"],
+  serverDependenciesToBundle: ["superstruct", "react-merge-refs"],
 };

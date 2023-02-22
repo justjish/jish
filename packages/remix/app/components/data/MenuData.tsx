@@ -1,13 +1,15 @@
-import helloIcon from '~/assets/icons/hello.svg';
-import storyIcon from '~/assets/icons/bag.svg';
-import brainIcon from '~/assets/icons/brain.svg';
-import livesIcon from '~/assets/icons/lives.svg';
-import learnIcon from '~/assets/icons/dots.svg';
+import Hello from '~/svgs/Hello';
+import Story from '~/svgs/Story';
+import Brain from '~/svgs/Brain';
+import Lives from '~/svgs/Lives';
+import Learn from '~/svgs/Learn';
+import { SectionType } from '~/utils/constants';
+import { AnimatedSVGFn } from '~/svgs/AnimatedSVG.types';
 export const items = [
-  { lookup: 'hello' as const, icon: helloIcon, alt: 'Hello' },
-  { lookup: 'story' as const, icon: storyIcon, alt: 'History' },
-  { lookup: 'brain' as const, icon: brainIcon, alt: 'Skills' },
-  { lookup: 'lives' as const, icon: livesIcon, alt: 'Location' },
-  { lookup: 'learn' as const, icon: learnIcon, alt: 'Learn More' },
-];
+  { lookup: 'hello' as const, Icon: Hello, alt: 'Hello' },
+  { lookup: 'story' as const, Icon: Story, alt: 'History' },
+  { lookup: 'brain' as const, Icon: Brain, alt: 'Skills' },
+  { lookup: 'lives' as const, Icon: Lives, alt: 'Location' },
+  { lookup: 'learn' as const, Icon: Learn, alt: 'Learn More' },
+] as Array<{lookup: SectionType, Icon: AnimatedSVGFn, alt: string}>;
 export type MenuLookupType = (typeof items)[0]['lookup'];

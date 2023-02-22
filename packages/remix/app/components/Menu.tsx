@@ -1,4 +1,4 @@
-import { useMemo, type FC } from 'react';
+import { type FC } from 'react';
 import { a, config, useSpring } from '@react-spring/web';
 import { menuBox } from '~/styles/legacy';
 import { MenuItem } from '~/components/MenuItem';

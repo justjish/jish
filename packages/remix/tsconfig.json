@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["@cloudflare/workers-types/experimental", "@jish/cloudflare-env"],
+    "types": ["@jish/cloudflare-env"],
     "allowJs": false,
     "skipLibCheck": false,
     "module": "esnext",

@@ -6,11 +6,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["esnext"],
-    "types": [
-      "@cloudflare/workers-types",
-      "@jish/remix/types/remix-env",
-      "@jish/cloudflare-env"
-    ],
+    "types": ["@jish/cloudflare-env"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,9 +18,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
     "moduleResolution": "node"
   }
 }

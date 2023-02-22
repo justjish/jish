@@ -1,5 +1,5 @@
-import { type FC, useRef, useState, useEffect, useMemo } from 'react';
-import { a, config, SpringValue, useResize, useSpring } from '@react-spring/web';
+import { type FC, useEffect, useMemo } from 'react';
+import { a, config, SpringValue, useSpring } from '@react-spring/web';
 import useInteract from '~/hooks/useInteract';
 import { useMeasurementCapture } from '~/hooks/useMeasurementCapture';
 import { h2, box } from '~/styles/legacy';
@@ -7,16 +7,17 @@ import { clsx } from 'clsx';
 
 import { useCallback } from 'react';
 import { useStorySnapshot, useStoryState } from '~/hooks/useStory';
+import { AnimatedSVGFn } from '~/svgs/AnimatedSVG.types';
 export const StoryPlace: FC<{
   offset: SpringValue<number>;
   id: number;
-  logo: string;
+  Logo: AnimatedSVGFn;
   focus: string;
   time: string;
   color: string;
   speed: number;
   includePlus?: boolean;
-}> = ({ id, offset, logo, focus, time, speed }) => {
+}> = ({ id, offset, Logo, focus, time, speed }) => {
   const state = useStoryState();
   const snap = useStorySnapshot();
   const onSelect = useCallback(
@@ -112,7 +113,7 @@ export const StoryPlace: FC<{
 
   return (
     <a.div ref={ref} className={clsx(box, 'm-3')} {...bind()} style={{ ...card }}>
-      <img className="object-contain h-[50px] m-auto" src={logo} alt={'company'} />
+      <Logo className={"object-contain h-[50px] m-auto"} />
       <div className={h2}>{focus}</div>
       <div className={h2}>{time}</div>
     </a.div>

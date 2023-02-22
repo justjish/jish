@@ -5,8 +5,8 @@ export const externalData = [
   {
     Icon: AiFillGithub,
     message: 'See the code',
-    handle: 'sujishpatel',
-    link: 'https://github.com/sujishpatel/jish-dev',
+    handle: 'justjish',
+    link: 'https://github.com/justjish/jish-dev',
     download: false,
   },
   {

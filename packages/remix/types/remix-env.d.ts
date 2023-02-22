@@ -1,17 +1,14 @@
 /// <reference types="@remix-run/dev" />
 /// <reference types="@remix-run/cloudflare" />
+/// <reference types="@jish/cloudflare-env" />
+/// <reference types="csstype" />
 interface CacheStorage {
   default: Cache;
 }
 
-declare var process: {
-  env: { NODE_ENV: 'development' | 'production' };
-};
-
 declare module '@remix-run/server-runtime' {
   export * from '@remix-run/server-runtime/dist/index';
   import type { DataFunctionArgs as RemixDataFunctionArgs } from '@remix-run/server-runtime/dist/index';
-  import type { RequestWithCloudflare, AppLoadContext } from '@jish/cloudflare-env';
   export interface DataFunctionArgs extends Omit<RemixDataFunctionArgs, 'context' | 'request'> {
     request: RequestWithCloudflare;
     context: AppLoadContext;
