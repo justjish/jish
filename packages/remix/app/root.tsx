@@ -5,7 +5,7 @@ import {
   type LoaderFunction,
   type HeadersFunction,
 } from '@remix-run/server-runtime';
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from '@remix-run/react';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import { Partytown } from '@builder.io/partytown/react';
 import appStyles from '~/styles/app.css';
 

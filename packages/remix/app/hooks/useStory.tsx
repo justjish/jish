@@ -16,3 +16,9 @@ export const useStorySnapshot = () => {
   const state = useStoryState();
   return useSnapshot(state);
 };
+
+export const WithStoryProvider = (Provider:typeof StoryProvider) => <P extends {},>(Component:FC<P>) => (props:P) => (
+  <Provider>
+    <Component {...props} />
+  </Provider>
+);

@@ -7,6 +7,7 @@ import { StoryYears } from '~/components/StoryYears';
 import { StoryHeading } from '~/components/StoryHeading';
 import { StoryBackground } from '~/components/StoryBackground';
 import { Section } from '~/ui/Section';
+import { StoryProvider, WithStoryProvider } from '~/hooks/useStory';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
   const Places = useMemo(
@@ -24,4 +25,4 @@ const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ d
     </Section>
   );
 };
-export default Story;
+export default WithStoryProvider(StoryProvider)(Story);

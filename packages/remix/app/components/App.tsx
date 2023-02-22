@@ -7,7 +7,6 @@ import Story from '~/components/Story';
 import Brain from '~/components/Brain';
 import Lives from '~/components/Lives';
 import Learn from '~/components/Learn';
-import { StoryProvider } from '~/hooks/useStory';
 import { MenuProvider } from '~/hooks/useMenu';
 
 /**
@@ -41,7 +40,6 @@ import { MenuProvider } from '~/hooks/useMenu';
  *
  * @returns App Component
  */
-
 export const App: FC = () => {
   // Do not destructure, this holds a reference to the window height
   const heightRef = useWindowHeightRef();
@@ -53,9 +51,7 @@ export const App: FC = () => {
     <MenuProvider>
       <div className="absolute w-screen h-[500vh] overflow-x-hidden m-0 p-0">
         <Hello offset={offset} />
-        <StoryProvider>
-          <Story offset={offset} />
-        </StoryProvider>
+        <Story offset={offset} />
         <Brain offset={offset} />
         <Lives offset={offset} />
         <Learn offset={offset} />
