@@ -17,7 +17,6 @@ fallthrough = true
 "process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
 "process.env.NODE_ENV" = '"production"'
 
-
 [env.dev.site]
 bucket = "../remix/public"
 

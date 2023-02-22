@@ -3,7 +3,11 @@
  */
 export default {
   serverModuleFormat: 'esm',
+  
   serverPlatform: "neutral",
+  serverConditions: ["worker", "import", "module","default"],
+  serverMainFields: ["module", "main"],
+  serverTarget: "es2019",
   future: {
     unstable_tailwind: true,
     v2_routeConvention: true,
@@ -11,5 +15,5 @@ export default {
   devServerPort: 8002,
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ['**/.*'],
-  serverDependenciesToBundle: ["superstruct", "react-merge-refs"],
+  serverDependenciesToBundle: 'all',
 };

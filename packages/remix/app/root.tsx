@@ -45,7 +45,7 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'production' && <script
+        {process.env.NODE_ENV !== 'production' && <script
           defer
           type="text/partytown"
           src={'/scripts/cfa.js'}
@@ -56,3 +56,4 @@ export default function App() {
     </html>
   );
 }
+

@@ -21,7 +21,7 @@ export default {
       if (res.status === 404) res = await handleRequest(request, env, ctx);
       return res;
     } catch (e) {
-      if (process.env.NODE_ENV === "development") throw e;
+      // if (process.env.NODE_ENV === "development") throw e;
       return new Response("Internal Server Error",
         {
           status: 500,
