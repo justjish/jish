@@ -7,7 +7,6 @@ import {
   SiFlutter,
   SiGithub,
   SiGooglecloud,
-  SiJava,
   SiJavascript,
   SiMongodb,
   SiPython,
@@ -15,6 +14,7 @@ import {
   SiTerraform,
   SiTypescript,
 } from 'react-icons/si';
+import { DiJava } from 'react-icons/di';
 import { AiOutlineFunction } from 'react-icons/ai';
 import { MdHttp } from 'react-icons/md';
 import { GrNodes } from 'react-icons/gr';
@@ -61,7 +61,7 @@ export const BrainData: Array<SkillItem> = [
   { idx: 4, size: Sizes.lg, type: Types.language, desc: 'Typescript', Icon: SiTypescript },
   { idx: 5, size: Sizes.md, type: Types.paradigm, desc: 'Function(al)(Programming)', Icon: AiOutlineFunction },
   { idx: 6, size: Sizes.sm, type: Types.frontend, desc: 'Redux', Icon: SiRedux },
-  { idx: 7, size: Sizes.sm, type: Types.language, desc: 'Java', Icon: SiJava },
+  { idx: 7, size: Sizes.sm, type: Types.language, desc: 'Java', Icon: DiJava },
   { idx: 8, size: Sizes.md, type: Types.language, desc: 'Python', Icon: SiPython },
   { idx: 9, size: Sizes.sm, type: Types.cloud, desc: 'AWS', Icon: SiAmazon },
   { idx: 10, size: Sizes.lg, type: Types.cloud, desc: 'GCP', Icon: SiGooglecloud },
