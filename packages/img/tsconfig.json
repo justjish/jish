@@ -13,12 +13,10 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "baseUrl": ".",
     "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
     "noUnusedParameters": false,
     "rootDir": "src",
     "outDir": "."

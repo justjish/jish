@@ -40,6 +40,7 @@
     "@jish/cloudflare-env": "workspace:*",
     "@jish/eslint-config": "workspace:*",
     "@jish/tsconfig": "workspace:*",
+    "@react-spring/types": "^9.7.1",
     "@remix-run/dev": "^1.14.0",
     "@remix-run/eslint-config": "^1.14.0",
     "@remix-run/serve": "^1.14.0",
@@ -59,6 +60,6 @@
     "pretty-quick": "^3.1.3",
     "sharp": "^0.31.3",
     "tailwindcss": "^3.2.7",
-    "typescript": "4.9.5"
+    "typescript": "5.0.0-beta"
   }
 }

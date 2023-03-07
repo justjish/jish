@@ -14,10 +14,8 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
-    "moduleResolution": "node"
+    "baseUrl": "."
   }
 }

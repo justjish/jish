@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { useBouncing } from '~/hooks/useBouncing';
-import { a } from '@react-spring/web';
+import { a, type SpringValue } from '@react-spring/web';
 import Scroll from '~/svgs/Scroll';
 
 export const HelloScrollDown: FC = () => {

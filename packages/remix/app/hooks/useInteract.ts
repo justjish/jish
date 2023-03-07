@@ -1,4 +1,4 @@
-import { useSpring, config } from '@react-spring/web';
+import { useSpring, config,type SpringValue } from '@react-spring/web';
 import { useGesture } from '@use-gesture/react';
 /**
  * A unified hook to standardize interaction animations for interactable components.

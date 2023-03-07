@@ -26,6 +26,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "moduleResolution": "node",
+    "target": "esnext",
+    "module": "esnext",
     "preserveWatchOutput": true
   },
   "exclude": ["node_modules"]
