@@ -1,4 +1,4 @@
-import { type FC, useMemo } from 'react';
+import { type FC } from 'react';
 import { SpringValue } from '@react-spring/web';
 import StoryData from '~/data/StoryData';
 import { StoryPlace } from '~/components/StoryPlace';

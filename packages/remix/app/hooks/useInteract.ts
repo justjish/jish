@@ -8,7 +8,7 @@ import { useGesture } from '@use-gesture/react';
  */
 
 export const useInteract = ({ onClick = () => ({}) }: { onClick: () => void }) => {
-  const [interactStyles, api] = useSpring({ scale: 1, config: config.wobbly }, []);
+  const [interactStyles] = useSpring({ scale: 1, config: config.wobbly }, []);
   const bind = useGesture({
     onMouseDown: () => interactStyles.scale.start(0.9),
     onMouseUp: async () => {
