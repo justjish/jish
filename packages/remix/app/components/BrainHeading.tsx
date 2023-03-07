@@ -9,8 +9,8 @@ import { clsx } from 'clsx';
 export const BrainHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const { scale } = useSpring({ scale: offset.to([1, 2], [2, 1]), from: { scale: 1 } });
   return (
-    <a.div className={clsx(h3, 'text-[2rem] sm:text-[3rem] lg:text-[3.5rem] 2xl:text-[4rem]')} style={{ scale }}>
-      an <a.div className={h3Inline}>EXPANSIVE </a.div>skillset
+    <a.div className={clsx(h3, 'text-[2rem] sm:text-[3rem] lg:text-[3.5rem] 2xl:text-[4rem]','will-change-transform')} style={{ scale }}>
+      an <div className={h3Inline}>EXPANSIVE </div>skillset
     </a.div>
   );
 };

@@ -5,6 +5,6 @@ import svgFrame from '~/assets/graphics/cityFrameCircle.svg';
 
 export const LivesBackground: FC<{ scale: SpringValue<1 | 3>; y: SpringValue<number> }> = ({ scale, y }) => (
   <div className={row}>
-    <a.img className={'w-screen relative'} loading={'lazy'} style={{ scale, y }} src={svgFrame} />
+    <a.img className={'w-screen relative'} loading={'eager'} style={{ scale, y }} src={svgFrame} />
   </div>
 );
