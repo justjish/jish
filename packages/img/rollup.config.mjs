@@ -24,6 +24,7 @@ const external = [
 /** @type {import('rollup-plugin-typescript2').RPT2Options} */
 const tsSettings = {
   module: 'esnext',
+  tsconfig: 'tsconfig.json',
   tsconfigOverride: {
     exclude: ['node_modules', 'build', 'tests'],
   },

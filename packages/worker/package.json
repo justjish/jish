@@ -30,7 +30,7 @@
     "@remix-run/server-runtime": "^1.14.0",
     "esbuild": "^0.17.11",
     "eslint": "^8.35.0",
-    "typescript": "5.0.0-beta",
+    "typescript": "4.9.5",
     "wrangler": "2.12.0"
   }
 }

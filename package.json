@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "prettier": "^2.8.4",
-    "typescript": "5.0.0-beta"
+    "typescript": "4.9.5"
   },
   "pnpm": {
     "peerDependenciesRules": {

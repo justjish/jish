@@ -3,11 +3,10 @@
  */
 export default {
   serverModuleFormat: 'esm',
-  
   serverPlatform: "neutral",
   serverConditions: ["worker", "import", "module","default"],
   serverMainFields: ["module", "main"],
-  serverTarget: "es2019",
+  serverTarget: "es2022",
   future: {
     unstable_tailwind: true,
     v2_routeConvention: true,
