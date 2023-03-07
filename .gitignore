@@ -81,6 +81,7 @@ packages/img/index-*.js.map
 packages/remix/build/**
 packages/remix/.cache/**
 packages/remix/public/build/**
+packages/remix/public/~partytown
 
 packages/worker/.mf/cert/cert.pem
 .gitignore
