@@ -1,4 +1,9 @@
-
+import avif150w1x from '~/assets/pictures/fullbody-ly-150w-1x.avif';
+import avif300w2x from '~/assets/pictures/fullbody-ly-300w-2x.avif';
+import avif450w3x from '~/assets/pictures/fullbody-ly-450w-3x.avif';
+import avif300w1x from '~/assets/pictures/fullbody-ly-300w-1x.avif';
+import avif600w2x from '~/assets/pictures/fullbody-ly-600w-2x.avif';
+import avif900w3x from '~/assets/pictures/fullbody-ly-900w-3x.avif';
 import avif600w1x from '~/assets/pictures/fullbody-ly-600w-1x.avif';
 import avif1200w2x from '~/assets/pictures/fullbody-ly-1200w-2x.avif';
 import avif1800w3x from '~/assets/pictures/fullbody-ly-1800w-3x.avif';
@@ -11,6 +16,12 @@ import avif2850w3x from '~/assets/pictures/fullbody-ly-2850w-3x.avif';
 import avif640w1x from '~/assets/pictures/fullbody-ly-640w-1x.avif';
 import avif1280w2x from '~/assets/pictures/fullbody-ly-1280w-2x.avif';
 import avif1920w3x from '~/assets/pictures/fullbody-ly-1920w-3x.avif';
+import webp150w1x from '~/assets/pictures/fullbody-ly-150w-1x.webp';
+import webp300w2x from '~/assets/pictures/fullbody-ly-300w-2x.webp';
+import webp450w3x from '~/assets/pictures/fullbody-ly-450w-3x.webp';
+import webp300w1x from '~/assets/pictures/fullbody-ly-300w-1x.webp';
+import webp600w2x from '~/assets/pictures/fullbody-ly-600w-2x.webp';
+import webp900w3x from '~/assets/pictures/fullbody-ly-900w-3x.webp';
 import webp600w1x from '~/assets/pictures/fullbody-ly-600w-1x.webp';
 import webp1200w2x from '~/assets/pictures/fullbody-ly-1200w-2x.webp';
 import webp1800w3x from '~/assets/pictures/fullbody-ly-1800w-3x.webp';
@@ -23,6 +34,12 @@ import webp2850w3x from '~/assets/pictures/fullbody-ly-2850w-3x.webp';
 import webp640w1x from '~/assets/pictures/fullbody-ly-640w-1x.webp';
 import webp1280w2x from '~/assets/pictures/fullbody-ly-1280w-2x.webp';
 import webp1920w3x from '~/assets/pictures/fullbody-ly-1920w-3x.webp';
+import png150w1x from '~/assets/pictures/fullbody-ll-150w-1x.png';
+import png300w2x from '~/assets/pictures/fullbody-ll-300w-2x.png';
+import png450w3x from '~/assets/pictures/fullbody-ll-450w-3x.png';
+import png300w1x from '~/assets/pictures/fullbody-ll-300w-1x.png';
+import png600w2x from '~/assets/pictures/fullbody-ll-600w-2x.png';
+import png900w3x from '~/assets/pictures/fullbody-ll-900w-3x.png';
 import png600w1x from '~/assets/pictures/fullbody-ll-600w-1x.png';
 import png1200w2x from '~/assets/pictures/fullbody-ll-1200w-2x.png';
 import png1800w3x from '~/assets/pictures/fullbody-ll-1800w-3x.png';
@@ -38,8 +55,28 @@ import png1920w3x from '~/assets/pictures/fullbody-ll-1920w-3x.png';
 
 export const pngSources = [
   {
-    id: '_',
-    minW: 0,
+    id: '3xs',
+    minW: 150,
+    srcSet: [
+      { file: png150w1x, w: 150 },
+      { file: png300w2x, w: 300 },
+      { file: png450w3x, w: 450 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: '2xs',
+    minW: 300,
+    srcSet: [
+      { file: png300w1x, w: 300 },
+      { file: png600w2x, w: 600 },
+      { file: png900w3x, w: 900 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: 'xs',
+    minW: 480,
     srcSet: [
       { file: png600w1x, w: 600 },
       { file: png1200w2x, w: 1200 },
@@ -105,8 +142,28 @@ export const pngDefaultSrcSet = pngSources[0]?.srcSet!;
 
 const webpSources = [
   {
-    id: '_',
-    minW: 0,
+    id: '3xs',
+    minW: 150,
+    srcSet: [
+      { file: webp150w1x, w: 150 },
+      { file: webp300w2x, w: 300 },
+      { file: webp450w3x, w: 450 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: '2xs',
+    minW: 300,
+    srcSet: [
+      { file: webp300w1x, w: 300 },
+      { file: webp600w2x, w: 600 },
+      { file: webp900w3x, w: 900 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: 'xs',
+    minW: 480,
     srcSet: [
       { file: webp600w1x, w: 600 },
       { file: webp1200w2x, w: 1200 },
@@ -168,8 +225,28 @@ const webpSources = [
 
 const avifSources = [
   {
-    id: '_',
-    minW: 0,
+    id: '3xs',
+    minW: 150,
+    srcSet: [
+      { file: avif150w1x, w: 150 },
+      { file: avif300w2x, w: 300 },
+      { file: avif450w3x, w: 450 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: '2xs',
+    minW: 300,
+    srcSet: [
+      { file: avif300w1x, w: 300 },
+      { file: avif600w2x, w: 600 },
+      { file: avif900w3x, w: 900 },
+    ],
+    sizes: '120vw',
+  },
+  {
+    id: 'xs',
+    minW: 480,
     srcSet: [
       { file: avif600w1x, w: 600 },
       { file: avif1200w2x, w: 1200 },

@@ -2,8 +2,7 @@ import { a } from "@react-spring/web";
 import { AnimatedSVGProps} from './AnimatedSVG.types';
 const EllipsisHealth = (props: AnimatedSVGProps) => (
   <a.svg
-    width={89}
-    height={40}
+    viewBox="0 0 89 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}

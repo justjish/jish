@@ -1,47 +1,18 @@
-import { type FC, useEffect, useMemo } from 'react';
+import { type FC } from 'react';
 import { a, config, SpringValue, useSpring } from '@react-spring/web';
-import useInteract from '~/hooks/useInteract';
-import { useMeasurementCapture } from '~/hooks/useMeasurementCapture';
 import { h2, box } from '~/styles/legacy';
 import { clsx } from 'clsx';
-
-import { useCallback } from 'react';
-import { useStorySnapshot, useStoryState } from '~/hooks/useStory';
 import { AnimatedSVGFn } from '~/svgs/AnimatedSVG.types';
 export const StoryPlace: FC<{
-  offset: SpringValue<number>;
   id: number;
+  offset: SpringValue<number>;
   Logo: AnimatedSVGFn;
   focus: string;
   time: string;
   color: string;
   speed: number;
   includePlus?: boolean;
-}> = ({ id, offset, Logo, focus, time, speed }) => {
-  const state = useStoryState();
-  const snap = useStorySnapshot();
-  const onSelect = useCallback(
-    async (id: number) => {
-      switch (snap.selected) {
-        case id: // The same one is selected, so deselect it
-          state.selected = null;
-          return;
-        default: // Either null or a different one is selected, so update selection to itself.
-          state.selected = id;
-          return;
-      }
-    },
-    [state, snap],
-  );
-  const {
-    bind,
-    interactStyles: { scale },
-  } = useInteract({ onClick: () => onSelect(id) });
-
-  const [ref, { originalHeight, originalWidth, isReady }] = useMeasurementCapture({
-    preventCapture: [() => scale.get() !== 1, [scale]],
-  });
-
+}> = ({ offset, Logo, focus, time, speed }) => {
   const [{ x }] = useSpring(() => ({
     x: offset.to([1, 0], [0, 1000]),
     config: { mass: 50 / 15, tension: 100 - 15 * speed, friction: 26 },
@@ -53,69 +24,24 @@ export const StoryPlace: FC<{
     immediate: true,
   });
 
-  const original = useMemo(
-    () =>
-      isReady
-        ? {
-            height: originalHeight!,
-            width: originalWidth!,
-            zIndex: 1,
-            config: config.slow,
-            x: x,
-            y: 0,
-            display: 'block',
-            scale: scale,
-            skewX,
-            opacity: 1,
-          }
-        : {},
-    [isReady, originalHeight, originalWidth, x, scale, skewX],
-  );
-  const expanded = useMemo(() => {
-    if (!isReady) return {};
-    return {
-      height: window.innerHeight * 0.75,
-      width: window.innerWidth * 0.75,
-      opacity: 1,
-      zIndex: 999,
-      config: config.slow,
-      scale: scale,
-      display: 'block',
-      skewX,
-    };
-  }, [originalWidth, originalHeight, isReady, skewX, scale]);
-
-  const removed = useMemo(
+  const [animation] = useSpring(
     () => ({
-      opacity: 0,
-      scale: 0,
+      config: config.slow,
+      x: x,
       y: 0,
+      skewX,
+      opacity: 1,
     }),
-    [],
+    [x, skewX],
   );
-  const [card, api] = useSpring(() => original, [original]);
-  useEffect(() => {
-    // We must wait for the initial height and width to be set before we can do anything.
-    if (!isReady) return;
-    switch (snap.selected) {
-      case null: // None are selected
-        api.start(original);
-        return;
-      case id: // This one is selected
-        api.start(expanded);
-        return;
-      default: // Another one is selected
-        api.start(removed);
-        card.display.set('none');
-        return;
-    }
-  }, [originalHeight, originalWidth, snap, id, x, api, scale, card]);
 
   return (
-    <a.div ref={ref} className={clsx(box, 'm-3')} {...bind()} style={{ ...card }}>
-      <Logo className={"object-contain h-[50px] m-auto"} />
-      <div className={h2}>{focus}</div>
-      <div className={h2}>{time}</div>
+    <a.div className={clsx(box, 'm-1 md:m-3 lg:m-3 gap-2 md:gap-0 lg:gap-0 min-w-[300px] md:min-w-[350px]')} style={{ ...animation }}>
+      <Logo className={'object-scale-down w-[120px] md:h-[50px] md:w-fit m-auto'} />
+      <div className="flex md:flex-col gap-2 md:gap-0 lg:gap-0 items-center justify-center">
+        <div className={clsx(h2, 'text-sm md:text-lg')}>{focus}</div>
+        <div className={clsx(h2, 'text-sm md:text-lg')}>{time}</div>
+      </div>
     </a.div>
   );
 };

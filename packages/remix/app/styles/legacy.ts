@@ -11,9 +11,5 @@ export const h3Inline = 'font-extrabold not-italic uppercase text-[2em] text-[ye
 export const row = 'w-full flex flex-wrap justify-center items-center transition duration-75 ease-in-out ';
 export const grid = clsx(box, 'grid grid-cols-[0.2fr_0.8fr] gap-[0.4rem]');
 export const flex = clsx(box, 'flex');
-
-export const menuBox =
-  'bg-[rgba(255,255,255,0.25)] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-[5px] border fixed flex flex-row items-start justify-between max-w-[90%] h-16 w-[500px] m-auto rounded-2xl border-solid border-[rgba(255,255,255,0.18)] top-5 inset-x-0';
-
 export const menuItem =
   'bg-[rgba(255,255,255,0.25)] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-[5px] border flex flex-col justify-center items-center text-center h-12 w-12 touch-none select-none m-auto rounded-2xl border-solid border-[rgba(255,255,255,0.18)]';

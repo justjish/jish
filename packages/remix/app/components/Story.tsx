@@ -1,7 +1,6 @@
 import { type FC, useMemo } from 'react';
 import { SpringValue } from '@react-spring/web';
-import StoryData from '~/components/data/StoryData';
-import { row } from '~/styles/legacy';
+import StoryData from '~/data/StoryData';
 import { StoryPlace } from '~/components/StoryPlace';
 import { StoryYears } from '~/components/StoryYears';
 import { StoryHeading } from '~/components/StoryHeading';
@@ -10,15 +9,13 @@ import { Section } from '~/ui/Section';
 import { StoryProvider, WithStoryProvider } from '~/hooks/useStory';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
-  const Places = useMemo(
-    () => data.map((props, i) => <StoryPlace key={i} offset={offset} id={i} {...props} />),
-    [offset],
-  );
   return (
     <Section sectionKey="story">
-      <div className={row}>
+      <div className={'w-full flex flex-wrap justify-center items-center transition duration-75 ease-in-out'}>
         <StoryBackground offset={offset} />
-        {Places}
+        {data.map((props, i) => (
+          <StoryPlace key={i} offset={offset} id={i} {...props} />
+        ))}
         <StoryYears offset={offset} />
       </div>
       <StoryHeading offset={offset} />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { isSSR } from '../utils/utils';
-import type { SupportedSizes } from '~/components/data/screenSizes';
+import type { SupportedSizes } from '~/data/screenSizes';
 // Function that gets value based on matching media query
 const getValue = <T>({
   mediaQueryLists,

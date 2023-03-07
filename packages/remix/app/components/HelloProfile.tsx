@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { a, SpringValue } from '@react-spring/web';
-import { AvifSources, WebpSources, PngSources, pngDefaultSrc, pngDefaultSrcSet } from './data/ProfileImage';
+import { AvifSources, WebpSources, PngSources, pngDefaultSrc, pngDefaultSrcSet } from '../data/ProfileImage';
 
 export const HelloProfile: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
   return (

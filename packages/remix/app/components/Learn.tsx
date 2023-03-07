@@ -4,7 +4,7 @@ import { box } from '~/styles/legacy';
 import { LearnHeading } from '~/components/LearnHeading';
 import { LearnMessage } from '~/components/LearnMessage';
 import { LearnExternal } from '~/components/LearnExternal';
-import { externalData } from '~/components/data/LearnData';
+import { externalData } from '~/data/LearnData';
 import { clsx } from 'clsx';
 import { Section } from '~/ui/Section';
 

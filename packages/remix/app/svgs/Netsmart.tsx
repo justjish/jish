@@ -2,7 +2,7 @@ import { a } from '@react-spring/web';
 import { AnimatedSVGProps } from "./AnimatedSVG.types"
 
 const Netsmart = (props: AnimatedSVGProps) => (
-  <a.svg xmlns="http://www.w3.org/2000/svg" width={200} height={31.22} {...props}>
+  <a.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 31.22" {...props}>
     <title>{"logo-netsmart-color"}</title>
     <path
       fill="#044872"

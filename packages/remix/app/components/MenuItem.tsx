@@ -2,7 +2,7 @@ import {type FC, useCallback } from 'react';
 import { a, AnimatedComponent, useSpring } from '@react-spring/web';
 import useInteract from '~/hooks/useInteract';
 import { useMenuSnapshot } from '~/hooks/useMenu';
-import { MenuLookupType } from './data/MenuData';
+import { MenuLookupType } from '../data/MenuData';
 type Props = Parameters<AnimatedComponent<"svg">>[0]
 export const MenuItem: FC<{
   Icon: (props:Props) => JSX.Element;
