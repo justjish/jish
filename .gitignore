@@ -51,6 +51,10 @@ yarn.lock
 /.mf
 /.env
 
+.turbo
+.cache
+public/build
+
 packages/worker/.mf/**/*
 
 /spa-dist
@@ -79,6 +83,7 @@ packages/img/index-*.js.map
 packages/img/index-*.js
 packages/img/index-*.js.map
 packages/remix/build/**
+packages/remix/build
 packages/remix/.cache/**
 packages/remix/public/build/**
 packages/remix/public/~partytown
