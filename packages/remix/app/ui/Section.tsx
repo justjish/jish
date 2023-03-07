@@ -8,9 +8,13 @@ export type SectionProps = { children: ReactNode; sectionKey: SectionType };
 export const Section = forwardRef<HTMLDivElement, SectionProps>(({ children, sectionKey }, ref) => {
   const [setMeasureRef, bounds] = useMeasure();
   const _ref = useRef<HTMLDivElement>(null);
-  const [_, initializeMenu] = useTransition()
+  const [_, setMenuTransition] = useTransition()
   const { set } = useMenuState()[sectionKey];
-  useEffect(() => initializeMenu(()=>set({ ...bounds, absoluteTop: _ref.current?.offsetTop ?? 0 })), [bounds, set]);
+  // We set the absolute top of the section so the menu items know where to scroll to.
+  // It is wrapped in a useEffect that updates whenever the window is resized.
+  // We are also using a transition to allow React to defer the update to the menu, 
+  // allowing the rest of the JS to run first.
+  useEffect(() => setMenuTransition(()=>set({ ...bounds, absoluteTop: _ref.current?.offsetTop ?? 0 })), [bounds, set]);
   return (
     <div
       className={'box-border h-screen flex overflow-hidden items-center justify-center flex-col p-5'}

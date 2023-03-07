@@ -17,9 +17,9 @@ export default async function handleRequest(
     signal: request.signal,
   });
 
-  // if (isbot(request.headers.get('User-Agent'))) {
-  //   await body.allReady;
-  // }
+  if (isbot(request.headers.get('User-Agent'))) {
+    await body.allReady;
+  }
   const headers = new Headers(responseHeaders);
   headers.set('Content-Type', 'text/html');
   return new Response(body, {

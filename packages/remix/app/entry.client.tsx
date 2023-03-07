@@ -12,7 +12,6 @@ function hydrate() {
     );
   });
 }
-// Safari doesn't support requestIdleCallback
-  // https://caniuse.com/requestidlecallback
+// Safari doesn't support requestIdleCallback https://caniuse.com/requestidlecallback
 typeof requestIdleCallback === 'function' ? requestIdleCallback(hydrate):setTimeout(hydrate, 1);
 
