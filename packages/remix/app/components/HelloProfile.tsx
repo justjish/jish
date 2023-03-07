@@ -20,13 +20,3 @@ export const HelloProfile: FC<{ opacity: SpringValue<number>; x: SpringValue<num
     </picture>
   );
 };
-// export const HelloProfile: FC<{ opacity: SpringValue<number>; x: SpringValue<number> }> = ({ opacity, x }) => {
-//   return (
-//     <a.img
-//       className={'object-scale-down w-[120vw] sm:w-[90vw] lg:w-[50vw] 2xl:w-[40vw]'}
-//       src={fullBodyPng}
-//       alt="sujish patel"
-//       style={{ opacity, x }}
-//     />
-//   );
-// };

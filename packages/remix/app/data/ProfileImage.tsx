@@ -138,7 +138,7 @@ export const pngSources = [
 
 
 export const pngDefaultSrc = png600w1x;
-export const pngDefaultSrcSet = pngSources[0]?.srcSet!;
+export const pngDefaultSrcSet = pngSources[3]?.srcSet!;
 
 const webpSources = [
   {
