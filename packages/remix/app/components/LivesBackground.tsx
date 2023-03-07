@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { SpringValue, a } from '@react-spring/web';
+import { type SpringValue } from '@react-spring/web';
 import { row } from '~/styles/legacy';
-import svgFrame from '~/assets/graphics/cityFrameCircle.svg';
+import City from '~/svgs/City';
 
 export const LivesBackground: FC<{ scale: SpringValue<1 | 3>; y: SpringValue<number> }> = ({ scale, y }) => (
   <div className={row}>
-    <a.img className={'w-screen relative'} loading={'eager'} style={{ scale, y }} src={svgFrame} alt="Circlar SVG graphic of new york city" />
+    <City className={'w-screen relative will-change-transform'} style={{ scale, y }} />
   </div>
 );

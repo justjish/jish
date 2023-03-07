@@ -1,55 +1,64 @@
 # Jish.Dev
 
-_A Constantly evovling web 'About Me' page_
+A typescript monorepo that houses the following packages:
 
-## Overview
+* @jish/img - A modified version of [remix-image](https://github.com/Josh-McFarlin/remix-image) that supports Cloudflare Workers 'Module' Syntax (wip)
+* @jish/remix - Primary used as an about-me/resume site.. Check out [Jish.Dev](https://jish.dev) to see the currently released version!
+* @jish/worker - The entry point for the Cloudflare Workers deployment. Deploys the @jish/remix site using a custom remix server adapter made for Cloudflare Workers 'Module' Syntax.
+* @jish/cloudflare-env - A typescript definition that defines types specific to my Cloudflare Workers deployment config.
+* @jish/tsconfig - A base tsconfig using the strictest typescript compiler options.
+* @jish/eslint-config - A base eslint config that is extended on a per package basis.
 
-I use this repo primarily to:
+The purpose of this repo is to:
 
-- Expieriment with anything web related
-- Try out various 2021 _web_ technologies
-- Showcase and expierment with coding styles
+* Experiment with the latest offers available in the Javascript/Typescript Ecosystem.
+* Showcase my coding style for those interested.
+* Test possible solutions to common pain-points unique to my team.
 
-To see free to check out [Jish.Dev](https://jish.dev) to see the currently released app.
+## Notable Packages
 
-## Run Locally
+### @jish/remix + @jish/worker
 
-```
+This is my about-me/resume site updated for 2023. Its an evolution from the previous version that was a Single Page React App built in 2021.
+
+#### Tech Stack
+
+* [Remix](https://remix.run/) - A full stack web Framework
+  * [React](https://reactjs.org/) - The component framework used by Remix. The entire site is built using only Functional Components and Hooks.
+  * [react-spring](https://github.com/pmndrs/react-spring) - Used for all the animated you see on the site. Spring-based animations are definitely a cut-above time-based ones.
+* [Tailwind](https://tailwindcss.com/) - An awesome CSS Framework. Previously used the CSS-in-JS library [Emotion](https://emotion.sh/).
+* [Github Actions](https://github.com/features/actions) - Used for Continuous Deployment to Cloudflare. Previously used Actions to Deploy to Firebase Hosting.
+* [Turborepo](https://turbo.build/repo) - Used to manage the monorepo.
+* [Cloudflare Workers](https://workers.cloudflare.com/) - Used to globally deploy the site. Previously deployed on Firebase Hosting as an SPA.
+* [Typescript](https://www.typescriptlang.org/) - 100% fully typed without an 'any' in sight.
+
+#### Performance and Fluidity
+
+
+
+## Getting Starting
+
+Before going further ensure you have the following installed on your system:
+
+* node
+* pnpm
+* wrangler2
+
+### Local
+
+```bash
 git clone ...
 pnpm install
 pnpm dev
 ```
 
-## Build
+### Build
 
-A few notes here. For build, we are doing a typescript compile because Vite uses esbuild which performs transpilation without type information.
-
-```
+```bash
 pnpm build
+
 ```
 
-## Tech Choices
+### Deploy
 
-- react: **component library**
-  Went with React since libraries like 'react-spring' are so easy to use.
-
-- pnpm: **package manager**
-  Just an alternative to npm
-
-- vitejs/vite: **the code bundler**
-  Using their SWC for compliation and bundling because its fast 😀
-
-- @emotion/react: **componenet styling library**
-  Low level CSS-in-JS library. Keeping the styles seperate from the 'react-spring' styles is a nice benefit.
-
-- pmndrs/react-spring: **an animation library**
-  Loved how performant they were and the api is great. Chosen over framer because it's light weight.
-
-- pmndrs/zustand: **state management library**
-  Rather than wrapping React context all over the place, I just went with unopinated state manager. Use it in a flux like pattern. It keeps the code simple and readable. Also allows for the ability to subscribe to the state, which provides much needed flexibility.
-
-- firebase: **hosting/functions/routing - the serverless server**
-  Free CDN and Hosting... easy choice.
-
-- Typescript: **the primary language**
-  Once you go Typescript, its hard to go back.
+The deployment is handled by Github Workflows. Commits to the main branch will trigger a new deployment.

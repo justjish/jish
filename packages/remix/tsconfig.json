@@ -24,6 +24,6 @@
     "isolatedModules": true,
     "resolveJsonModule": true
   },
-  "include": ["app", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "**/*.js"]
+  "include": ["app", "**/*.ts", "**/*.tsx","public/scripts/*.js"],
+  "exclude": ["node_modules", "**/*.js", "!public/scripts/*.js"]
 }
