@@ -11,9 +11,7 @@ import appStyles from '~/styles/app.css';
 import { useNonce } from './contexts/nonce';
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: appStyles },
-  ];
+  return [{ rel: 'stylesheet', href: appStyles }];
 };
 export const meta: MetaFunction = () => {
   return {
@@ -39,24 +37,29 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <title>{'Jish.Dev'}</title>
-        <Partytown scriptProps={{nonce:nonce}} debug={process.env.NODE_ENV === 'development'} forward={['dataLayer.push', '__cfBeacon']} />
+        <Partytown
+          scriptProps={{ nonce: nonce }}
+          debug={process.env.NODE_ENV === 'development'}
+          forward={['dataLayer.push', '__cfBeacon']}
+        />
         <Meta />
         <Links />
       </head>
       <body className="w-full h-full overflow-x-hidden bg-[rgba(21,16,25)] m-0 p-0 overflow-hidden;">
         <Outlet />
         <ScrollRestoration nonce={nonce} />
-        <Scripts nonce={nonce}/>
-        {process.env.NODE_ENV === 'production' && <script
-          defer
-          type="text/partytown"
-          nonce={nonce}
-          src={'/scripts/cfa.js'}
-          data-cf-beacon={JSON.stringify({ token: '60176af6d4724c15a9bc6f4e1dcbc259', version: '2023.2.0', si: 100})}
-        />}
+        <Scripts nonce={nonce} />
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            defer
+            type="text/partytown"
+            nonce={nonce}
+            src={'/scripts/cfa.js'}
+            data-cf-beacon={JSON.stringify({ token: '60176af6d4724c15a9bc6f4e1dcbc259', version: '2023.2.0', si: 100 })}
+          />
+        )}
         {process.env.NODE_ENV === 'development' && <LiveReload port={Number(8002)} nonce={nonce} />}
       </body>
     </html>
   );
 }
-

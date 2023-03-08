@@ -3,7 +3,7 @@ import type { SpringValue } from '@react-spring/web';
 import { a, useSpring, config } from '@react-spring/web';
 import { h3, h3Inline } from '~/styles/legacy';
 import { clsx } from 'clsx';
-import { useStorySnapshot } from '~/hooks/useStory';
+import { useStorySnapshot } from '~/contexts/story';
 
 export const StoryHeading: FC<{ offset: SpringValue<number> }> = ({ offset }) => {
   const snapshot = useStorySnapshot();

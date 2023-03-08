@@ -6,7 +6,7 @@ import { StoryYears } from '~/components/StoryYears';
 import { StoryHeading } from '~/components/StoryHeading';
 import { StoryBackground } from '~/components/StoryBackground';
 import { Section } from '~/ui/Section';
-import { StoryProvider, WithStoryProvider } from '~/hooks/useStory';
+import { StoryProvider, WithStoryProvider } from '~/contexts/story';
 
 const Story: FC<{ data?: typeof StoryData; offset: SpringValue<number> }> = ({ data = StoryData, offset }) => {
   return (

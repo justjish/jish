@@ -12,13 +12,13 @@ importers:
 
   config/cloudflare-env:
     specifiers:
-      '@cloudflare/workers-types': ^4.20230228.0
+      '@cloudflare/workers-types': ^4.20230307.0
       '@jish/eslint-config': workspace:*
       '@jish/tsconfig': workspace:*
       '@types/node': ^18.14.6
       typescript: 4.9.5
     devDependencies:
-      '@cloudflare/workers-types': 4.20230228.0
+      '@cloudflare/workers-types': 4.20230307.0
       '@jish/eslint-config': link:../eslint-config
       '@jish/tsconfig': link:../tsconfig
       '@types/node': 18.14.6
@@ -51,7 +51,7 @@ importers:
   packages/img:
     specifiers:
       '@cloudflare/kv-asset-handler': ^0.3.0
-      '@cloudflare/workers-types': ^4.20230228.0
+      '@cloudflare/workers-types': ^4.20230307.0
       '@jish/cloudflare-env': workspace:*
       '@jish/eslint-config': workspace:*
       '@jish/tsconfig': workspace:*
@@ -64,12 +64,12 @@ importers:
       '@swc/cli': ^0.1.62
       '@swc/core': ^1.3.38
       '@swc/helpers': ^0.4.14
-      '@types/node': ^18.14.0
+      '@types/node': ^18.14.6
       '@types/react': ^18.0.28
       '@types/react-dom': ^18.0.11
       '@vitejs/plugin-react': ^3.1.0
       clsx: ^1.2.1
-      esbuild: ^0.17.10
+      esbuild: ^0.17.11
       is-svg: ^5.0.0
       js-image-lib: ^1.0.1
       lru-cache: ^7.18.3
@@ -78,17 +78,17 @@ importers:
       nanobundle: ^1.5.0
       query-string: ^8.1.0
       react: ^18.2.0
-      rollup: ^3.17.2
+      rollup: ^3.18.0
       rollup-plugin-esbuild: ^5.0.0
       rollup-plugin-node-externals: ^5.1.2
       rollup-plugin-peer-deps-external: ^2.2.4
       rollup-plugin-typescript2: ^0.34.1
       typescript: 4.9.5
       vite: ^4.1.4
-      vite-plugin-dts: 2.0.0-beta.3
+      vite-plugin-dts: 2.1.0
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.0
-      '@cloudflare/workers-types': 4.20230228.0
+      '@cloudflare/workers-types': 4.20230307.0
       '@next-boost/hybrid-disk-cache': 0.3.0
       clsx: 1.2.1
       is-svg: 5.0.0
@@ -123,13 +123,13 @@ importers:
       rollup-plugin-typescript2: 0.34.1_fn2onl6nbsljlgjr3jlzr6w7we
       typescript: 4.9.5
       vite: 4.1.4_@types+node@18.14.6
-      vite-plugin-dts: 2.0.0-beta.3_h37bxcmstsgcmwrqgewcpi4xyu
+      vite-plugin-dts: 2.1.0_h37bxcmstsgcmwrqgewcpi4xyu
 
   packages/remix:
     specifiers:
       '@builder.io/partytown': ^0.7.5
       '@cloudflare/kv-asset-handler': ^0.3.0
-      '@cloudflare/workers-types': ^4.20230228.0
+      '@cloudflare/workers-types': ^4.20230307.0
       '@jish/cloudflare-env': workspace:*
       '@jish/eslint-config': workspace:*
       '@jish/img': workspace:*
@@ -178,7 +178,7 @@ importers:
       '@cloudflare/kv-asset-handler': 0.3.0
       '@jish/img': link:../img
       '@react-spring/web': 9.7.1_biqbaboplfbrettd7655fr4n2y
-      '@remix-run/cloudflare': 1.14.0_oxiiswva27runyqrar2ee7pu3m
+      '@remix-run/cloudflare': 1.14.0_t3m4vtbokftcscjtedd2azoyla
       '@remix-run/react': 1.14.0_biqbaboplfbrettd7655fr4n2y
       '@remix-run/server-runtime': 1.14.0
       '@use-gesture/react': 10.2.24_react@18.2.0
@@ -196,7 +196,7 @@ importers:
       superstruct: 1.0.3
       valtio: 1.10.3_react@18.2.0
     devDependencies:
-      '@cloudflare/workers-types': 4.20230228.0
+      '@cloudflare/workers-types': 4.20230307.0
       '@jish/cloudflare-env': link:../../config/cloudflare-env
       '@jish/eslint-config': link:../../config/eslint-config
       '@jish/tsconfig': link:../../config/tsconfig
@@ -225,43 +225,47 @@ importers:
   packages/worker:
     specifiers:
       '@cloudflare/kv-asset-handler': ^0.3.0
-      '@cloudflare/workers-types': ^4.20230228.0
+      '@cloudflare/workers-types': ^4.20230307.0
       '@jish/cloudflare-env': workspace:*
       '@jish/eslint-config': workspace:*
       '@jish/remix': workspace:*
       '@jish/tsconfig': workspace:*
       '@jsquash/avif': ^1.0.2
-      '@miniflare/tre': 3.0.0-next.10
+      '@miniflare/tre': 3.0.0-next.12
       '@remix-run/cloudflare': ^1.14.0
       '@remix-run/server-runtime': ^1.14.0
+      concurrently: ^7.6.0
       esbuild: ^0.17.11
       eslint: ^8.35.0
+      npm-run-all: ^4.1.5
       react: ^18.2.0
       react-dom: 18.2.0
       reflare: ^1.1.0
-      typescript: 4.9.5
+      typescript: ^4.9.5
       wasm-feature-detect: ^1.5.1
-      wrangler: 2.12.0
+      wrangler: ^2.12.2
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.0
       '@jish/remix': link:../remix
       '@jsquash/avif': 1.0.2
-      '@remix-run/cloudflare': 1.14.0_oxiiswva27runyqrar2ee7pu3m
+      '@remix-run/cloudflare': 1.14.0_t3m4vtbokftcscjtedd2azoyla
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       reflare: 1.1.0
       wasm-feature-detect: 1.5.1
     devDependencies:
-      '@cloudflare/workers-types': 4.20230228.0
+      '@cloudflare/workers-types': 4.20230307.0
       '@jish/cloudflare-env': link:../../config/cloudflare-env
       '@jish/eslint-config': link:../../config/eslint-config
       '@jish/tsconfig': link:../../config/tsconfig
-      '@miniflare/tre': 3.0.0-next.10
+      '@miniflare/tre': 3.0.0-next.12
       '@remix-run/server-runtime': 1.14.0
+      concurrently: 7.6.0
       esbuild: 0.17.11
       eslint: 8.35.0
+      npm-run-all: 4.1.5
       typescript: 4.9.5
-      wrangler: 2.12.0
+      wrangler: 2.12.2
 
 packages:
 
@@ -1674,8 +1678,8 @@ packages:
     dev: true
     optional: true
 
-  /@cloudflare/workers-types/4.20230228.0:
-    resolution: {integrity: sha512-tDaqH3DrKmDoe/YrCnzVSqjNH6GnUOOajv2Ztj2h7BPLFyYTb81iCkARgb+G4bpxhn7y4f1KxxDT2+Yp4rt7Hg==}
+  /@cloudflare/workers-types/4.20230307.0:
+    resolution: {integrity: sha512-Go968aDDcqONHQcUdgIiPRkPdT4QTzD0ecHJsI1u7ZiHPMOoZn+Dy7hYsdUJ5ldX9wTZDrICBM1rDKTRaDUitg==}
 
   /@cometjs/core/2.2.0_typescript@4.9.5:
     resolution: {integrity: sha512-9qaFHVZEFfpCTk4zUSCAdBf+ao0cB+e1R2PyL53kuPKqjc3JYyf1eBty7VIf0reBFToxbQHbib4iGvC+mWUNCw==}
@@ -2600,13 +2604,13 @@ packages:
       '@miniflare/shared': 2.12.1
     dev: true
 
-  /@miniflare/tre/3.0.0-next.10:
-    resolution: {integrity: sha512-zwuUzucjlYThqZd8jCBhZP6OvKHWLrpuhAhUsgVUcWutQ6VKPwzzgIArCgErmqaydLehWKCyyMqKRa2cwJ4Evw==}
+  /@miniflare/tre/3.0.0-next.12:
+    resolution: {integrity: sha512-jhlWVgsRjtlVY0y7TUaWOUKOaSehFUzPBwjAKNglJrbkfe118PKt39TjGsWq4D/zLX0vTCDAdrnf6Y7LgfCd8A==}
     engines: {node: '>=16.13'}
     dependencies:
       acorn: 8.8.2
       acorn-walk: 8.2.0
-      better-sqlite3: 7.6.2
+      better-sqlite3: 8.1.0
       capnp-ts: 0.7.0
       exit-hook: 2.2.1
       get-port: 5.1.1
@@ -2788,14 +2792,14 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@remix-run/cloudflare/1.14.0_oxiiswva27runyqrar2ee7pu3m:
+  /@remix-run/cloudflare/1.14.0_t3m4vtbokftcscjtedd2azoyla:
     resolution: {integrity: sha512-EQY0SyMdNvM4Cga7vBUG57MABsRBnRDx36hvhgFlmVbbfp2DFjzY051Qjmg2K3jQUptz9o4PCE0H3XdNMCRWjw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@cloudflare/workers-types': ^2.0.0 || ^3.0.0
     dependencies:
       '@cloudflare/kv-asset-handler': 0.1.3
-      '@cloudflare/workers-types': 4.20230228.0
+      '@cloudflare/workers-types': 4.20230307.0
       '@remix-run/server-runtime': 1.14.0
     dev: false
 
@@ -4206,6 +4210,15 @@ packages:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.1
+    dev: false
+
+  /better-sqlite3/8.1.0:
+    resolution: {integrity: sha512-p1m09H+Oi8R9TPj810pdNswMFuVgRNgCJEWypp6jlkOgSwMIrNyuj3hW78xEuBRGok5RzeaUW8aBtTWF3l/TQA==}
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      prebuild-install: 7.1.1
+    dev: true
 
   /big.js/5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
@@ -4691,6 +4704,22 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /concurrently/7.6.0:
+    resolution: {integrity: sha512-BKtRgvcJGeZ4XttiDiNcFiRlxoAeZOseqUvyYRUp/Vtd+9p1ULmeoSqGsDA+2ivdeDFpqrJvGvmI+StKfKl5hw==}
+    engines: {node: ^12.20.0 || ^14.13.0 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      date-fns: 2.29.3
+      lodash: 4.17.21
+      rxjs: 7.8.0
+      shell-quote: 1.8.0
+      spawn-command: 0.0.2-1
+      supports-color: 8.1.1
+      tree-kill: 1.2.2
+      yargs: 17.7.1
+    dev: true
+
   /content-disposition/0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
     engines: {node: '>= 0.6'}
@@ -4775,7 +4804,6 @@ packages:
       semver: 5.7.1
       shebang-command: 1.2.0
       which: 1.3.1
-    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -4909,6 +4937,11 @@ packages:
   /data-uri-to-buffer/3.0.1:
     resolution: {integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: true
 
   /deasync/0.1.28:
@@ -6513,7 +6546,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.11
+      fast-glob: 3.2.12
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
@@ -6679,7 +6712,6 @@ packages:
 
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
-    dev: false
 
   /hosted-git-info/4.1.0:
     resolution: {integrity: sha512-kyCuEOWjJqZuDbRHzL8V93NzQhwIB71oFWSyzVo+KPZI+pnQPPxucdkrOZvkLRnrf5URsQM+IJ09Dw29cRALIA==}
@@ -7277,7 +7309,6 @@ packages:
 
   /json-parse-better-errors/1.0.2:
     resolution: {integrity: sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==}
-    dev: false
 
   /json-parse-even-better-errors/2.3.1:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
@@ -7392,7 +7423,6 @@ packages:
       parse-json: 4.0.0
       pify: 3.0.0
       strip-bom: 3.0.0
-    dev: false
 
   /loader-utils/2.0.4:
     resolution: {integrity: sha512-xXqpXoINfFhgua9xiqD8fPFHgkoq1mmmpE92WlDbm9rNRd/EbRb+Gqf908T2DMfuHjjJlksiK2RbHVOdD/MqSw==}
@@ -7708,7 +7738,6 @@ packages:
   /memorystream/0.3.1:
     resolution: {integrity: sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw==}
     engines: {node: '>= 0.10.0'}
-    dev: false
 
   /meow/11.0.0:
     resolution: {integrity: sha512-Cl0yeeIrko6d94KpUo1M+0X1sB14ikoaqlIGuTH1fW4I+E3+YljL54/hb/BWmVfrV9tTV9zU04+xjw08Fh2WkA==}
@@ -8364,7 +8393,6 @@ packages:
 
   /nice-try/1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
-    dev: false
 
   /node-abi/3.33.0:
     resolution: {integrity: sha512-7GGVawqyHF4pfd0YFybhv/eM9JwTtPqx0mAanQ146O3FlSh3pA24zf9IRQTOsfTSqXTNzPSP5iagAJ94jjuVog==}
@@ -8409,7 +8437,6 @@ packages:
       resolve: 1.22.1
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
-    dev: false
 
   /normalize-package-data/3.0.3:
     resolution: {integrity: sha512-p2W1sgqij3zMMyRC067Dg16bfzVH+w7hyegmpIvZ4JNjqtGOVAIvLmjBx3yP7YTe9vKJgkoNOPjwQGogDoMXFA==}
@@ -8460,7 +8487,6 @@ packages:
       read-pkg: 3.0.0
       shell-quote: 1.8.0
       string.prototype.padend: 3.1.4
-    dev: false
 
   /npm-run-path/2.0.2:
     resolution: {integrity: sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw==}
@@ -8816,7 +8842,6 @@ packages:
     dependencies:
       error-ex: 1.3.2
       json-parse-better-errors: 1.0.2
-    dev: false
 
   /parse-json/5.2.0:
     resolution: {integrity: sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==}
@@ -8891,7 +8916,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       pify: 3.0.0
-    dev: false
 
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
@@ -8936,7 +8960,6 @@ packages:
     resolution: {integrity: sha512-qQbW94hLHEqCg7nhby4yRC7G2+jYHY4Rguc2bjw7Uug4GIJuu1tvf2uHaZv5Q8zdt+WKJ6qK1FOI6amaWUo5FA==}
     engines: {node: '>=0.10'}
     hasBin: true
-    dev: false
 
   /pify/2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
@@ -8946,7 +8969,6 @@ packages:
   /pify/3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
-    dev: false
 
   /pify/5.0.0:
     resolution: {integrity: sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==}
@@ -9780,7 +9802,6 @@ packages:
       load-json-file: 4.0.0
       normalize-package-data: 2.5.0
       path-type: 3.0.0
-    dev: false
 
   /read-pkg/7.1.0:
     resolution: {integrity: sha512-5iOehe+WF75IccPc30bWTbpdDQLOCc3Uu8bi3Dte3Eueij81yx1Mrufk8qBx/YAbR4uL1FdUr+7BKXDwEtisXg==}
@@ -10268,7 +10289,6 @@ packages:
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
     hasBin: true
-    dev: false
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
@@ -10373,7 +10393,6 @@ packages:
 
   /shell-quote/1.8.0:
     resolution: {integrity: sha512-QHsz8GgQIGKlRi24yFc6a6lN69Idnx634w49ay6+jA5yFh7a1UY+4Rp6HPx/L/1zcEDPEij8cIsiqR6bQsE5VQ==}
-    dev: false
 
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
@@ -10504,6 +10523,10 @@ packages:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
     dev: true
 
+  /spawn-command/0.0.2-1:
+    resolution: {integrity: sha512-n98l9E2RMSJ9ON1AKisHzz7V42VDiBQGY6PB1BwRglz99wpVsSuGzQ+jOi6lFXBGVTCrRpltvjm+/XA+tpeJrg==}
+    dev: true
+
   /spdx-correct/3.2.0:
     resolution: {integrity: sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA==}
     dependencies:
@@ -10627,7 +10650,6 @@ packages:
       call-bind: 1.0.2
       define-properties: 1.2.0
       es-abstract: 1.21.1
-    dev: false
 
   /string.prototype.trimend/1.0.6:
     resolution: {integrity: sha512-JySq+4mrPf9EsDBEDYMOb/lM7XQLulwg5R/m1r0PXEFqrV0qHvl58sdTilSXtKOflCsK2E8jxf+GKC0T07RWwQ==}
@@ -10771,6 +10793,13 @@ packages:
   /supports-color/7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
+    dependencies:
+      has-flag: 4.0.0
+    dev: true
+
+  /supports-color/8.1.1:
+    resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
+    engines: {node: '>=10'}
     dependencies:
       has-flag: 4.0.0
     dev: true
@@ -10941,6 +10970,11 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+    dev: true
+
+  /tree-kill/1.2.2:
+    resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
+    hasBin: true
     dev: true
 
   /trim-newlines/4.0.2:
@@ -11335,8 +11369,8 @@ packages:
       vfile-message: 3.1.4
     dev: true
 
-  /vite-plugin-dts/2.0.0-beta.3_h37bxcmstsgcmwrqgewcpi4xyu:
-    resolution: {integrity: sha512-QrsbTxyt0choSYXPxPfmN9XcSvxcVZk0zticxLrI5DkECs9KhDrSVGok1YP/UPkoKpfF9ThtOJcM5Rjuesxv/w==}
+  /vite-plugin-dts/2.1.0_h37bxcmstsgcmwrqgewcpi4xyu:
+    resolution: {integrity: sha512-Vw0FdCuM3VLR4hTFHh0yMEzfwI7NyFvPIMFwvE+Q0t4qtoHIfYOP/JXs7nTnHuQk87FSjlhGeIJ1fLBcktgPgA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: '>=2.9.0'
@@ -11495,8 +11529,8 @@ packages:
       '@cloudflare/workerd-linux-arm64': 1.20230228.0
     dev: true
 
-  /wrangler/2.12.0:
-    resolution: {integrity: sha512-yAqv3JbJqkB1oaciI2CGEiEscQ98BXaFN+Z7VbWuepMqVL2UV2wUjA2mJLjWuoZOwSmC74MsDzZ+5hzDs/2Nkg==}
+  /wrangler/2.12.2:
+    resolution: {integrity: sha512-pjdZvcjiFD6mI3Nncsw3hBv3rxjMx0n4Mtp+Tsql/hvr0LpOmHKlW/aMeYx/fVUmjEKfWBSULc1vgM02O2UTWQ==}
     engines: {node: '>=16.13.0'}
     hasBin: true
     dependencies:

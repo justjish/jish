@@ -55,16 +55,6 @@ import png1920w3x from '~/assets/pictures/fullbody-ll-1920w-3x.png';
 
 export const pngSources = [
   {
-    id: '3xs',
-    minW: 150,
-    srcSet: [
-      { file: png150w1x, w: 150 },
-      { file: png300w2x, w: 300 },
-      { file: png450w3x, w: 450 },
-    ],
-    sizes: '120vw',
-  },
-  {
     id: '2xs',
     minW: 300,
     srcSet: [
@@ -142,16 +132,6 @@ export const pngDefaultSrcSet = pngSources[3]?.srcSet!;
 
 const webpSources = [
   {
-    id: '3xs',
-    minW: 150,
-    srcSet: [
-      { file: webp150w1x, w: 150 },
-      { file: webp300w2x, w: 300 },
-      { file: webp450w3x, w: 450 },
-    ],
-    sizes: '120vw',
-  },
-  {
     id: '2xs',
     minW: 300,
     srcSet: [
@@ -224,16 +204,6 @@ const webpSources = [
 ];
 
 const avifSources = [
-  {
-    id: '3xs',
-    minW: 150,
-    srcSet: [
-      { file: avif150w1x, w: 150 },
-      { file: avif300w2x, w: 300 },
-      { file: avif450w3x, w: 450 },
-    ],
-    sizes: '120vw',
-  },
   {
     id: '2xs',
     minW: 300,
@@ -311,7 +281,6 @@ export const AvifSources = () =>
       <source
         key={`${id}-avif-${minW}-${sizes}`}
         media={`(min-width: ${minW}px)`}
-        sizes={sizes}
         srcSet={srcSet.map(({ file, w }) => `${file} ${w}w`).join(', ')}
         type="image/avif"
       />
@@ -324,7 +293,7 @@ export const WebpSources = () =>
       <source
         key={`${id}-webp-${minW}-${sizes}`}
         media={`(min-width: ${minW}px)`}
-        sizes={sizes}
+
         srcSet={srcSet.map(({ file, w }) => `${file} ${w}w`).join(', ')}
         type="image/webp"
       />
@@ -336,7 +305,7 @@ export const PngSources = () =>
       <source
         key={`${id}-png-${minW}-${sizes}`}
         media={`(min-width: ${minW}px)`}
-        sizes={sizes}
+
         srcSet={srcSet.map(({ file, w }) => `${file} ${w}w`).join(', ')}
         type="image/png"
       />

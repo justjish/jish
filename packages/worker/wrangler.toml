@@ -12,7 +12,6 @@ globs = ["**/*.wasm"]
 type = "CompiledWasm"
 fallthrough = true
 
-
 [define]
 "process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
 "process.env.NODE_ENV" = '"production"'
@@ -20,6 +19,6 @@ fallthrough = true
 [env.dev.site]
 bucket = "../remix/public"
 
-[env.dev.define] 
+[env.dev.define]
 "process.env.REMIX_DEV_SERVER_WS_PORT" = "8002"
 "process.env.NODE_ENV" = '"development"'

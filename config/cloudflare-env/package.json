@@ -9,7 +9,7 @@
     "typecheck": "tsc -b"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230228.0",
+    "@cloudflare/workers-types": "^4.20230307.0",
     "@jish/eslint-config": "workspace:*",
     "@jish/tsconfig": "workspace:*",
     "@types/node": "^18.14.6",
